@@ -1,0 +1,18 @@
+[project]
+name = "lotus-experiment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "datasets<3.0.0",
+    "faiss-cpu>=1.13.2",
+    "lotus-ai",
+    "openai>=2.18.0",
+    "pandas>=2.3.3",
+    "python-dotenv>=1.2.1",
+    "tf-keras>=2.15.0",
+]
+
+[tool.uv.sources]
+lotus-ai = { git = "https://github.com/lotus-data/lotus.git", rev = "main" }

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+
+# Environment variables (contains secrets)
+.env
+
+# FAISS index (large, regenerated)
+fever_index/
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs & output
+logs/
+*.csv
+
+# Lock file (large)
+uv.lock
