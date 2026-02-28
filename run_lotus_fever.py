@@ -1,12 +1,7 @@
-import os
 import time
-
-os.environ["OMP_NUM_THREADS"] = "1"  # Prevent FAISS segfault on Apple Silicon
-
 import lotus
 import pandas as pd
-from lotus.models import LM, SentenceTransformersRM
-from lotus.vector_store import FaissVS
+from lotus.models import LM
 from data_loader import load_fever_claims, load_oracle_wiki_kb
 from retrieval import retrieve_for_claims
 from lotus_logger import LotusLogger

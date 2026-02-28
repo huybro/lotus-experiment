@@ -8,10 +8,7 @@ Experiments:
   3. map only
   4. filter only
 """
-import os
 import time
-
-os.environ["OMP_NUM_THREADS"] = "1"
 
 import pandas as pd
 import palimpzest as pz
