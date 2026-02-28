@@ -183,7 +183,17 @@ class LotusLogger:
             return result
 
         LM.__call__ = patched_call
+        LotusLogger._original_call = original_call
         self._installed = True
+
+    def uninstall(self):
+        """Restore the original LM.__call__ (remove the logging patch)."""
+        if not self._installed:
+            return
+        from lotus.models import LM
+        if hasattr(LotusLogger, '_original_call') and LotusLogger._original_call is not None:
+            LM.__call__ = LotusLogger._original_call
+        self._installed = False
 
     def summary(self):
         """Print a summary of all logged requests."""
