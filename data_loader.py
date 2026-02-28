@@ -21,8 +21,6 @@ def load_fever_claims(n: int = 20, split: str = "labelled_dev") -> pd.DataFrame:
     """
     print(f"Loading FEVER claims from '{split}' split...")
 
-    # Load more rows than needed since FEVER has duplicate claim rows
-    # (one row per evidence annotation)
     raw = load_dataset("fever", "v1.0", split=f"{split}[:{n * 5}]", trust_remote_code=True)
     df = pd.DataFrame(raw)
 
@@ -63,8 +61,6 @@ def load_oracle_wiki_kb(claims_split: str = "labelled_dev", n_claims: int = 20) 
         raise ValueError("No evidence pages found — all claims may be NOT ENOUGH INFO")
 
     # Step 2: Load wiki_pages and filter to only referenced pages
-    # The full dataset is ~5.4M pages, so we load it all and filter.
-    # This is cached by HuggingFace after the first download.
     print("  Loading FEVER wiki_pages (cached after first download ~1.7GB)...")
     wiki_ds = load_dataset("fever", "wiki_pages", split="wikipedia_pages", trust_remote_code=True)
     wiki_df = pd.DataFrame(wiki_ds)

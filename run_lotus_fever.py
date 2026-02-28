@@ -9,6 +9,7 @@ from lotus.models import LM, SentenceTransformersRM
 from lotus.vector_store import FaissVS
 from data_loader import load_fever_claims, load_oracle_wiki_kb
 from lotus_logger import LotusLogger
+from universal_prompts import install_prompt_overrides
 
 # ============================================================
 # Configuration
@@ -27,6 +28,7 @@ logger = LotusLogger(
     debug_max_chars=500,
 )
 logger.install()
+install_prompt_overrides()
 
 lm = LM(model=f"hosted_vllm/{MODEL_NAME}", api_base="http://localhost:8000/v1")
 rm = SentenceTransformersRM(model="intfloat/e5-base-v2")

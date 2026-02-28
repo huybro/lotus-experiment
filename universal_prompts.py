@@ -1,92 +1,125 @@
-"""
-Universal Prompts for LOTUS operators.
-"""
-
-# Shared system prompt — same for all operators
-SYSTEM_PROMPT = (
-    "You are a precise data processing assistant. "
-    "Follow the user's instructions exactly and respond concisely."
-)
-
-# Per-operator instruction templates
-# {placeholders} are filled in with dataframe column values by LOTUS
-
-OPERATOR_PROMPTS = {
-    "filter": {
-        "system": SYSTEM_PROMPT,
-        "description": "Determine if a claim/condition is true given context.",
-        "instruction": (
-            "Context:\n{context}\n\n"
-            "Claim: {claim}\n\n"
-            "Is the claim supported by the context? "
-            "Respond with exactly one word: True or False."
-        ),
-    },
-    "map": {
-        "system": SYSTEM_PROMPT,
-        "description": "Transform or extract information from data.",
-        "instruction": (
-            "Data:\n{data}\n\n"
-            "Instruction: {instruction}\n\n"
-            "Provide a concise answer based only on the data."
-        ),
-    },
-    "agg": {
-        "system": SYSTEM_PROMPT,
-        "description": "Summarize or aggregate multiple data items.",
-        "instruction": (
-            "Data items:\n{data}\n\n"
-            "Instruction: {instruction}\n\n"
-            "Provide a concise summary."
-        ),
-    },
-    "join": {
-        "system": SYSTEM_PROMPT,
-        "description": "Determine if two items are related.",
-        "instruction": (
-            "Item A: {left}\n"
-            "Item B: {right}\n\n"
-            "Condition: {condition}\n\n"
-            "Are these items related per the condition? "
-            "Respond with exactly one word: True or False."
-        ),
-    },
-    "topk": {
-        "system": SYSTEM_PROMPT,
-        "description": "Compare items to select the best one.",
-        "instruction": (
-            "Item A: {item_a}\n"
-            "Item B: {item_b}\n\n"
-            "Criteria: {criteria}\n\n"
-            "Which item is better? Respond with exactly: A or B."
-        ),
-    },
-}
+import json
 
 
-def get_prompt(operator: str, **kwargs) -> dict:
+
+def get_prompt(instruction, data, data2=None, op='sem_filter'):
+    
+
+    messages = []
+    system_prompt = (
+        "You are a helpful assistant for executing semantic operators.\n"
+        "You will be given data and an operation description.\n"
+        "Apply the operation to the provided data exactly as specified and return only the required result.\n"
+    )
+
+    if system_prompt is not None:
+        messages.append(
+            {"role": "system", "type": "text", "content": system_prompt}
+        )
+    if op == 'sem_filter':
+        operation = (
+            "You will be presented with a context and a filter condition. Output TRUE if the context satisfies the filter condition, and FALSE otherwise.\n" + \
+            "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n" + \
+            "Output TRUE or FALSE only.\n" + \
+            f"Condition:{instruction}\n"
+        )
+    elif op == 'sem_map':
+        operation = (
+            "You  are presented with a context and a mapping instruction.\n"
+            "Apply the instruction to the context and produce the mapped output.\n"
+            "The output must strictly follow the instruction and contain no extra commentary.\n"
+            f"Map Instruction:{instruction}\n"
+        )
+    elif op == 'sem_agg':
+        operation = (
+            "You are presented with multiple contexts.\n"
+            "Aggregate them according to the aggregation instruction.\n"
+            "The output must be a single aggregated result.\n"
+            "Do not include explanations or commentary.\n"
+            f"Instruction:{instruction}\n"
+        )
+    elif op == 'sem_join':
+        operation = (
+            "You are presented with two contexts.\n"
+            "Determine whether the two contexts A, B together satisfy the condition.\n"
+            "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n" + \
+            "The output must strictly follow the condition and contain no extra commentary.\n"
+            f"Condition:{instruction}\n"
+        )
+
+    if data2 is not None:
+        user_messages = [
+            {
+                "role": "user",
+                "type": "text",
+                "content": (
+                    "CONTEXT_A:\n"
+                    "  {\n"
+                    f"    \"text\": {data}\n"
+                    "  }\n"
+                    "\n\n"
+                    "CONTEXT_B:\n"
+                    "  {\n"
+                    f"    \"text\": {data2}\n"
+                    "  }\n"
+                    "\n\n"
+                    "TASK:\n"
+                    f"{operation}\n\n"
+                    "ANSWER:\n"
+                ),
+            }
+        ]
+    else:
+        user_messages = [
+            {
+                "role": "user",
+                "type": "text",
+                "content": (
+                    "CONTEXT:\n"
+                    "  {\n"
+                    f"    \"text\": {data}\n"
+                    "  }\n"
+                    "\n\n"
+                    "TASK:\n"
+                    f"{operation}\n\n"
+                    "ANSWER:\n"
+                ),
+            }
+        ]
+    # System prompt + Data tuple + Operation
+    messages.extend(user_messages)
+
+    return messages
+
+
+def install_prompt_overrides():
     """
-    Get formatted system + user messages for an operator.
+    Monkey-patch LOTUS's built-in prompt formatters to use get_prompt() instead.
 
-    Args:
-        operator: One of 'filter', 'map', 'agg', 'join', 'topk'
-        **kwargs: Template values (e.g., context, claim, data, instruction)
+    Call this ONCE before running any LOTUS pipeline:
+        from universal_prompts import install_prompt_overrides
+        install_prompt_overrides()
 
-    Returns:
-        dict with 'system' and 'user' keys containing the formatted messages
-
-    Example:
-        >>> prompt = get_prompt("filter", context="...", claim="...")
-        >>> prompt["system"]
-        "You are a precise data processing assistant..."
-        >>> prompt["user"]
-        "Context: ...\\nClaim: ...\\nIs the claim supported..."
+    This overrides:
+      - filter_formatter  → get_prompt(..., op='sem_filter')
+      - map_formatter     → get_prompt(..., op='sem_map')
     """
-    if operator not in OPERATOR_PROMPTS:
-        raise ValueError(f"Unknown operator '{operator}'. Valid: {list(OPERATOR_PROMPTS.keys())}")
+    import lotus.templates.task_instructions as ti
 
-    config = OPERATOR_PROMPTS[operator]
-    return {
-        "system": config["system"],
-        "user": config["instruction"].format(**kwargs),
-    }
+    # ── 1. Filter 
+    def custom_filter_formatter(model, multimodal_data, user_instruction, *args, **kwargs):
+        text = multimodal_data.get("text", "") if isinstance(multimodal_data, dict) else str(multimodal_data)
+        return get_prompt(user_instruction, text, op='sem_filter')
+
+    ti.filter_formatter = custom_filter_formatter
+
+    # ── 2. Map ──
+    def custom_map_formatter(model, multimodal_data, user_instruction, *args, **kwargs):
+        text = multimodal_data.get("text", "") if isinstance(multimodal_data, dict) else str(multimodal_data)
+        return get_prompt(user_instruction, text, op='sem_map')
+
+    ti.map_formatter = custom_map_formatter
+
+    print("[universal_prompts] ✅ Installed prompt overrides for: filter, map")
+
+
