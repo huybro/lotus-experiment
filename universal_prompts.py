@@ -123,3 +123,92 @@ def install_prompt_overrides():
     print("[universal_prompts] ✅ Installed prompt overrides for: filter, map")
 
 
+def install_pz_prompt_overrides():
+    """
+    Monkey-patch Palimpzest's prompt templates to use the universal prompt format.
+
+    This replaces PZ's built-in filter and map prompt templates with
+    prompts that match the structure used in get_prompt(), ensuring both
+    LOTUS and PZ send identical prompts to the LLM.
+
+    Also registers the Qwen2.5-1.5B-Instruct model in PZ's Model enum.
+    """
+    import palimpzest.prompts.filter_prompts as fp
+    import palimpzest.prompts.convert_prompts as cp
+    from palimpzest.constants import Model, MODEL_CARDS
+    from enum import Enum
+
+    # ── 1. Register Qwen2.5-1.5B-Instruct as a vLLM model ──
+    # Dynamically extend the Model enum
+    QWEN_VALUE = "hosted_vllm/Qwen/Qwen2.5-1.5B-Instruct"
+    if not any(m.value == QWEN_VALUE for m in Model):
+        # Add to the enum
+        new_member = str.__new__(Model)
+        new_member._name_ = "VLLM_QWEN2_5_1_5B_INSTRUCT"
+        new_member._value_ = QWEN_VALUE
+        Model._value2member_map_[QWEN_VALUE] = new_member
+        Model._member_map_["VLLM_QWEN2_5_1_5B_INSTRUCT"] = new_member
+        Model._member_names_.append("VLLM_QWEN2_5_1_5B_INSTRUCT")
+
+        # Add model card
+        MODEL_CARDS[QWEN_VALUE] = {
+            "usd_per_input_token": 0.0,
+            "usd_per_output_token": 0.0,
+            "seconds_per_output_token": 0.05,
+            "overall": 35.0,
+        }
+        print(f"[universal_prompts] ✅ Registered PZ model: VLLM_QWEN2_5_1_5B_INSTRUCT")
+
+    # ── 2. Override PZ filter prompts ──
+    UNIVERSAL_SYSTEM = (
+        "You are a helpful assistant for executing semantic operators.\n"
+        "You will be given data and an operation description.\n"
+        "Apply the operation to the provided data exactly as specified and return only the required result.\n"
+    )
+
+    fp.FILTER_NO_REASONING_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
+
+    fp.FILTER_NO_REASONING_BASE_USER_PROMPT = (
+        "CONTEXT:\n"
+        "  {{\n"
+        "    \"text\": {context}\n"
+        "  }}\n\n"
+        "TASK:\n"
+        "You will be presented with a context and a filter condition. "
+        "Output TRUE if the context satisfies the filter condition, and FALSE otherwise.\n"
+        "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n"
+        "Output TRUE or FALSE only.\n"
+        "Condition:{filter_condition}\n\n"
+        "ANSWER: "
+    )
+
+    fp.FILTER_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
+
+    fp.FILTER_BASE_USER_PROMPT = fp.FILTER_NO_REASONING_BASE_USER_PROMPT
+
+    # ── 3. Override PZ map (convert) prompts ──
+    cp.MAP_NO_REASONING_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
+
+    cp.MAP_NO_REASONING_BASE_USER_PROMPT = (
+        "CONTEXT:\n"
+        "  {{\n"
+        "    \"text\": {context}\n"
+        "  }}\n\n"
+        "TASK:\n"
+        "You are presented with a context and a mapping instruction.\n"
+        "Apply the instruction to the context and produce the mapped output.\n"
+        "The output must strictly follow the instruction and contain no extra commentary.\n"
+        "{output_format_instruction} Finish your response with a newline character followed by ---\n"
+        "---\n"
+        "OUTPUT FIELDS:\n"
+        "{output_fields_desc}\n\n"
+        "ANSWER: "
+    )
+
+    cp.MAP_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
+
+    cp.MAP_BASE_USER_PROMPT = cp.MAP_NO_REASONING_BASE_USER_PROMPT
+
+    print("[universal_prompts] ✅ Installed PZ prompt overrides for: filter, map")
+
+

@@ -8,6 +8,7 @@ import pandas as pd
 from lotus.models import LM, SentenceTransformersRM
 from lotus.vector_store import FaissVS
 from data_loader import load_fever_claims, load_oracle_wiki_kb
+from retrieval import retrieve_for_claims
 from lotus_logger import LotusLogger
 from universal_prompts import install_prompt_overrides
 
@@ -22,11 +23,9 @@ K_RETRIEVAL = 3
 # Install universal prompt overrides (filter + map)
 install_prompt_overrides()
 
-# LM / RM / VS setup
+# LM setup (no RM/VS needed — retrieval is done externally)
 lm = LM(model=f"hosted_vllm/{MODEL_NAME}", api_base="http://localhost:8000/v1")
-rm = SentenceTransformersRM(model="intfloat/e5-base-v2")
-vs = FaissVS()
-lotus.settings.configure(lm=lm, rm=rm, vs=vs)
+lotus.settings.configure(lm=lm)
 
 # ============================================================
 # Load Data (shared across all experiments)
@@ -35,8 +34,9 @@ claims_df = load_fever_claims(n=N_CLAIMS)
 wiki_df = load_oracle_wiki_kb(claims_split="labelled_dev", n_claims=N_CLAIMS)
 claims_df["true_label"] = claims_df["label"].apply(lambda l: l == "SUPPORTS")
 
-print("Indexing Wikipedia KB...")
-wiki_df = wiki_df.sem_index("content", index_dir="./fever_index")
+# Pre-compute retrieval using raw claims as queries (shared across experiments)
+print("\n[Shared] Retrieving evidence with sentence-transformers + FAISS...")
+joined_df = retrieve_for_claims(claims_df, wiki_df, query_col="claim", K=K_RETRIEVAL)
 
 
 def evaluate(claims_df, passed_ids, experiment_name, elapsed):
@@ -64,7 +64,7 @@ print("  EXPERIMENT 1: map → filter")
 print("=" * 60)
 
 logger1 = LotusLogger(model_name=MODEL_NAME, dataset_name=DATASET_NAME,
-                       experiment_name="map_filter", debug=True, debug_max_chars=300)
+                       experiment_name="lotus_map_filter", debug=True, debug_max_chars=300)
 logger1.install()
 
 t0 = time.time()
@@ -78,18 +78,18 @@ df1 = df1.sem_map(
     suffix="search_query"
 )
 
-# Search
-df1 = df1.sem_sim_join(wiki_df, left_on="search_query", right_on="content", K=K_RETRIEVAL)
+# Retrieve evidence using MAP-generated search queries
+df1_retrieved = retrieve_for_claims(df1, wiki_df, query_col="search_query", K=K_RETRIEVAL)
 
 # FILTER: verify claim against evidence
-df1_verified = df1.sem_filter(
+df1_verified = df1_retrieved.sem_filter(
     "{content}\n"
     "Based on the above evidence, the following claim is supported: {claim}"
 )
 
 elapsed1 = time.time() - t0
 passed1 = set(df1_verified["id"].tolist())
-evaluate(claims_df, passed1, "map_filter", elapsed1)
+evaluate(claims_df, passed1, "lotus_map_filter", elapsed1)
 logger1.summary()
 logger1.uninstall()
 
@@ -102,14 +102,13 @@ print("  EXPERIMENT 2: filter → filter")
 print("=" * 60)
 
 logger2 = LotusLogger(model_name=MODEL_NAME, dataset_name=DATASET_NAME,
-                       experiment_name="filter_filter", debug=True, debug_max_chars=300)
+                       experiment_name="lotus_filter_filter", debug=True, debug_max_chars=300)
 logger2.install()
 
 t0 = time.time()
 
-# Search (no map step — use the raw claim as the search query)
-df2 = claims_df.copy()
-df2 = df2.sem_sim_join(wiki_df, left_on="claim", right_on="content", K=K_RETRIEVAL)
+# Use pre-computed retrieval (joined_df)
+df2 = joined_df.copy()
 
 # FILTER 1: is the evidence relevant to the claim?
 df2 = df2.sem_filter(
@@ -125,7 +124,7 @@ df2_verified = df2.sem_filter(
 
 elapsed2 = time.time() - t0
 passed2 = set(df2_verified["id"].tolist())
-evaluate(claims_df, passed2, "filter_filter", elapsed2)
+evaluate(claims_df, passed2, "lotus_filter_filter", elapsed2)
 logger2.summary()
 logger2.uninstall()
 
@@ -138,7 +137,7 @@ print("  EXPERIMENT 3: map only")
 print("=" * 60)
 
 logger3 = LotusLogger(model_name=MODEL_NAME, dataset_name=DATASET_NAME,
-                       experiment_name="map", debug=True, debug_max_chars=300)
+                       experiment_name="lotus_map", debug=True, debug_max_chars=300)
 logger3.install()
 
 t0 = time.time()
@@ -158,7 +157,7 @@ df3["predicted_label"] = df3["verdict"].str.strip().str.upper().str.contains("TR
 correct3 = (df3["predicted_label"] == df3["true_label"]).sum()
 accuracy3 = correct3 / len(df3)
 print(f"\n{'='*60}")
-print(f"  Experiment: map")
+print(f"  Experiment: lotus_map")
 print(f"  Accuracy:   {accuracy3:.1%}  ({correct3}/{len(df3)})")
 print(f"  Total Time: {time.time() - t0:.1f}s")
 print(f"{'='*60}")
@@ -174,14 +173,13 @@ print("  EXPERIMENT 4: filter only")
 print("=" * 60)
 
 logger4 = LotusLogger(model_name=MODEL_NAME, dataset_name=DATASET_NAME,
-                       experiment_name="filter", debug=True, debug_max_chars=300)
+                       experiment_name="lotus_filter", debug=True, debug_max_chars=300)
 logger4.install()
 
 t0 = time.time()
 
-# Search (use raw claim as query)
-df4 = claims_df.copy()
-df4 = df4.sem_sim_join(wiki_df, left_on="claim", right_on="content", K=K_RETRIEVAL)
+# Use pre-computed retrieval (joined_df)
+df4 = joined_df.copy()
 
 # FILTER: single-step verification
 df4_verified = df4.sem_filter(
@@ -191,7 +189,7 @@ df4_verified = df4.sem_filter(
 
 elapsed4 = time.time() - t0
 passed4 = set(df4_verified["id"].tolist())
-evaluate(claims_df, passed4, "filter", elapsed4)
+evaluate(claims_df, passed4, "lotus_filter", elapsed4)
 logger4.summary()
 logger4.uninstall()
 
@@ -200,11 +198,5 @@ logger4.uninstall()
 # Final Summary
 # ============================================================
 print("\n\n" + "=" * 60)
-print("  ALL EXPERIMENTS COMPLETE")
-print("=" * 60)
-print("  CSV files saved in logs/ directory:")
-print("    1. map_filter  → logs/fever__qwen2.5-1.5b-instruct__map_filter.csv")
-print("    2. filter_filter → logs/fever__qwen2.5-1.5b-instruct__filter_filter.csv")
-print("    3. map          → logs/fever__qwen2.5-1.5b-instruct__map.csv")
-print("    4. filter       → logs/fever__qwen2.5-1.5b-instruct__filter.csv")
+print("  ALL LOTUS EXPERIMENTS COMPLETE")
 print("=" * 60)
