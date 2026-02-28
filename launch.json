@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "vLLM test",
+            "type": "python",
+            "request": "launch",
+            // IMPORTANT: use module mode
+            "module": "vllm.entrypoints.openai.api_server",
+            "args": [
+                // "--model", "meta-llama/Llama-3.1-8B-Instruct",
+                "--model",
+                "Qwen/Qwen2.5-1.5B-Instruct",
+                "--tensor-parallel-size",
+                "1",
+                "--gpu-memory-utilization",
+                "0.95",
+                "--enable-prefix-caching",
+                "--max-model-len",
+                "32768",
+                "--port",
+                "8003"
+            ],
+            // Conda environment Python
+            "python": "/home/hcao_umass_edu/lotus-experiment/.venv/bin/python",
+            // Environment variables
+            //   "env": {
+            //     "PYTHONPATH": "/home/hojaeson_umass_edu/project/vllm-test/vllm:${env:PYTHONPATH}",
+            //     // "HF_HOME": "/datasets/ai/llama3"
+            //     "HF_HOME": "/home/hojaeson_umass_edu/project/vllm-test"
+            //   },
+            // Match your shell behavior
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
+// // Lotus
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//     {
+//       "name": "lotus",
+//       "type": "python",
+//       "request": "launch",
+//       // "program": "/home/hojaeson_umass_edu/project/vllm-test/ref/lotus/examples/ref_examples/filter-filter-map.py",
+//       // "program": "/home/hojaeson_umass_edu/project/vllm-test/ref/lotus/examples/ref_examples/map-filter-filter.py",
+//       "program": "/home/hcao_umass_edu/lotus-experiment/run_lotus_fever.py",
+//       // "program": "/home/hojaeson_umass_edu/project/vllm-test/ref/lotus/examples/ref_examples/join-map.py",
+//       "args": [
+//       ],
+//       "python": "/home/hcao_umass_edu/lotus-experiment/.venv/bin/python",
+//       "console": "integratedTerminal",
+//       "justMyCode": false,
+//       "cwd": "/home/hcao_umass_edu/project/vllm-test/ref/lotus",
+//       "redirectOutput": false 
+//     }
+//   ]
+// }
