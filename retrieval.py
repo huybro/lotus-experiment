@@ -17,8 +17,8 @@ _model_cache = {}
 def get_embedder(model_name: str = "intfloat/e5-base-v2") -> SentenceTransformer:
     """Get (or cache) a SentenceTransformer embedding model."""
     if model_name not in _model_cache:
-        print(f"  Loading embedding model: {model_name} (on CPU)")
-        _model_cache[model_name] = SentenceTransformer(model_name, device="cpu")
+        print(f"  Loading embedding model: {model_name}")
+        _model_cache[model_name] = SentenceTransformer(model_name)
     return _model_cache[model_name]
 
 

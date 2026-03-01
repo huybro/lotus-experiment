@@ -14,12 +14,13 @@ MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 DATASET_NAME = "fever"
 N_CLAIMS = 20
 K_RETRIEVAL = 3
+MAX_TOKENS = 512  # Must match PZ — ensures identical generation cutoff
 
 # Install universal prompt overrides (filter + map)
 install_prompt_overrides()
 
 # LM setup (no RM/VS needed — retrieval is done externally)
-lm = LM(model=f"hosted_vllm/{MODEL_NAME}", api_base="http://localhost:8000/v1")
+lm = LM(model=f"hosted_vllm/{MODEL_NAME}", api_base="http://localhost:8000/v1", max_tokens=MAX_TOKENS)
 lotus.settings.configure(lm=lm)
 
 # ============================================================

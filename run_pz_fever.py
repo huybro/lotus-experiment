@@ -26,10 +26,20 @@ MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 DATASET_NAME = "fever"
 N_CLAIMS = 20
 K_RETRIEVAL = 3
+MAX_TOKENS = 512  # Must match LOTUS — ensures identical generation cutoff
 VLLM_API_BASE = "http://localhost:8000/v1"
 
 # Install universal prompt overrides for PZ (registers model + patches prompts)
 install_pz_prompt_overrides()
+
+# Monkey-patch PZ's Generator to inject max_tokens into litellm calls
+import litellm as _litellm
+_original_completion = _litellm.completion
+def _patched_completion(*args, **kwargs):
+    kwargs.setdefault("max_tokens", MAX_TOKENS)
+    return _original_completion(*args, **kwargs)
+_litellm.completion = _patched_completion
+print(f"[config] ✅ Patched litellm.completion with max_tokens={MAX_TOKENS}")
 
 # PZ execution config — force single vLLM model, no optimization
 PZ_MODEL = Model("hosted_vllm/Qwen/Qwen2.5-1.5B-Instruct")
