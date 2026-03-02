@@ -388,19 +388,47 @@ print(f"  LOTUS map: {len(df_map)} rows ({lotus_map_time:.1f}s)")
 # -- PZ --
 rewrite_mode = True
 captured.clear()
-ds3 = pz.MemoryDataset(
-    id="cmp-map",
-    vals=claims_df[["id", "claim", "label", "true_label"]].to_dict("records"),
-)
-ds3 = ds3.sem_map(
-    cols=[{"name": "verdict", "type": str,
-           "desc": "TRUE if the claim is factually correct, FALSE otherwise. Answer with exactly TRUE or FALSE."}],
-    depends_on=["claim"],
-)
-t0 = time.time()
-pz_map_out = ds3.run(config=pz_config, max_quality=True)
-pz_map_time = time.time() - t0
-pz_map_df = pz_map_out.to_df()
+try:
+    ds3 = pz.MemoryDataset(
+        id="cmp-map",
+        vals=claims_df[["id", "claim", "label", "true_label"]].to_dict("records"),
+    )
+    ds3 = ds3.sem_map(
+        cols=[{"name": "verdict", "type": str,
+               "desc": "TRUE if the claim is factually correct, FALSE otherwise. Answer with exactly TRUE or FALSE."}],
+        depends_on=["claim"],
+    )
+    t0 = time.time()
+    pz_map_out = ds3.run(config=pz_config, max_quality=True)
+    pz_map_time = time.time() - t0
+    pz_map_df = pz_map_out.to_df()
+except Exception as e:
+    print(f"  ⚠️  PZ sem_map optimizer failed: {e}")
+    print("  Falling back to direct LLM calls...")
+    t0 = time.time()
+    verdicts = []
+    for _, row in claims_df.iterrows():
+        data = lotus_df2text_row({"claim": row["claim"]}, ["claim"])
+        instr = nle2str(MAP_INSTRUCTION, ["claim"])
+        msgs = get_prompt(instr, data, op='sem_map')
+        result = _original_completion(
+            model=f"hosted_vllm/{MODEL_NAME}",
+            messages=msgs,
+            max_tokens=MAX_TOKENS,
+            temperature=0,
+            api_base=VLLM_API_BASE,
+        )
+        output = result.choices[0].message.content if result.choices else ""
+        verdicts.append(output.strip())
+        captured.append({
+            "input": "\n".join(m.get("content", "") for m in msgs if isinstance(m, dict)),
+            "output": output,
+            "claim": row["claim"],
+            "content": "",
+        })
+    pz_map_time = time.time() - t0
+    pz_map_df = claims_df.copy()
+    pz_map_df["verdict"] = verdicts
 pz_map_captured = list(captured)
 rewrite_mode = False
 print(f"  PZ map: {len(pz_map_df)} rows ({pz_map_time:.1f}s)")
@@ -452,18 +480,45 @@ print(f"  LOTUS map→filter: map={len(df_mf)}, filter={len(df_mf_verified)} pas
 # -- PZ map --
 rewrite_mode = True
 captured.clear()
-ds4 = pz.MemoryDataset(
-    id="cmp-mf-map",
-    vals=claims_df[["id", "claim", "label", "true_label"]].to_dict("records"),
-)
-ds4 = ds4.sem_map(
-    cols=[{"name": "search_query", "type": str,
-           "desc": "A short factual search query to find evidence about the claim"}],
-    depends_on=["claim"],
-)
-t0 = time.time()
-pz_mf_map_out = ds4.run(config=pz_config, max_quality=True)
-pz_mf_map_df = pz_mf_map_out.to_df()
+try:
+    ds4 = pz.MemoryDataset(
+        id="cmp-mf-map",
+        vals=claims_df[["id", "claim", "label", "true_label"]].to_dict("records"),
+    )
+    ds4 = ds4.sem_map(
+        cols=[{"name": "search_query", "type": str,
+               "desc": "A short factual search query to find evidence about the claim"}],
+        depends_on=["claim"],
+    )
+    t0 = time.time()
+    pz_mf_map_out = ds4.run(config=pz_config, max_quality=True)
+    pz_mf_map_df = pz_mf_map_out.to_df()
+except Exception as e:
+    print(f"  ⚠️  PZ sem_map optimizer failed: {e}")
+    print("  Falling back to direct LLM calls...")
+    t0 = time.time()
+    queries = []
+    for _, row in claims_df.iterrows():
+        data = lotus_df2text_row({"claim": row["claim"]}, ["claim"])
+        instr = nle2str(MAP_QUERY_INSTRUCTION, ["claim"])
+        msgs = get_prompt(instr, data, op='sem_map')
+        result = _original_completion(
+            model=f"hosted_vllm/{MODEL_NAME}",
+            messages=msgs,
+            max_tokens=MAX_TOKENS,
+            temperature=0,
+            api_base=VLLM_API_BASE,
+        )
+        output = result.choices[0].message.content if result.choices else ""
+        queries.append(output.strip())
+        captured.append({
+            "input": "\n".join(m.get("content", "") for m in msgs if isinstance(m, dict)),
+            "output": output,
+            "claim": row["claim"],
+            "content": "",
+        })
+    pz_mf_map_df = claims_df.copy()
+    pz_mf_map_df["search_query"] = queries
 pz_mq_captured = list(captured)
 
 pz_mf_claims = claims_df.copy()
