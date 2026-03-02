@@ -350,7 +350,7 @@ ds3 = ds3.sem_map(
     depends_on=["claim"],
 )
 t0 = time.time()
-pz_map_out = ds3.run(config=pz_config)
+pz_map_out = ds3.run(config=pz_config, max_quality=True)
 pz_map_time = time.time() - t0
 pz_map_df = pz_map_out.to_df()
 print(f"  PZ map: {len(pz_map_df)} rows ({pz_map_time:.1f}s)")
@@ -405,7 +405,7 @@ ds4 = ds4.sem_map(
     depends_on=["claim"],
 )
 t0 = time.time()
-pz_mf_map_out = ds4.run(config=pz_config)
+pz_mf_map_out = ds4.run(config=pz_config, max_quality=True)
 pz_mf_map_df = pz_mf_map_out.to_df()
 pz_map_captured = list(pz_captured)
 
