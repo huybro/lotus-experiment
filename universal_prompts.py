@@ -1,9 +1,17 @@
+"""
+Universal prompt construction for LOTUS and Palimpzest FEVER experiments.
+
+Provides:
+  - get_prompt(): builds standardized prompts for sem_filter, sem_map, etc.
+  - install_prompt_overrides(): patches LOTUS to use get_prompt()
+  - install_pz_prompt_overrides(): patches PZ's Model.is_vllm_model()
+"""
+
 import json
 
 
-
 def get_prompt(instruction, data, data2=None, op='sem_filter'):
-    
+    """Build a standardized prompt for any semantic operation."""
 
     messages = []
     system_prompt = (
@@ -86,59 +94,40 @@ def get_prompt(instruction, data, data2=None, op='sem_filter'):
                 ),
             }
         ]
-    # System prompt + Data tuple + Operation
-    messages.extend(user_messages)
 
+    messages.extend(user_messages)
     return messages
 
 
 def install_prompt_overrides():
-    """
-    Monkey-patch LOTUS's built-in prompt formatters to use get_prompt() instead.
+    """Monkey-patch LOTUS's filter_formatter and map_formatter to use get_prompt()."""
 
-    Call this ONCE before running any LOTUS pipeline:
-        from universal_prompts import install_prompt_overrides
-        install_prompt_overrides()
+    import lotus.sem_ops.sem_filter as sem_filter_mod
+    import lotus.sem_ops.sem_map as sem_map_mod
 
-    This overrides:
-      - filter_formatter  → get_prompt(..., op='sem_filter')
-      - map_formatter     → get_prompt(..., op='sem_map')
-    """
-    import lotus.templates.task_instructions as ti
+    def custom_filter_formatter(data, instruction):
+        return get_prompt(instruction, data, op='sem_filter')
 
-    # ── 1. Filter 
-    def custom_filter_formatter(model, multimodal_data, user_instruction, *args, **kwargs):
-        text = multimodal_data.get("text", "") if isinstance(multimodal_data, dict) else str(multimodal_data)
-        return get_prompt(user_instruction, text, op='sem_filter')
+    def custom_map_formatter(data, instruction):
+        return get_prompt(instruction, data, op='sem_map')
 
-    ti.filter_formatter = custom_filter_formatter
-
-    # ── 2. Map ──
-    def custom_map_formatter(model, multimodal_data, user_instruction, *args, **kwargs):
-        text = multimodal_data.get("text", "") if isinstance(multimodal_data, dict) else str(multimodal_data)
-        return get_prompt(user_instruction, text, op='sem_map')
-
-    ti.map_formatter = custom_map_formatter
+    sem_filter_mod.filter_formatter = custom_filter_formatter
+    sem_map_mod.map_formatter = custom_map_formatter
 
     print("[universal_prompts] ✅ Installed prompt overrides for: filter, map")
 
 
 def install_pz_prompt_overrides():
     """
-    Monkey-patch Palimpzest's prompt templates to use the universal prompt format.
+    Patch Palimpzest for compatibility with our vLLM setup.
 
-    This replaces PZ's built-in filter and map prompt templates with
-    prompts that match the structure used in get_prompt(), ensuring both
-    LOTUS and PZ send identical prompts to the LLM.
-
-    Also registers the Qwen2.5-1.5B-Instruct model in PZ's Model enum.
+    Fixes Model.is_vllm_model() which returns False on the cluster version.
+    Note: Prompt rewriting is done at the litellm.completion level in
+    run_comparison.py, not here, because the cluster's PZ version ignores
+    module-level prompt template changes.
     """
-    import palimpzest.prompts.filter_prompts as fp
-    import palimpzest.prompts.convert_prompts as cp
     from palimpzest.constants import Model
 
-    # Fix: cluster PZ version's is_vllm_model() returns False for vLLM models.
-    # Monkey-patch it to check the value string instead.
     _original_is_vllm = Model.is_vllm_model
     def _patched_is_vllm(self):
         if hasattr(self, 'value') and 'hosted_vllm' in str(self.value):
@@ -146,57 +135,3 @@ def install_pz_prompt_overrides():
         return _original_is_vllm(self)
     Model.is_vllm_model = _patched_is_vllm
     print("[universal_prompts] ✅ Patched Model.is_vllm_model()")
-
-    # ── 1. Override PZ filter prompts ──
-    UNIVERSAL_SYSTEM = (
-        "You are a helpful assistant for executing semantic operators.\n"
-        "You will be given data and an operation description.\n"
-        "Apply the operation to the provided data exactly as specified and return only the required result.\n"
-    )
-
-    fp.FILTER_NO_REASONING_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
-
-    fp.FILTER_NO_REASONING_BASE_USER_PROMPT = (
-        "CONTEXT:\n"
-        "  {{\n"
-        "    \"text\": {context}\n"
-        "  }}\n\n"
-        "TASK:\n"
-        "You will be presented with a context and a filter condition. "
-        "Output TRUE if the context satisfies the filter condition, and FALSE otherwise.\n"
-        "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n"
-        "Output TRUE or FALSE only.\n"
-        "Condition:{filter_condition}\n\n"
-        "ANSWER: "
-    )
-
-    fp.FILTER_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
-
-    fp.FILTER_BASE_USER_PROMPT = fp.FILTER_NO_REASONING_BASE_USER_PROMPT
-
-    # ── 3. Override PZ map (convert) prompts ──
-    cp.MAP_NO_REASONING_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
-
-    cp.MAP_NO_REASONING_BASE_USER_PROMPT = (
-        "CONTEXT:\n"
-        "  {{\n"
-        "    \"text\": {context}\n"
-        "  }}\n\n"
-        "TASK:\n"
-        "You are presented with a context and a mapping instruction.\n"
-        "Apply the instruction to the context and produce the mapped output.\n"
-        "The output must strictly follow the instruction and contain no extra commentary.\n"
-        "{output_format_instruction} Finish your response with a newline character followed by ---\n"
-        "---\n"
-        "OUTPUT FIELDS:\n"
-        "{output_fields_desc}\n\n"
-        "ANSWER: "
-    )
-
-    cp.MAP_BASE_SYSTEM_PROMPT = UNIVERSAL_SYSTEM
-
-    cp.MAP_BASE_USER_PROMPT = cp.MAP_NO_REASONING_BASE_USER_PROMPT
-
-    print("[universal_prompts] ✅ Installed PZ prompt overrides for: filter, map")
-
-
