@@ -31,6 +31,7 @@ def nle2str(nle, cols):
 # ============================================================
 MODEL_NAME = "qwen/Qwen1.5-0.5B-Chat"
 N_CLAIMS = 20
+K_RETRIEVAL = 3
 MAX_TOKENS = 512
 VLLM_API_BASE = "http://localhost:8000/v1"
 
@@ -38,24 +39,23 @@ VLLM_API_BASE = "http://localhost:8000/v1"
 # Instruction templates
 # ============================================================
 
-# Map: generate a verdict (TRUE/FALSE) based on world knowledge
-MAP_VERDICT = (
-    "Given the claim: {claim}\n"
-    "Is this claim true or false based on your knowledge? "
-    "Answer with exactly TRUE or FALSE, nothing else."
-)
-
-# Filter: does the claim mention a person?
-FILTER_PERSON = (
-    "Does the following claim mention a specific person by name?\n"
-    "Claim: {claim}\n"
-    "Answer TRUE if it mentions a person, FALSE otherwise."
-)
-
 # Filter: is the evidence relevant to the claim?
+FILTER_RELEVANCE = (
+    "The following evidence is relevant to the claim.\n"
+    "Evidence: {content}\nClaim: {claim}"
+)
+
+# Filter: does the evidence support the claim?
 FILTER_SUPPORT = (
     "{content}\n"
     "Based on the above evidence, the following claim is supported: {claim}"
+)
+
+# Map: based on both evidence and claim, generate a verdict
+MAP_VERDICT = (
+    "Based on the following evidence, determine if the claim is true or false.\n"
+    "Evidence: {content}\nClaim: {claim}\n"
+    "Answer with exactly TRUE or FALSE, nothing else."
 )
 
 # ============================================================
@@ -125,6 +125,14 @@ def _interceptor(*args, **kwargs):
             kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_filter')
             rebuilt = True
 
+        elif claim_val and content_val and not current_filter_instruction:
+            # Map with evidence
+            cols = ["content", "claim"]
+            data = lotus_df2text_row({"content": content_val, "claim": claim_val}, cols)
+            formatted_instr = nle2str(MAP_VERDICT, cols)
+            kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_map')
+            rebuilt = True
+
         elif claim_val and not content_val and current_filter_instruction:
             # Filter on claim only
             cols = current_filter_cols or ["claim"]
@@ -134,7 +142,7 @@ def _interceptor(*args, **kwargs):
             rebuilt = True
 
         elif claim_val and not content_val:
-            # Map operation
+            # Map on claim only
             data = lotus_df2text_row({"claim": claim_val}, ["claim"])
             formatted_instr = nle2str(MAP_VERDICT, ["claim"])
             kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_map')
@@ -185,8 +193,6 @@ pz_config = QueryProcessorConfig(
 claims_df = load_fever_claims(n=N_CLAIMS)
 claims_df["true_label"] = claims_df["label"].apply(lambda l: l == "SUPPORTS")
 
-# Pre-retrieve evidence and join with claims
-# Evidence is baked into the data — no vector DB calls during pipeline execution
 K_RETRIEVAL = 3
 wiki_df = load_oracle_wiki_kb(claims_split="labelled_dev", n_claims=N_CLAIMS)
 joined_df = retrieve_for_claims(claims_df, wiki_df, query_col="claim", K=K_RETRIEVAL)
@@ -207,37 +213,38 @@ def write_csv(filepath, rows):
         writer.writerows(rows)
 
 
-def find_match(cap_list, claim, extra=None):
+def find_match(cap_list, claim, content=None):
     claim_short = claim[:40]
     for entry in cap_list:
         if claim_short in entry.get("claim", ""):
-            if extra is None or extra[:40] in entry.get("content", ""):
+            if content is None or content[:40] in entry.get("content", ""):
                 return entry
     for entry in cap_list:
         if claim_short in entry.get("input", ""):
-            if extra is None or extra[:40] in entry.get("input", ""):
+            if content is None or content[:40] in entry.get("input", ""):
                 return entry
     return {"input": "", "output": "", "claim": "", "content": ""}
 
 
-def pz_map_with_fallback(instruction, claims, col_name, pz_desc):
+def pz_map_with_fallback(instruction, data_df, col_name, pz_desc, cols_used):
     """Run PZ sem_map, falling back to direct LLM calls if optimizer crashes."""
     try:
         ds = pz.MemoryDataset(
             id=f"cmp-{col_name}",
-            vals=claims[["id", "claim", "label", "true_label"]].to_dict("records"),
+            vals=data_df.to_dict("records"),
         )
         ds = ds.sem_map(
             cols=[{"name": col_name, "type": str, "desc": pz_desc}],
-            depends_on=["claim"],
+            depends_on=cols_used,
         )
         result = ds.run(config=pz_config, max_quality=True)
         return result.to_df()
     except Exception as e:
         outputs = []
-        for _, row in claims.iterrows():
-            data = lotus_df2text_row({"claim": row["claim"]}, ["claim"])
-            instr = nle2str(instruction, ["claim"])
+        for _, row in data_df.iterrows():
+            data_dict = {c: row[c] for c in cols_used}
+            data = lotus_df2text_row(data_dict, cols_used)
+            instr = nle2str(instruction, cols_used)
             msgs = get_prompt(instr, data, op='sem_map')
             res = _original_completion(
                 model=f"hosted_vllm/{MODEL_NAME}",
@@ -251,54 +258,54 @@ def pz_map_with_fallback(instruction, claims, col_name, pz_desc):
             captured.append({
                 "input": "\n".join(m.get("content", "") for m in msgs if isinstance(m, dict)),
                 "output": output,
-                "claim": row["claim"],
-                "content": "",
+                "claim": row.get("claim", ""),
+                "content": row.get("content", ""),
             })
-        df = claims.copy()
+        df = data_df.copy()
         df[col_name] = outputs
         return df
 
 
 # ============================================================
-# Pipeline 1: filter only (does claim mention a person?)
+# Pipeline 1: filter only (is evidence relevant to claim?)
 # ============================================================
 print("\n" + "=" * 60)
-print("  PIPELINE 1: filter only")
+print("  PIPELINE 1: filter only (relevance)")
 print("=" * 60)
 
 # LOTUS
 rewrite_mode = False
 captured.clear()
 t0 = time.time()
-df_f = claims_df.copy().sem_filter(FILTER_PERSON)
+df_f = joined_df.copy().sem_filter(FILTER_RELEVANCE)
 lotus_time = time.time() - t0
 lotus_cap = list(captured)
-print(f"  LOTUS: {len(df_f)} passed ({lotus_time:.1f}s)")
+print(f"  LOTUS: {len(df_f)}/{len(joined_df)} passed ({lotus_time:.1f}s)")
 
 # PZ
 rewrite_mode = True
-current_filter_instruction = FILTER_PERSON
-current_filter_cols = ["claim"]
+current_filter_instruction = FILTER_RELEVANCE
+current_filter_cols = ["content", "claim"]
 captured.clear()
 t0 = time.time()
-ds1 = pz.MemoryDataset(id="cmp-f1", vals=claims_df.to_dict("records"))
+ds1 = pz.MemoryDataset(id="cmp-f1", vals=joined_df.to_dict("records"))
 ds1 = ds1.sem_filter(
-    "Does this claim mention a specific person? {claim}",
-    depends_on=["claim"],
+    "The following evidence is relevant to the claim. Evidence: {content} Claim: {claim}",
+    depends_on=["content", "claim"],
 )
 pz_df = ds1.run(config=pz_config).to_df()
 pz_time = time.time() - t0
 pz_cap = list(captured)
 rewrite_mode = False
-print(f"  PZ:    {len(pz_df)} passed ({pz_time:.1f}s)")
+print(f"  PZ:    {len(pz_df)}/{len(joined_df)} passed ({pz_time:.1f}s)")
 
 rows = []
-for i in range(len(claims_df)):
-    row = claims_df.iloc[i]
-    lm = find_match(lotus_cap, row["claim"])
-    pm = find_match(pz_cap, row["claim"])
+for i in range(len(joined_df)):
+    row = joined_df.iloc[i]
+    lm = find_match(lotus_cap, row["claim"], row["content"])
+    pm = find_match(pz_cap, row["claim"], row["content"])
     rows.append({
-        "tuple": i, "claim": row["claim"][:80],
+        "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_input": lm["input"], "lotus_output": lm["output"],
         "pz_input": pm["input"], "pz_output": pm["output"],
     })
@@ -306,7 +313,7 @@ write_csv("logs/no_vdb_filter.csv", rows)
 
 
 # ============================================================
-# Pipeline 2: map only (verdict: TRUE/FALSE)
+# Pipeline 2: map only (verdict based on evidence)
 # ============================================================
 print("\n" + "=" * 60)
 print("  PIPELINE 2: map only (verdict)")
@@ -316,18 +323,20 @@ print("=" * 60)
 rewrite_mode = False
 captured.clear()
 t0 = time.time()
-df_m = claims_df.copy().sem_map(MAP_VERDICT, suffix="verdict")
+df_m = joined_df.copy().sem_map(MAP_VERDICT, suffix="verdict")
 lotus_time = time.time() - t0
 lotus_cap = list(captured)
 print(f"  LOTUS: {len(df_m)} rows ({lotus_time:.1f}s)")
 
 # PZ
 rewrite_mode = True
+current_filter_instruction = None
 captured.clear()
 t0 = time.time()
 pz_m_df = pz_map_with_fallback(
-    MAP_VERDICT, claims_df, "verdict",
-    "TRUE if the claim is factually correct, FALSE otherwise.",
+    MAP_VERDICT, joined_df, "verdict",
+    "TRUE if the claim is supported by the evidence, FALSE otherwise.",
+    ["content", "claim"],
 )
 pz_time = time.time() - t0
 pz_cap = list(captured)
@@ -335,12 +344,12 @@ rewrite_mode = False
 print(f"  PZ:    {len(pz_m_df)} rows ({pz_time:.1f}s)")
 
 rows = []
-for i in range(len(claims_df)):
-    row = claims_df.iloc[i]
-    lm = find_match(lotus_cap, row["claim"])
-    pm = find_match(pz_cap, row["claim"])
+for i in range(len(joined_df)):
+    row = joined_df.iloc[i]
+    lm = find_match(lotus_cap, row["claim"], row["content"])
+    pm = find_match(pz_cap, row["claim"], row["content"])
     rows.append({
-        "tuple": i, "claim": row["claim"][:80],
+        "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_input": lm["input"], "lotus_output": lm["output"],
         "pz_input": pm["input"], "pz_output": pm["output"],
     })
@@ -348,66 +357,132 @@ write_csv("logs/no_vdb_map.csv", rows)
 
 
 # ============================================================
-# Pipeline 3: filter → map (filter persons, then verdict)
+# Pipeline 3: filter → filter (relevance → support)
 # ============================================================
 print("\n" + "=" * 60)
-print("  PIPELINE 3: filter → map")
+print("  PIPELINE 3: filter → filter (relevance → support)")
 print("=" * 60)
 
-# LOTUS: filter claims about persons, then get verdict
+# LOTUS
 rewrite_mode = False
 captured.clear()
 t0 = time.time()
-df_fm_f = claims_df.copy().sem_filter(FILTER_PERSON)
+df_ff1 = joined_df.copy().sem_filter(FILTER_RELEVANCE)
+lotus_f1_cap = list(captured)
+captured.clear()
+df_ff2 = df_ff1.sem_filter(FILTER_SUPPORT)
+lotus_f2_cap = list(captured)
+lotus_time = time.time() - t0
+print(f"  LOTUS: {len(joined_df)}→{len(df_ff1)}→{len(df_ff2)} ({lotus_time:.1f}s)")
+
+# PZ F1
+rewrite_mode = True
+current_filter_instruction = FILTER_RELEVANCE
+current_filter_cols = ["content", "claim"]
+captured.clear()
+t0 = time.time()
+ds3 = pz.MemoryDataset(id="cmp-ff1", vals=joined_df.to_dict("records"))
+ds3 = ds3.sem_filter(
+    "The following evidence is relevant to the claim. Evidence: {content} Claim: {claim}",
+    depends_on=["content", "claim"],
+)
+pz_ff1_df = ds3.run(config=pz_config).to_df()
+pz_f1_cap = list(captured)
+
+# PZ F2
+current_filter_instruction = FILTER_SUPPORT
+captured.clear()
+if len(pz_ff1_df) > 0:
+    ds3b = pz.MemoryDataset(id="cmp-ff2", vals=pz_ff1_df.to_dict("records"))
+    ds3b = ds3b.sem_filter(
+        "Based on the evidence, the following claim is supported. {content} {claim}",
+        depends_on=["content", "claim"],
+    )
+    pz_ff2_df = ds3b.run(config=pz_config).to_df()
+else:
+    pz_ff2_df = pd.DataFrame()
+pz_f2_cap = list(captured)
+pz_time = time.time() - t0
+rewrite_mode = False
+print(f"  PZ:    {len(joined_df)}→{len(pz_ff1_df)}→{len(pz_ff2_df)} ({pz_time:.1f}s)")
+
+rows = []
+for i in range(len(joined_df)):
+    row = joined_df.iloc[i]
+    lf1 = find_match(lotus_f1_cap, row["claim"], row["content"])
+    pf1 = find_match(pz_f1_cap, row["claim"], row["content"])
+    lf2 = find_match(lotus_f2_cap, row["claim"], row["content"])
+    pf2 = find_match(pz_f2_cap, row["claim"], row["content"])
+    rows.append({
+        "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
+        "lotus_f1_input": lf1["input"], "lotus_f1_output": lf1["output"],
+        "pz_f1_input": pf1["input"], "pz_f1_output": pf1["output"],
+        "lotus_f2_input": lf2["input"], "lotus_f2_output": lf2["output"],
+        "pz_f2_input": pf2["input"], "pz_f2_output": pf2["output"],
+    })
+write_csv("logs/no_vdb_filter_filter.csv", rows)
+
+
+# ============================================================
+# Pipeline 4: filter → map (relevance → verdict)
+# ============================================================
+print("\n" + "=" * 60)
+print("  PIPELINE 4: filter → map (relevance → verdict)")
+print("=" * 60)
+
+# LOTUS: filter relevant evidence, then generate verdict
+rewrite_mode = False
+captured.clear()
+t0 = time.time()
+df_fm_f = joined_df.copy().sem_filter(FILTER_RELEVANCE)
 lotus_f_cap = list(captured)
 captured.clear()
 df_fm_m = df_fm_f.sem_map(MAP_VERDICT, suffix="verdict")
 lotus_m_cap = list(captured)
 lotus_time = time.time() - t0
-print(f"  LOTUS: filter={len(df_fm_f)} passed, map={len(df_fm_m)} rows ({lotus_time:.1f}s)")
+print(f"  LOTUS: filter={len(df_fm_f)}/{len(joined_df)}, map={len(df_fm_m)} rows ({lotus_time:.1f}s)")
 
 # PZ: filter then map
 rewrite_mode = True
-current_filter_instruction = FILTER_PERSON
-current_filter_cols = ["claim"]
+current_filter_instruction = FILTER_RELEVANCE
+current_filter_cols = ["content", "claim"]
 captured.clear()
 t0 = time.time()
-ds3 = pz.MemoryDataset(id="cmp-fm", vals=claims_df.to_dict("records"))
-ds3 = ds3.sem_filter(
-    "Does this claim mention a specific person? {claim}",
-    depends_on=["claim"],
+ds4 = pz.MemoryDataset(id="cmp-fm", vals=joined_df.to_dict("records"))
+ds4 = ds4.sem_filter(
+    "The following evidence is relevant to the claim. Evidence: {content} Claim: {claim}",
+    depends_on=["content", "claim"],
 )
-pz_fm_f_df = ds3.run(config=pz_config).to_df()
+pz_fm_f_df = ds4.run(config=pz_config).to_df()
 pz_f_cap = list(captured)
 
-current_filter_instruction = None  # next op is map, not filter
+current_filter_instruction = None  # next op is map
 captured.clear()
 if len(pz_fm_f_df) > 0:
     pz_fm_m_df = pz_map_with_fallback(
         MAP_VERDICT, pz_fm_f_df, "verdict",
-        "TRUE if the claim is factually correct, FALSE otherwise.",
+        "TRUE if the claim is supported by the evidence, FALSE otherwise.",
+        ["content", "claim"],
     )
 else:
     pz_fm_m_df = pd.DataFrame()
 pz_m_cap = list(captured)
 pz_time = time.time() - t0
 rewrite_mode = False
-print(f"  PZ:    filter={len(pz_fm_f_df)} passed, map={len(pz_fm_m_df)} rows ({pz_time:.1f}s)")
+print(f"  PZ:    filter={len(pz_fm_f_df)}/{len(joined_df)}, map={len(pz_fm_m_df)} rows ({pz_time:.1f}s)")
 
 rows = []
-for i in range(len(claims_df)):
-    row = claims_df.iloc[i]
-    lf = find_match(lotus_f_cap, row["claim"])
-    pf = find_match(pz_f_cap, row["claim"])
-    lm = find_match(lotus_m_cap, row["claim"])
-    pm = find_match(pz_m_cap, row["claim"])
+for i in range(len(joined_df)):
+    row = joined_df.iloc[i]
+    lf = find_match(lotus_f_cap, row["claim"], row["content"])
+    pf = find_match(pz_f_cap, row["claim"], row["content"])
+    lm = find_match(lotus_m_cap, row["claim"], row["content"])
+    pm = find_match(pz_m_cap, row["claim"], row["content"])
     rows.append({
-        "tuple": i, "claim": row["claim"][:80],
+        "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_filter_input": lf["input"], "lotus_filter_output": lf["output"],
         "pz_filter_input": pf["input"], "pz_filter_output": pf["output"],
         "lotus_map_input": lm["input"], "lotus_map_output": lm["output"],
         "pz_map_input": pm["input"], "pz_map_output": pm["output"],
     })
 write_csv("logs/no_vdb_filter_map.csv", rows)
-
-
