@@ -90,9 +90,12 @@ until curl -s http://localhost:8000/health > /dev/null 2>&1; do
 done
 echo "✅ vLLM server ready!"
 
-# --- Run Experiment ---
-echo "🔬 Running experiment..."
-python run_no_vdb.py || { echo "❌ Experiment failed"; kill $VLLM_PID; exit 1; }
+# --- Run Experiments ---
+echo "🔬 Running pipelines..."
+python pipelines/filter_fever.py || { echo "❌ filter_fever failed"; kill $VLLM_PID; exit 1; }
+python pipelines/map_fever.py || { echo "❌ map_fever failed"; kill $VLLM_PID; exit 1; }
+python pipelines/filter_filter_fever.py || { echo "❌ filter_filter_fever failed"; kill $VLLM_PID; exit 1; }
+python pipelines/filter_map_fever.py || { echo "❌ filter_map_fever failed"; kill $VLLM_PID; exit 1; }
 
 # --- Cleanup ---
 echo "🧹 Shutting down vLLM server..."
