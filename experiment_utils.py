@@ -83,6 +83,8 @@ class _State:
         self.rewrite_mode = False
         self.current_filter_instruction = None
         self.current_filter_cols = None
+        self.debug = True  # Set to False to silence prompt logging
+        self.call_count = 0
 
 state = _State()
 
@@ -181,8 +183,29 @@ def _interceptor(*args, **kwargs):
     prompt_text = "\n".join(
         m.get("content", "") for m in final_msgs if isinstance(m, dict)
     )
+
+    # Debug: print the prompt before sending
+    if state.debug:
+        state.call_count += 1
+        source = "PZ" if state.rewrite_mode else "LOTUS"
+        print(f"\n{'─'*70}")
+        print(f"  LLM CALL #{state.call_count} [{source}]")
+        print(f"{'─'*70}")
+        for msg in final_msgs:
+            if isinstance(msg, dict):
+                role = msg.get('role', '?')
+                content = msg.get('content', '')
+                print(f"  [{role}] {content[:500]}{'...' if len(content) > 500 else ''}")
+        print(f"{'─'*70}")
+
     result = _original_completion(*args, **kwargs)
     output_text = result.choices[0].message.content if result.choices else ""
+
+    # Debug: print the response
+    if state.debug:
+        print(f"  → RESPONSE: {output_text[:200]}{'...' if len(output_text) > 200 else ''}")
+        print(f"{'─'*70}\n")
+
     state.captured.append({
         "input": prompt_text,
         "output": output_text,
