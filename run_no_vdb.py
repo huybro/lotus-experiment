@@ -10,8 +10,7 @@ from lotus.models import LM
 from palimpzest.constants import Model
 from palimpzest.query.processor.config import QueryProcessorConfig
 
-from data_loader import load_fever_claims, load_oracle_wiki_kb
-from retrieval import retrieve_for_claims
+
 from universal_prompts import (
     get_prompt,
     lotus_df2text_row,
@@ -30,8 +29,6 @@ def nle2str(nle, cols):
 # Configuration
 # ============================================================
 MODEL_NAME = "meta-llama/Llama-3.2-1B-Instruct"
-N_CLAIMS = 20
-K_RETRIEVAL = 3
 MAX_TOKENS = 512
 VLLM_API_BASE = "http://localhost:8000/v1"
 
@@ -188,15 +185,16 @@ pz_config = QueryProcessorConfig(
 )
 
 # ============================================================
-# Load Data (evidence is pre-retrieved and stored in DataFrame)
+# Load Data (pre-retrieved evidence from CSV)
 # ============================================================
-claims_df = load_fever_claims(n=N_CLAIMS)
-claims_df["true_label"] = claims_df["label"].apply(lambda l: l == "SUPPORTS")
+DATA_PATH = "data/fever_claims_with_evidence.csv"
+if not os.path.exists(DATA_PATH):
+    raise FileNotFoundError(
+        f"{DATA_PATH} not found. Run 'python prepare_data.py' first to generate it."
+    )
+joined_df = pd.read_csv(DATA_PATH)
+print(f"Loaded {len(joined_df)} (claim, evidence) pairs from {DATA_PATH}")
 
-K_RETRIEVAL = 3
-wiki_df = load_oracle_wiki_kb(claims_split="labelled_dev", n_claims=N_CLAIMS)
-joined_df = retrieve_for_claims(claims_df, wiki_df, query_col="claim", K=K_RETRIEVAL)
-joined_df.to_csv("data/fever_claims_with_evidence.csv", index=False)
 
 os.makedirs("logs", exist_ok=True)
 
