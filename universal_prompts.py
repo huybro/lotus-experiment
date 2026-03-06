@@ -132,6 +132,8 @@ def install_pz_prompt_overrides():
     def _patched_init(self, value, *args, **kwargs):
         if isinstance(value, str) and 'hosted_vllm' in value:
             self._value_ = value
+            self.model_id = value
+            self.model_name = value
             return
         return _original_init(self, value, *args, **kwargs)
     Model.__init__ = _patched_init

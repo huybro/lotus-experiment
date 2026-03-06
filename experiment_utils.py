@@ -83,7 +83,7 @@ class _State:
         self.rewrite_mode = False
         self.current_filter_instruction = None
         self.current_filter_cols = None
-        self.debug = True  # Set to False to silence prompt logging
+        self.debug = False  # Set to False to silence prompt logging
         self.call_count = 0
 
 state = _State()
