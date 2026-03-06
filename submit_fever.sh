@@ -62,10 +62,10 @@ echo "Python: $(which python)"
 echo "CUDA_HOME: $CUDA_HOME"
 
 # --- Start vLLM Server ---
-echo "🚀 Starting vLLM server (Qwen2.5-1.5B-Instruct)..."
+echo "🚀 Starting vLLM server (Llama-3.2-1B-Instruct)..."
 
 python -m vllm.entrypoints.openai.api_server \
-    --model qwen/Qwen1.5-0.5B-Chat \
+    --model meta-llama/Llama-3.2-1B-Instruct \
     --port 8000 \
     --dtype float16 \
     --tensor-parallel-size 1 \
@@ -90,9 +90,9 @@ until curl -s http://localhost:8000/health > /dev/null 2>&1; do
 done
 echo "✅ vLLM server ready!"
 
-# --- Run FEVER Experiment ---
-echo "🔬 Running FEVER experiment..."
-python run_lotus_fever.py || { echo "❌ Experiment failed"; kill $VLLM_PID; exit 1; }
+# --- Run Experiment ---
+echo "🔬 Running experiment..."
+python run_no_vdb.py || { echo "❌ Experiment failed"; kill $VLLM_PID; exit 1; }
 
 # --- Cleanup ---
 echo "🧹 Shutting down vLLM server..."

@@ -29,7 +29,7 @@ def nle2str(nle, cols):
 # ============================================================
 # Configuration
 # ============================================================
-MODEL_NAME = "qwen/Qwen1.5-0.5B-Chat"
+MODEL_NAME = "meta-llama/Llama-3.2-1B-Instruct"
 N_CLAIMS = 20
 K_RETRIEVAL = 3
 MAX_TOKENS = 512
