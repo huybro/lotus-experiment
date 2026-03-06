@@ -134,6 +134,24 @@ def install_pz_prompt_overrides():
             self._value_ = value
             self.model_id = value
             self.model_name = value
+            self.api_base = None
+            self.model_specs = {
+                "provider": "hosted_vllm",
+                "is_vllm_model": True,
+                "is_text_model": True,
+                "is_vision_model": False,
+                "is_audio_model": False,
+                "is_embedding_model": False,
+                "is_text_image_multimodal_embedding_model": False,
+                "is_o_model": False,
+                "is_gpt_5_model": False,
+                "is_reasoning_model": False,
+                "supports_prompt_caching": False,
+                "usd_per_input_token": 0.0,
+                "usd_per_output_token": 0.0,
+                "seconds_per_output_token": 0.0,
+                "MMLU_Pro_score": 0.0,
+            }
             return
         return _original_init(self, value, *args, **kwargs)
     Model.__init__ = _patched_init
