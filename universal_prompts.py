@@ -127,6 +127,16 @@ def install_pz_prompt_overrides():
 
     from palimpzest.constants import Model
 
+    # Patch __init__ to accept hosted_vllm models not in PZ's known list
+    _original_init = Model.__init__
+    def _patched_init(self, value, *args, **kwargs):
+        if isinstance(value, str) and 'hosted_vllm' in value:
+            self._value_ = value
+            return
+        return _original_init(self, value, *args, **kwargs)
+    Model.__init__ = _patched_init
+
+    # Patch is_vllm_model to recognize hosted_vllm models
     _original_is_vllm = Model.is_vllm_model
     def _patched_is_vllm(self):
         if hasattr(self, 'value') and 'hosted_vllm' in str(self.value):
