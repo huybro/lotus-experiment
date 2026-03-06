@@ -6,8 +6,10 @@ import time
 from experiment_utils import (
     state, joined_df,
     MAP_VERDICT,
-    write_csv, find_match, pz_map_with_fallback,
+    write_csv, pz_map_with_fallback,
 )
+
+_empty = {"input": "", "output": "", "claim": "", "content": ""}
 
 print("\n" + "=" * 60)
 print("  PIPELINE: map only (verdict)")
@@ -41,8 +43,8 @@ print(f"  PZ:    {len(pz_m_df)} rows ({pz_time:.1f}s)")
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    lm = find_match(lotus_cap, row["claim"], row["content"])
-    pm = find_match(pz_cap, row["claim"], row["content"])
+    lm = lotus_cap[i] if i < len(lotus_cap) else _empty
+    pm = pz_cap[i] if i < len(pz_cap) else _empty
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_input": lm["input"], "lotus_output": lm["output"],

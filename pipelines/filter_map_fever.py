@@ -8,8 +8,10 @@ import palimpzest as pz
 from experiment_utils import (
     state, joined_df, pz_config,
     FILTER_RELEVANCE, MAP_VERDICT,
-    write_csv, find_match, pz_map_with_fallback,
+    write_csv, pz_map_with_fallback,
 )
+
+_empty = {"input": "", "output": "", "claim": "", "content": ""}
 
 print("\n" + "=" * 60)
 print("  PIPELINE: filter → map (relevance → verdict)")
@@ -60,10 +62,10 @@ print(f"  PZ:    filter={len(pz_fm_f_df)}/{len(joined_df)}, map={len(pz_fm_m_df)
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    lf = find_match(lotus_f_cap, row["claim"], row["content"])
-    pf = find_match(pz_f_cap, row["claim"], row["content"])
-    lm = find_match(lotus_m_cap, row["claim"], row["content"])
-    pm = find_match(pz_m_cap, row["claim"], row["content"])
+    lf = lotus_f_cap[i] if i < len(lotus_f_cap) else _empty
+    pf = pz_f_cap[i] if i < len(pz_f_cap) else _empty
+    lm = lotus_m_cap[i] if i < len(lotus_m_cap) else _empty
+    pm = pz_m_cap[i] if i < len(pz_m_cap) else _empty
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_filter_input": lf["input"], "lotus_filter_output": lf["output"],

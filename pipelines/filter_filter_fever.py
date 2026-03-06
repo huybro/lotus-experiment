@@ -8,8 +8,10 @@ import palimpzest as pz
 from experiment_utils import (
     state, joined_df, pz_config,
     FILTER_RELEVANCE, FILTER_SUPPORT,
-    write_csv, find_match,
+    write_csv,
 )
+
+_empty = {"input": "", "output": "", "claim": "", "content": ""}
 
 print("\n" + "=" * 60)
 print("  PIPELINE: filter → filter (relevance → support)")
@@ -62,10 +64,10 @@ print(f"  PZ:    {len(joined_df)}→{len(pz_ff1_df)}→{len(pz_ff2_df)} ({pz_tim
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    lf1 = find_match(lotus_f1_cap, row["claim"], row["content"])
-    pf1 = find_match(pz_f1_cap, row["claim"], row["content"])
-    lf2 = find_match(lotus_f2_cap, row["claim"], row["content"])
-    pf2 = find_match(pz_f2_cap, row["claim"], row["content"])
+    lf1 = lotus_f1_cap[i] if i < len(lotus_f1_cap) else _empty
+    pf1 = pz_f1_cap[i] if i < len(pz_f1_cap) else _empty
+    lf2 = lotus_f2_cap[i] if i < len(lotus_f2_cap) else _empty
+    pf2 = pz_f2_cap[i] if i < len(pz_f2_cap) else _empty
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_f1_input": lf1["input"], "lotus_f1_output": lf1["output"],

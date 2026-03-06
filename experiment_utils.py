@@ -74,6 +74,12 @@ MAP_VERDICT = (
     "Answer with exactly TRUE or FALSE, nothing else."
 )
 
+# Filter: verify verdict against evidence and claim (used after sem_map)
+FILTER_VERDICT = (
+    "Based on the evidence and verdict, the claim is correctly assessed.\n"
+    "Evidence: {content}\nClaim: {claim}\nVerdict: {verdict}"
+)
+
 
 # ============================================================
 # Interceptor state (mutable, shared across pipeline steps)
@@ -85,6 +91,7 @@ class _State:
         self.rewrite_mode = False
         self.current_filter_instruction = None
         self.current_filter_cols = None
+        self.current_map_instruction = None
         self.debug = False  # Set to False to silence prompt logging
         self.call_count = 0
 
@@ -133,7 +140,7 @@ def _interceptor(*args, **kwargs):
     kwargs.setdefault("seed", 42)
     messages = kwargs.get("messages", args[1] if len(args) > 1 else [])
 
-    claim_val = content_val = None
+    claim_val = content_val = verdict_val = None
     _from_pz_json = False
 
     # Try PZ JSON format
@@ -143,6 +150,9 @@ def _interceptor(*args, **kwargs):
         text = msg.get("content", "")
         cm = re.search(r'"claim":\s*"(.*?)"', text, re.DOTALL)
         co = re.search(r'"content":\s*"(.*?)"', text, re.DOTALL)
+        vm = re.search(r'"verdict":\s*"(.*?)"', text, re.DOTALL)
+        if vm:
+            verdict_val = vm.group(1)
         if cm and co:
             claim_val, content_val = cm.group(1), co.group(1)
             _from_pz_json = True
@@ -151,6 +161,17 @@ def _interceptor(*args, **kwargs):
             claim_val = cm.group(1)
             _from_pz_json = True
             break
+
+    # Try LOTUS format for verdict
+    if not verdict_val:
+        for msg in messages:
+            if not isinstance(msg, dict):
+                continue
+            text = msg.get("content", "")
+            m = re.search(r'\[Verdict\]:\s*«(.*?)»', text, re.DOTALL)
+            if m:
+                verdict_val = m.group(1)
+                break
 
     # Try LOTUS format
     if not claim_val:
@@ -172,19 +193,25 @@ def _interceptor(*args, **kwargs):
         if _from_pz_json:
             claim_val = _normalize_text(_unescape_json_str(claim_val))
             content_val = _normalize_text(_unescape_json_str(content_val))
+            if verdict_val:
+                verdict_val = _normalize_text(_unescape_json_str(verdict_val))
         rebuilt = False
 
         if claim_val and content_val and state.current_filter_instruction:
             cols = state.current_filter_cols or ["content", "claim"]
-            data = lotus_df2text_row({"content": content_val, "claim": claim_val}, cols)
+            data_dict = {"content": content_val, "claim": claim_val}
+            if verdict_val and "verdict" in cols:
+                data_dict["verdict"] = verdict_val
+            data = lotus_df2text_row(data_dict, cols)
             formatted_instr = nle2str(state.current_filter_instruction, cols)
             kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_filter')
             rebuilt = True
 
         elif claim_val and content_val and not state.current_filter_instruction:
+            map_instr = state.current_map_instruction or MAP_VERDICT
             cols = ["content", "claim"]
             data = lotus_df2text_row({"content": content_val, "claim": claim_val}, cols)
-            formatted_instr = nle2str(MAP_VERDICT, cols)
+            formatted_instr = nle2str(map_instr, cols)
             kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_map')
             rebuilt = True
 
@@ -288,18 +315,6 @@ def write_csv(filepath, rows):
         writer.writeheader()
         writer.writerows(rows)
 
-
-def find_match(cap_list, claim, content=None):
-    claim_short = claim[:40]
-    for entry in cap_list:
-        if claim_short in entry.get("claim", ""):
-            if content is None or content[:40] in entry.get("content", ""):
-                return entry
-    for entry in cap_list:
-        if claim_short in entry.get("input", ""):
-            if content is None or content[:40] in entry.get("input", ""):
-                return entry
-    return {"input": "", "output": "", "claim": "", "content": ""}
 
 
 def pz_map_with_fallback(instruction, data_df, col_name, pz_desc, cols_used):
