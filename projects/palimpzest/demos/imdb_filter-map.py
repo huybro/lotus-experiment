@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
 
     # construct plan
-    plan = pz.TextFileDataset(id="enron", path="/project/pi_mserafini_umass_edu/shared/imdb_sample_500_texts")
+    plan = pz.TextFileDataset(id="enron", path="/project/pi_mserafini_umass_edu/shared/imdb_sample_5_texts")
     
     # filter - filter
     plan = plan.sem_filter(
