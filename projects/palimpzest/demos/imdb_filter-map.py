@@ -19,11 +19,10 @@ if __name__ == "__main__":
         depends_on=["contents"],
     )
 
-    plan = plan.sem_map(
-        "Summarize it",
-        depends_on=["contents"],
-    )
-
+    plan = plan.sem_map([
+        {"name": "summary", "type": str, "desc": "Summarize the review"},
+    ])
+    
     # execute pz plan
     config = pz.QueryProcessorConfig(
         api_base="http://localhost:8003/v1",
