@@ -1,0 +1,197 @@
+# LOTUS: Fast, Easy and Accurate LLM-Powered Data Processing
+<!--- BADGES: START --->
+<!--[![Colab Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OzoJXH13aOwNOIEemClxzNCNYnqSGxVl?usp=sharing)-->
+[![Colab Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1mP65YHHdD6mnZmC5-Uqm2uCXJ4-Kbkhu?usp=sharing)
+[![Arxiv](https://img.shields.io/badge/arXiv-2407.11418-B31B1B.svg)][#arxiv-paper-package]
+[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/ZWQBurm5bt)
+[![Documentation Status](https://readthedocs.org/projects/lotus-ai/badge/?version=latest)](https://lotus-ai.readthedocs.io/en/latest/?badge=latest)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lotus-ai)][#pypi-package]
+[![PyPI](https://img.shields.io/pypi/v/lotus-ai)][#pypi-package]
+
+[#license-gh-package]: https://lbesson.mit-license.org/
+[#arxiv-paper-package]: https://arxiv.org/abs/2407.11418
+[#pypi-package]: https://pypi.org/project/lotus-ai/
+[#slack]: https://join.slack.com/t/lotus-fnm8919/shared_invite/zt-319k232lx-nEcLF~5w274dcQLmw2Wqyg
+[#discord]: https://discord.gg/ZWQBurm5bt
+<!--- BADGES: END --->
+
+LOTUS is the framework that allows you to easily process your datasets, including unstructured and structured data, with LLMs. It provides an **intuitive Pandas-like API**, offers algorithms for **optimizing your programs for up to 1000x speedups**, and makes LLM-based data processing **robust with accuracy guarantees** with respect to high-quality reference algorithms.
+
+LOTUS stands for **L**LMs **O**ver **T**ext, **U**nstructured and **S**tructured Data, and it introduces [**semantic operators**](https://arxiv.org/abs/2407.11418). Semantic operators extend the core philosophy of relational operators—designed for declarative and robust _structured-data_ processing—to _unstructured-data_ processing with AI. Semantic operators are expressive, allowing you to easily capture all of your data-intensive AI programs, from simple RAG, to document extraction, image classification, LLM-judge evals, unstructured data analysis, complex research-based synthesis and more.
+
+For trouble-shooting or feature requests, please raise an issue and we'll get to it promptly. To share feedback and applications you're working on, you can send us a message on our [community discord][#discord], or send an email (lianapat@stanford.edu).
+
+# Installation
+
+## Using uv (Recommended)
+For the latest stable release:
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create a new project or navigate to your existing project
+uv add lotus-ai
+```
+
+For the latest features:
+```bash
+uv add git+https://github.com/lotus-data/lotus.git@main
+```
+
+## Using pip
+For the latest stable release:
+```bash
+conda create -n lotus python=3.10 -y
+conda activate lotus
+pip install lotus-ai
+```
+
+For the latest features, you can alternatively install as follows:
+```bash
+conda create -n lotus python=3.10 -y
+conda activate lotus
+pip install git+https://github.com/lotus-data/lotus.git@main
+```
+
+
+## Running on Mac
+If you are running on mac and using pip, please install Faiss via conda:
+
+### CPU-only version
+```bash
+conda install -c pytorch faiss-cpu=1.8.0
+```
+
+### GPU(+CPU) version
+```bash
+conda install -c pytorch -c nvidia faiss-gpu=1.8.0
+```
+
+If you're using uv, the faiss-cpu dependency will be handled automatically.
+
+For more details, see [Installing FAISS via Conda](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md#installing-faiss-via-conda).
+
+# Quickstart
+If you're already familiar with Pandas, getting started will be a breeze! Below we provide a simple example program using the semantic join operator. The join, like many semantic operators, are specified by **langex** (natural language expressions), which the programmer uses to specify the operation. Each langex is parameterized by one or more table columns, denoted in brackets. The join's langex serves as a predicate and is parameterized by a right and left join key.
+```python
+import pandas as pd
+import lotus
+from lotus.models import LM
+
+# configure the LM, and remember to export your API key
+lm = LM(model="gpt-4.1-nano")
+lotus.settings.configure(lm=lm)
+
+# create dataframes with course names and skills
+courses_data = {
+    "Course Name": [
+        "History of the Atlantic World",
+        "Riemannian Geometry",
+        "Operating Systems",
+        "Food Science",
+        "Compilers",
+        "Intro to computer science",
+    ]
+}
+skills_data = {"Skill": ["Math", "Computer Science"]}
+courses_df = pd.DataFrame(courses_data)
+skills_df = pd.DataFrame(skills_data)
+
+# lotus sem join 
+res = courses_df.sem_join(skills_df, "Taking {Course Name} will help me learn {Skill}")
+print(res)
+
+# Print total LM usage
+lm.print_total_usage()
+```
+### Tutorials
+
+Below are some short tutorials in Google Colab, to help you get started. We recommend starting with `[1] Introduction to Semantic Operators and LOTUS`, which will provide a broad overview of useful functionality to help you get started.
+
+<div align="center">
+
+| Tutorial                                           | Difficulty                                                      | Colab Link                                                                                                                                                                                                    |
+|----------------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. Introduction to Semantic Operators and LOTUS             | ![](https://img.shields.io/badge/Level-Beginner-green.svg)      | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1mP65YHHdD6mnZmC5-Uqm2uCXJ4-Kbkhu?usp=sharing)              |
+| 2. Failure Analysis Over Agent Traces                           | ![](https://img.shields.io/badge/Level-Intermediate-yellow.svg)      | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1EJm9A8r_ShYxR0s218J70XhsopOgeT6k?usp=sharing)   |
+| 3. System Prompt Analysis with LOTUS | ![](https://img.shields.io/badge/Level-Intermediate-yellow.svg)      | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1NSVQYOMp2GCre5ZRgvgs6BPGOa20ySMc?usp=sharing) |
+| 4. Processing Multimodal Datasets                             | ![](https://img.shields.io/badge/Level-Intermediate-yellow.svg) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18oaa12T6PrhHIYGw-L01gw1bDmTYaE_e)   |
+</div>
+
+## Key Concept: The Semantic Operator Model
+LOTUS introduces the semantic operator programming model. Semantic operators are declarative transformations over one or more datasets, parameterized by a natural language expression, that can be implemented by a variety of AI-based algorithms. Semantic operators seamlessly extend the relational model, operating over tables that may contain traditional structured data as well as unstructured fields, such as free-form text. These modular language-based operators allow you to write AI-based pipelines with high-level logic, leaving optimizations to the query engine. Each operator can be implemented and optimized in multiple ways, opening a rich space for execution plans, similar to relational operators. To learn more about the semantic operator model, read the full [research paper](https://arxiv.org/abs/2407.11418).
+
+LOTUS offers a number of semantic operators in a Pandas-like API, some of which are described below. To learn more about semantic operators provided in LOTUS, check out the full [documentation](https://lotus-ai.readthedocs.io/en/latest/), run the [colab tutorial](https://colab.research.google.com/drive/1mP65YHHdD6mnZmC5-Uqm2uCXJ4-Kbkhu?usp=sharing), or you can also refer to these [examples](https://github.com/TAG-Research/lotus/tree/main/examples/op_examples).
+
+
+Semantic operators provide a unified API for both **LLM-based primitives**...
+| Operator   | Description                                     |
+|------------|-------------------------------------------------|
+| sem_map      |  Map each record using a natural language projection| 
+| sem_filter   | Keep records that match the natural language predicate |  
+| sem_extract  | Extract one or more attributes from each row        |
+| sem_agg      | Aggregate across all records (e.g. for summarization)             |
+| sem_topk     | Order the records by some natural langauge sorting criteria                 |
+| sem_join     | Join two datasets based on a natural language predicate       |
+
+... and **embedding-based primitives**:
+| Operator   | Description                                     |
+|------------|-------------------------------------------------|
+| sem_sim_join | Join two DataFrames based on semantic similarity             |
+| sem_search   | Perform semantic search the over a text column                |
+
+
+# Supported Models
+There are 3 main model classes in LOTUS:
+- `LM`: The language model class.
+    - The `LM` class is built on top of the `LiteLLM` library, and supports any model that is supported by `LiteLLM`. See [this page](CONTRIBUTING.md) for examples of using models on `OpenAI`, `Ollama`, and `vLLM`. Any provider supported by `LiteLLM` should work. Check out [litellm's documentation](https://litellm.vercel.app) for more information.
+- `RM`: The retrieval model class.
+    - Any model from `SentenceTransformers` can be used with the `SentenceTransformersRM` class, by passing the model name to the `model` parameter (see [an example here](examples/op_examples/dedup.py)). Additionally, `LiteLLMRM` can be used with any model supported by `LiteLLM` (see [an example here](examples/op_examples/sim_join.py)).
+- `Reranker`: The reranker model class.
+    - Any `CrossEncoder` from `SentenceTransformers` can be used with the `CrossEncoderReranker` class, by passing the model name to the `model` parameter (see [an example here](examples/op_examples/search.py)).
+
+# Feature Requests and Contributing
+
+We welcome contributions from the community! Whether you're reporting bugs, suggesting features, or contributing code, we have comprehensive templates and guidelines to help you get started.
+
+## Getting Started
+
+Before contributing, please:
+
+1. **Read our [Contributing Guide](CONTRIBUTING.md)** - Comprehensive guidelines for contributors
+2. **Check existing issues** - Avoid duplicates by searching existing issues and pull requests
+3. **Join our community** - Connect with us on [Discord][#discord]
+
+
+## Development Setup
+
+For development setup and detailed contribution guidelines, see our [Contributing Guide](CONTRIBUTING.md).
+
+## Community
+
+- **Discord**: [Join our community][#discord]
+- **Email**: lianapat@stanford.edu
+- **Discussions**: [GitHub Discussions](https://github.com/lotus-data/lotus/discussions)
+
+We're excited to see what you build with LOTUS! 🚀
+
+# References
+For recent updates related to LOTUS, follow [@lianapatel_](https://x.com/lianapatel_) on X.
+
+If you find LOTUS or semantic operators useful, we'd appreciate if you can please cite this work as follows:
+```bibtex
+@article{patel2025semanticoptimization,
+    title = {Semantic Operators and Their Optimization: Enabling LLM-Based Data Processing with Accuracy Guarantees in LOTUS},
+    author = {Patel, Liana and Jha, Siddharth and Pan, Melissa and Gupta, Harshit and Asawa, Parth and Guestrin, Carlos and Zaharia, Matei},
+    year = {2025},
+    journal = {Proc. VLDB Endow.},
+    url = {https://doi.org/10.14778/3749646.3749685},
+}
+@article{patel2024semanticoperators,
+      title={Semantic Operators: A Declarative Model for Rich, AI-based Analytics Over Text Data},
+      author={Liana Patel and Siddharth Jha and Parth Asawa and Melissa Pan and Carlos Guestrin and Matei Zaharia},
+      year={2024},
+      eprint={2407.11418},
+      url={https://arxiv.org/abs/2407.11418},
+}
+```
