@@ -27,12 +27,30 @@ if not os.path.exists(DATA_PATH):
     raise FileNotFoundError(
         f"{DATA_PATH} not found. Run 'python prepare_data.py' first to generate it."
     )
-joined_df = pd.read_csv(DATA_PATH)
-print(f"Loaded {len(joined_df)} (claim, evidence) pairs from {DATA_PATH}")
+df = pd.read_csv(DATA_PATH)
+print(f"Loaded {len(df)} (claim, evidence) pairs from {DATA_PATH}")
 
 
-joined_df['claim'] = "[Claim] " + joined_df['claim']
-joined_df['content'] = "[Evidence] " + joined_df['content']
+
+df['claim'] = "[Claim] " + df['claim']
+df['content'] = "[Evidence] " + df['content']
+
+FILTER_RELEVANCE = (
+    "{claim} {content} The evidence can determine whether the claim is true or false\n"
+)
+
+MAP_REASONING = (
+    "{claim} {content} Explain how the evidence supports or refutes the claim.\n"
+)
+t0 = time.perf_counter()
+df = df.sem_filter(FILTER_RELEVANCE, strategy="cot").sem_map(MAP_REASONING, strategy="cot")
+t1 = time.perf_counter()
+
+print(f"sem_filter {len(df)} tuples, took {t1 - t0:.4f} seconds")
+print(f"Throughput {(t1 - t0) / len(df)}")
+
+
+
 
 FILTER_RELEVANCE = (
     "{claim} {content} The evidence can determine whether the claim is true or false\n"
@@ -42,8 +60,3 @@ FILTER_RELEVANCE = (
 t0 = time.perf_counter()
 joined_df = joined_df.sem_filter(FILTER_RELEVANCE, strategy="cot")
 t1 = time.perf_counter()
-
-print(f"sem_filter {len(joined_df)} tuples, took {t1 - t0:.4f} seconds")
-print(f"Throughput {(t1 - t0) / len(joined_df)}")
-
-
