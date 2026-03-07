@@ -3,7 +3,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import time
-from experiment_utils import (
+from experiment_utils_palimpzest import (
     state, joined_df,
     MAP_VERDICT,
     write_csv, pz_map_with_fallback,

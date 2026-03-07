@@ -1081,16 +1081,14 @@ class PromptFactory:
         format_kwargs = self._get_all_format_kwargs(candidate, input_fields, input_modalities, output_fields, right_candidate, right_input_fields, right_input_modalities, **kwargs)
         kwargs = {**kwargs, **format_kwargs}
 
-        if self.prompt_strategy == 'filter':
-            messages = prompt_utils.get_prompt(kwargs['filter_condition'], candidate['contents'], op=base.OpName.SEM_FILTER)
-        elif self.prompt_strategy == 'map':
-            
-            messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], candidate['contents'], op=base.OpName.SEM_MAP)
-        elif self.prompt_strategy == 'agg':
-            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], candidate['contents'], op=base.OpName.SEM_AGG)
-        elif self.prompt_strategy == 'join':
-            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], candidate['contents'], right_candidate['contents'], op=base.OpName.SEM_AGG)
- 
+        if self.prompt_strategy.is_filter_prompt():
+            messages = prompt_utils.get_prompt(kwargs['filter_condition'], kwargs['context'], op=base.OpName.SEM_FILTER)
+        elif self.prompt_strategy.is_map_prompt():
+            messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], kwargs['context'], op=base.OpName.SEM_MAP)
+        elif self.prompt_strategy.is_agg_prompt():
+            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], kwargs['context'], op=base.OpName.SEM_AGG)
+        elif self.prompt_strategy.is_join_prompt():
+            messages = prompt_utils.get_prompt(kwargs['join_condition'], kwargs['context'], kwargs.get('right_context'), op=base.OpName.SEM_JOIN)
 
         return messages
 

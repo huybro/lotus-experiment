@@ -18,8 +18,6 @@ Usage:
 import os
 import re
 import csv
-import json
-import unicodedata
 import time
 
 import lotus
@@ -31,8 +29,6 @@ from palimpzest.constants import Model
 from palimpzest.query.processor.config import QueryProcessorConfig
 
 from universal_prompts import (
-    get_prompt,
-    lotus_df2text_row,
     install_prompt_overrides,
     install_pz_prompt_overrides,
 )
@@ -112,26 +108,13 @@ lotus.settings.configure(lm=_lotus_lm)
 
 
 # ============================================================
-# litellm interceptor — captures LOTUS + rewrites PZ
+# litellm interceptor — captures PZ prompts (no rewrite needed)
 # ============================================================
 _original_completion = _litellm.completion
 
 
-def _unescape_json_str(s):
-    """Unescape JSON string sequences (\\t → tab, \\uXXXX → unicode, etc.)."""
-    if not s:
-        return s
-    try:
-        return json.loads('"' + s + '"')
-    except (json.JSONDecodeError, ValueError):
-        return s
-
-
-def _normalize_text(s):
-    """Normalize unicode representation for consistent comparison."""
-    if not s:
-        return s
-    return unicodedata.normalize('NFC', s)
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
 
 def _interceptor(*args, **kwargs):
@@ -141,26 +124,6 @@ def _interceptor(*args, **kwargs):
     messages = kwargs.get("messages", args[1] if len(args) > 1 else [])
 
     claim_val = content_val = verdict_val = None
-    _from_pz_json = False
-
-    # Try PZ JSON format
-    for msg in messages:
-        if not isinstance(msg, dict):
-            continue
-        text = msg.get("content", "")
-        cm = re.search(r'"claim":\s*"(.*?)"', text, re.DOTALL)
-        co = re.search(r'"content":\s*"(.*?)"', text, re.DOTALL)
-        vm = re.search(r'"verdict":\s*"(.*?)"', text, re.DOTALL)
-        if vm:
-            verdict_val = vm.group(1)
-        if cm and co:
-            claim_val, content_val = cm.group(1), co.group(1)
-            _from_pz_json = True
-            break
-        elif cm:
-            claim_val = cm.group(1)
-            _from_pz_json = True
-            break
 
     # Try LOTUS format for verdict
     if not verdict_val:
@@ -188,54 +151,13 @@ def _interceptor(*args, **kwargs):
             if claim_val:
                 break
 
-    # PZ mode: unescape JSON strings and rewrite messages
-    if state.rewrite_mode:
-        if _from_pz_json:
-            claim_val = _normalize_text(_unescape_json_str(claim_val))
-            content_val = _normalize_text(_unescape_json_str(content_val))
-            if verdict_val:
-                verdict_val = _normalize_text(_unescape_json_str(verdict_val))
-        rebuilt = False
-
-        if claim_val and content_val and state.current_filter_instruction:
-            cols = state.current_filter_cols or ["content", "claim"]
-            data_dict = {"content": content_val, "claim": claim_val}
-            if verdict_val and "verdict" in cols:
-                data_dict["verdict"] = verdict_val
-            data = lotus_df2text_row(data_dict, cols)
-            formatted_instr = nle2str(state.current_filter_instruction, cols)
-            kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_filter')
-            rebuilt = True
-
-        elif claim_val and content_val and not state.current_filter_instruction:
-            map_instr = state.current_map_instruction or MAP_VERDICT
-            cols = ["content", "claim"]
-            data = lotus_df2text_row({"content": content_val, "claim": claim_val}, cols)
-            formatted_instr = nle2str(map_instr, cols)
-            kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_map')
-            rebuilt = True
-
-        elif claim_val and not content_val and state.current_filter_instruction:
-            cols = state.current_filter_cols or ["claim"]
-            data = lotus_df2text_row({"claim": claim_val}, cols)
-            formatted_instr = nle2str(state.current_filter_instruction, cols)
-            kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_filter')
-            rebuilt = True
-
-        elif claim_val and not content_val:
-            data = lotus_df2text_row({"claim": claim_val}, ["claim"])
-            formatted_instr = nle2str(MAP_VERDICT, ["claim"])
-            kwargs["messages"] = get_prompt(formatted_instr, data, op='sem_map')
-            rebuilt = True
-
-        if rebuilt and len(args) > 1:
-            args = (args[0],) + (kwargs["messages"],) + args[2:]
-
     # Capture
     final_msgs = kwargs.get("messages", messages)
-    prompt_text = "\n".join(
-        m.get("content", "") for m in final_msgs if isinstance(m, dict)
-    )
+    prompt_text = tokenizer.apply_chat_template(
+            final_msgs,
+            tokenize=False,
+            add_generation_prompt=False,
+        )
 
     # Debug: print the prompt before sending
     if state.debug:
