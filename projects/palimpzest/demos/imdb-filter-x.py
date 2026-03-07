@@ -113,12 +113,12 @@ if __name__ == "__main__":
     # )
     # Sem join
     
-    paper = pz.TextFileDataset(id="abstract", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt") 
-    cat = pz.TextFileDataset(id="category", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/category")
-    paper = paper.sem_join(cat, condition="Is the research paper related to the given category?")
-    paper = paper.sem_map([
-        {"name": "summary", "type": str, "desc": "Summarize the research abstract and explain how it is related to the category"},
-    ])
+    # paper = pz.TextFileDataset(id="abstract", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt") 
+    # cat = pz.TextFileDataset(id="category", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/category")
+    # paper = paper.sem_join(cat, condition="Is the research paper related to the given category?")
+    # paper = paper.sem_map([
+    #     {"name": "summary", "type": str, "desc": "Summarize the research abstract and explain how it is related to the category"},
+    # ])
 
 
     # plan = plan.sem_join(plan2, condition="Are two contexts relevant?")
@@ -136,13 +136,13 @@ if __name__ == "__main__":
     # execute pz plan
     config = pz.QueryProcessorConfig(
         api_base="http://localhost:8003/v1",
-        # available_models=[Model.VLLM_LLAMA3_2_3B],
-        available_models=[Model.VLLM_LLAMA3_1_8B],
+        available_models=[Model.VLLM_LLAMA3_2_3B],
+        # available_models=[Model.VLLM_LLAMA3_1_8B],
         verbose=False,
         policy=pz.MinTime(),
         # policy=pz.MaxQuality(),
-        # execution_strategy='sequential',
-        execution_strategy='parallel',
+        execution_strategy='sequential',
+        # execution_strategy='parallel',
     )
     # config = pz.QueryProcessorConfig(
         
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     #     max_workers=20,
     #     progress=True,
     # )
-    data_record_collection = paper.run(config)
+    data_record_collection = plan.run(config)
     print()
     # output = plan.optimize_and_run(train_dataset=train_dataset, validator=validator, config=config)
 

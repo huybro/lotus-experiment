@@ -139,6 +139,9 @@ from palimpzest.prompts.utils import (
     THIRD_TEXT_EXAMPLE_CONTEXT,
 )
 
+import palimpzest.prompts.prompt_utils as prompt_utils
+import palimpzest.prompts.base as base
+
 
 class PromptFactory:
     """Factory class for generating prompts for the Generator given the input(s)."""
@@ -1075,125 +1078,15 @@ class PromptFactory:
         format_kwargs = self._get_all_format_kwargs(candidate, input_fields, input_modalities, output_fields, right_candidate, right_input_fields, right_input_modalities, **kwargs)
         kwargs = {**kwargs, **format_kwargs}
 
-        # generate system message (if applicable)
-        # system_prompt = self._get_system_prompt(**kwargs)
-        # system_prompt = "You are a helpful assistant for executing semantic operators.\n"+ \
-        #                 "You will be given data and an operation description.\n" + \
-        #                 "Apply the operation to the provided tuples exactly as specified and return only the required result.\n"
-        # if system_prompt is not None:
-        #     messages.append({"role": "system", "type": "text", "content": system_prompt})
-
-        # generate user messages and add to messages
-        # user_messages = self._get_user_messages(candidate, input_fields, right_candidate, right_input_fields, **kwargs)
-        # user_messages =  [{"role": "system", "type": "text", "content": f"{candidate} "}]
-
-        # filter_op_instruction = "For each record, return TRUE if the record satisfies the condition. Otherwise return FALSE. Return results in the same order as the input data."
-        # operation = filter_op_instruction
-
-        system_prompt = (
-            "You are a helpful assistant for executing semantic operators.\n"
-            "You will be given data and an operation description.\n"
-            "Apply the operation to the provided data exactly as specified and return only the required result.\n"
-        )
-
-        if system_prompt is not None:
-            messages.append(
-                {"role": "system", "type": "text", "content": system_prompt}
-            )
         if self.prompt_strategy == 'filter':
-            operation = (
-                "You will be presented with a context and a filter condition. Output TRUE if the context satisfies the filter condition, and FALSE otherwise.\n" + \
-                "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n" + \
-                "Output TRUE or FALSE only.\n" + \
-                f"Condition:{kwargs['filter_condition']}\n"
-            )
+            messages = prompt_utils.get_prompt(kwargs['filter_condition'], candidate['contents'], op=base.OpName.SEM_FILTER)
         elif self.prompt_strategy == 'map':
-            operation = (
-                "You  are presented with a context and a mapping instruction.\n"
-                "Apply the instruction to the context and produce the mapped output.\n"
-                "The output must strictly follow the instruction and contain no extra commentary.\n"
-                f"Map Instruction:{kwargs['output_fields_desc']}\n"
-            )
+            
+            messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], candidate['contents'], op=base.OpName.SEM_MAP)
         elif self.prompt_strategy == 'agg':
-            operation = (
-                "You are presented with multiple contexts.\n"
-                "Aggregate them according to the aggregation instruction.\n"
-                "The output must be a single aggregated result.\n"
-                "Do not include explanations or commentary.\n"
-                f"Instruction:{kwargs['agg_instruction']}\n"
-            )
+            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], candidate['contents'], op=base.OpName.SEM_AGG)
         elif self.prompt_strategy == 'join':
-            operation = (
-                "You are presented with two contexts.\n"
-                "Determine whether the two contexts A, B together satisfy the condition.\n"
-                "Remember, your answer must be TRUE or FALSE. Finish your response with a newline character\n" + \
-                "The output must strictly follow the condition and contain no extra commentary.\n"
-                f"Condition:{kwargs['join_condition']}\n"
-            )
-
-        if self.prompt_strategy == 'join':
-            user_messages = [
-                {
-                    "role": "user",
-                    "type": "text",
-                    "content": (
-                        "CONTEXT_A:\n"
-                        "  {\n"
-                        f"    \"text\": {json.dumps(candidate['contents'])}\n"
-                        "  }\n"
-                        "\n\n"
-                        "CONTEXT_B:\n"
-                        "  {\n"
-                        f"    \"text\": {json.dumps(right_candidate['contents'])}\n"
-                        "  }\n"
-                        "\n\n"
-                        "TASK:\n"
-                        f"{operation}\n\n"
-                        "ANSWER:\n"
-                    ),
-                }
-            ]
-        else:
-            if candidate.contents_right is not None:
-                user_messages = [
-                    {
-                        "role": "user",
-                        "type": "text",
-                        "content": (
-                            "CONTEXT_A:\n"
-                            "  {\n"
-                            f"    \"text\": {json.dumps(candidate['contents'])}\n"
-                            "  }\n"
-                            "\n\n"
-                            "CONTEXT_B:\n"
-                            "  {\n"
-                            f"    \"text\": {candidate.contents_right}\n"
-                            "  }\n"
-                            "\n\n"
-                            "TASK:\n"
-                            f"{operation}\n\n"
-                            "ANSWER:\n"
-                        ),
-                    }
-                ]
-            else:
-                user_messages = [
-                    {
-                        "role": "user",
-                        "type": "text",
-                        "content": (
-                            "CONTEXT:\n"
-                            "  {\n"
-                            f"    \"text\": {json.dumps(candidate['contents'])}\n"
-                            "  }\n"
-                            "\n\n"
-                            "TASK:\n"
-                            f"{operation}\n\n"
-                            "ANSWER:\n"
-                        ),
-                    }
-                ]
-
-        messages.extend(user_messages)
+            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], candidate['contents'], right_candidate['contents'], op=base.OpName.SEM_AGG)
+ 
 
         return messages
