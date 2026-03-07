@@ -31,8 +31,8 @@ if __name__ == "__main__":
         verbose=False,
         policy=pz.MinTime(),
         # policy=pz.MaxQuality(),
-        # execution_strategy='sequential',
-        execution_strategy='parallel',
+        execution_strategy='sequential',
+        # execution_strategy='parallel',
     )
     data_record_collection = plan.run(config)
     print()

@@ -139,6 +139,7 @@ from palimpzest.prompts.utils import (
     THIRD_TEXT_EXAMPLE_CONTEXT,
 )
 
+
 import palimpzest.prompts.prompt_utils as prompt_utils
 import palimpzest.prompts.base as base
 
@@ -1043,6 +1044,8 @@ class PromptFactory:
 
         return user_messages
 
+
+
     def create_messages(self, candidate: DataRecord | list[DataRecord], output_fields: list[str], right_candidate: DataRecord | None = None, **kwargs) -> list[dict]:
         """
         Creates the messages for the chat payload based on the prompt strategy.
@@ -1090,3 +1093,50 @@ class PromptFactory:
  
 
         return messages
+
+
+    # def create_messages(self, candidate: DataRecord | list[DataRecord], output_fields: list[str], right_candidate: DataRecord | None = None, **kwargs) -> list[dict]:
+    #     """
+    #     Creates the messages for the chat payload based on the prompt strategy.
+
+    #     Each message will be a dictionary with the following format:
+    #     {
+    #         "role": "user" | "system",
+    #         "type": "text" | "image",
+    #         "content": str
+    #     }
+
+    #     Args:
+    #         candidate (DataRecord | list[DataRecord]): The input record(s).
+    #         output_fields (list[str]): The output fields.
+    #         right_candidate (DataRecord | None): The other join input record (only provided for joins).
+    #         kwargs: The keyword arguments provided by the user.
+
+    #     Returns:
+    #         list[dict]: The messages for the chat payload.
+    #     """
+    #     # compute the set of input fields
+    #     input_fields = self._get_input_fields(candidate[0] if isinstance(candidate, list) else candidate, **kwargs)
+    #     right_input_fields = [] if right_candidate is None else self._get_input_fields(right_candidate, **kwargs)
+
+    #     # use input fields to determine the left / right input modalities
+    #     input_modalities = self._get_input_modalities(candidate[0] if isinstance(candidate, list) else candidate, input_fields)
+    #     right_input_modalities = set() if right_candidate is None else self._get_input_modalities(right_candidate, right_input_fields)
+
+    #     # initialize messages
+    #     messages = []
+
+    #     # compute the full dictionary of format kwargs and add to kwargs
+    #     format_kwargs = self._get_all_format_kwargs(candidate, input_fields, input_modalities, output_fields, right_candidate, right_input_fields, right_input_modalities, **kwargs)
+    #     kwargs = {**kwargs, **format_kwargs}
+
+    #     # generate system message (if applicable)
+    #     system_prompt = self._get_system_prompt(**kwargs)
+    #     if system_prompt is not None:
+    #         messages.append({"role": "system", "type": "text", "content": system_prompt})
+
+    #     # generate user messages and add to messages
+    #     user_messages = self._get_user_messages(candidate, input_fields, right_candidate, right_input_fields, **kwargs)
+    #     messages.extend(user_messages)
+
+    #     return messages

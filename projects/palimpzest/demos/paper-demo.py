@@ -203,10 +203,6 @@ if __name__ == "__main__":
     if workload == "enron":
         plan = pz.TextFileDataset(id="enron", path=dataset)
         plan = plan.sem_map(email_cols)
-        # plan = plan.sem_filter(
-        #     "",
-        #     depends_on=["contents"],
-        # )
         plan = plan.sem_filter(
             "The email is not quoting from a news article or an article written by someone outside of Enron",
             depends_on=["contents"],
@@ -233,35 +229,14 @@ if __name__ == "__main__":
         plan = plan.sem_map(case_data_cols, cardinality=pz.Cardinality.ONE_TO_MANY)
 
     # construct config and run plan
-    from palimpzest.constants import Model
     config = pz.QueryProcessorConfig(
-        api_base="http://localhost:8003/v1",
-        # available_models=[Model.VLLM_LLAMA3_2_3B],
-        available_models=[Model.VLLM_LLAMA3_1_8B],
         verbose=verbose,
         policy=policy,
         execution_strategy=args.executor,
     )
-
-    # config = pz.QueryProcessorConfig(
-    #     api_base="http://localhost:8003/v1",
-    #     available_models=[Model.VLLM_LLAMA3_2_3B],
-    #     allow_model_selection=False, 
-    #     policy=pz.MaxQuality(),
-    #     execution_strategy="parallel",
-    #     k=5,
-    #     j=6,
-    #     sample_budget=100,
-    #     max_workers=20,
-    #     progress=True,
-    # )
-    import time
-
-    start = time.time()
-    print(start)
     data_record_collection = plan.run(config)
     print(data_record_collection.to_df())
-    print('time taken:', time.time() - start)
+
     # save statistics
     if profile:
         stats_path = f"profiling-data/{workload}-profiling.json"

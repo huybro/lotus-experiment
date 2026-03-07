@@ -58,23 +58,6 @@ if __name__ == "__main__":
     # construct plan
     # plan = EnronDataset(dir="testdata/enron-eval-medium", split="test")
     plan = pz.TextFileDataset(id="enron", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews/versions/1/imdb_sample_500_texts")
-    # plan2 = pz.TextFileDataset(id="enron", path="/home/hojaeson_umass_edu/.cache/kagglehub/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews/versions/1/imdb_sample_500_texts")
-    # plan = plan.sem_map([
-    #     {"name": "subject", "type": str, "desc": "The subject of the email"},
-    #     {"name": "sender", "type": str, "desc": "The email address of the email's sender"},
-    # ])
-    
-    # filter - filter
-    plan = plan.sem_filter(
-        "The review contains substantive content, meaning it is not short (less than three sentences) or vague and expresses a concrete opinion about the movie",
-        depends_on=["contents"],
-    )
-
-    plan = plan.sem_filter(
-        "The review criticizes the movie’s plot, storytelling, or narrative structure, such as issues with pacing, coherence, or resolution",
-        depends_on=["contents"],
-    )
-
     # # map - filter -filter
     # plan = plan.sem_map([
     #     {"name": "summary", "type": str, "desc": "Summarize the review"},

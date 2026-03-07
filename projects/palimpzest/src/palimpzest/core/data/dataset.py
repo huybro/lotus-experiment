@@ -119,7 +119,7 @@ class Dataset:
         return f"Dataset(schema={self._schema}, id={self._id}, op_id={self._operator.get_logical_op_id()})"
 
     def __iter__(self) -> Iterator[Dataset]:
-        for idx, source in enumerate(self._sources):
+        for source in self._sources:
             yield from source
         yield self
 

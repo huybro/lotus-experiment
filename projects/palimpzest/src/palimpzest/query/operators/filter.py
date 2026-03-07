@@ -167,7 +167,7 @@ class LLMFilter(FilterOp):
         self,
         model: Model,
         prompt_strategy: PromptStrategy = PromptStrategy.FILTER,
-        reasoning_effort: str | None = None,
+        reasoning_effort: str = "default",
         *args,
         **kwargs,
     ):
@@ -254,12 +254,5 @@ class LLMFilter(FilterOp):
         # generate output; NOTE: FieldInfo is used to indicate the output type; thus, the desc is not needed
         fields = {"passed_operator": FieldInfo(annotation=bool, description="Whether the record passed the filter operation")}
         field_answers, _, generation_stats, _ = self.generator(candidate, fields, **gen_kwargs)
-        # if int(candidate.filename.split('_')[0]) % 4 == 0:
-        #     field_answers['passed_operator'] = True
-        # elif int(candidate.filename.split('_')[0]) % 4 == 1:
-        #     field_answers['passed_operator'] = True
-        # elif int(candidate.filename.split('_')[0]) % 4 == 2:
-        #     field_answers['passed_operator'] = True
-        # else:
-        #     field_answers['passed_operator'] = False
+
         return field_answers, generation_stats
