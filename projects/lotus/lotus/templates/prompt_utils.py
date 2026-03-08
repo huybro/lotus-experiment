@@ -94,7 +94,14 @@ def get_task_prompt(instruction, op=OpName.SEM_FILTER):
 
 
 def get_prompt(instruction, data, data2=None, op=OpName.SEM_FILTER):
-    return get_data_prompt(data=data, data2=data2) + get_task_prompt(
-        instruction=instruction,
-        op=op,
-    )
+    """Return [system, user] with CONTEXT and TASK combined in one user message."""
+    data_messages = get_data_prompt(data=data, data2=data2)
+    task_content = get_task_prompt(instruction=instruction, op=op)[0]["content"]
+    # Combine CONTEXT + TASK into single user message (avoids duplicate user headers)
+    context_content = data_messages[1]["content"]
+    data_messages[1] = {
+        "role": "user",
+        "type": "text",
+        "content": context_content + "\n\n" + task_content,
+    }
+    return data_messages
