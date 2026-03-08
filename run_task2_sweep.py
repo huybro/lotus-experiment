@@ -141,8 +141,8 @@ def main():
     parser.add_argument("--output-dir", type=str, default="logs",
                         help="Output directory for CSV and plot")
     parser.add_argument("--data-source", type=str, default="huggingface",
-                        choices=["huggingface", "csv"],
-                        help="Data source")
+                        choices=["huggingface", "csv", "fever"],
+                        help="Data source (fever: maps content→abstract, claim→category)")
     parser.add_argument("--csv-path", type=str, default=None,
                         help="Path to CSV with abstract,category columns (if --data-source csv)")
     parser.add_argument("--no-plot", action="store_true",

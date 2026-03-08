@@ -17,12 +17,19 @@ def load_abstracts_with_categories(
 
     Args:
         n: Number of samples to load.
-        source: "huggingface" or "csv".
-        csv_path: Path to CSV (required if source="csv"). Must have columns: abstract, category.
+        source: "huggingface", "csv", or "fever".
+        csv_path: Path to CSV. For "csv": must have abstract,category. For "fever": uses content→abstract, claim→category.
 
     Returns:
         DataFrame with columns: abstract, category
     """
+    if source == "fever" and csv_path:
+        df = pd.read_csv(csv_path)
+        if "content" not in df.columns or "claim" not in df.columns:
+            raise ValueError(f"FEVER CSV must have 'content' and 'claim' columns. Found: {list(df.columns)}")
+        df = df.rename(columns={"content": "abstract", "claim": "category"})
+        return df[["abstract", "category"]].head(n).reset_index(drop=True)
+
     if source == "csv" and csv_path:
         df = pd.read_csv(csv_path)
         if "abstract" not in df.columns or "category" not in df.columns:
@@ -40,4 +47,4 @@ def load_abstracts_with_categories(
         df["abstract"] = df["abstract"].astype(str).str[:800]
         return df[["abstract", "category"]].head(n).reset_index(drop=True)
 
-    raise ValueError("source must be 'huggingface' or 'csv'. For csv, provide csv_path.")
+    raise ValueError("source must be 'huggingface', 'csv', or 'fever'. For csv/fever, provide csv_path.")
