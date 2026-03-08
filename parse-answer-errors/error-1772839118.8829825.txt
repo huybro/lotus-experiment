@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Jeong Hyeong-don was born in the 1970's."
+}
+
+Content: 
+"Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian	comedian(entertainer(entertainer])
+" 
+"Jeong Hyeong-don was born in the 1970's." 
+"February 7 , 1978" 
+"1978" 
+"1970's"
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Jeong Hyeong-don was born in the 1970's."
+}
+
+Content: 
+"Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian	comedian(entertainer(entertainer])
+" 
+"Jeong Hyeong-don was born in the 1970's." 
+"February 7 , 1978" 
+"1978" 
+"1970's"

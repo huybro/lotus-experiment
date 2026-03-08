@@ -1,0 +1,155 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": "CONCACAF Champions League: The CONCACAF Champions League is put together for football unions in Central America."
+}
+
+Context:
+{
+  "text": [Content]: «CONCACAF Champions League: The CONCACAF Champions League is an annual continental football club competition organized by CONCACAF for the top football clubs in North America , Central America and the Caribbean .	North America	North America	Central America	Caribbean	Caribbean	CONCACAF	CONCACAF	football	association football»
+[Claim]: «The CONCACAF Champions League is put together for football unions in Central America.»
+
+Content:
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": "CONCACAF Champions League: The CONCACAF Champions League is put together for football unions in Central America."
+}
+
+Context:
+{
+  "text": [Content]: «CONCACAF Champions League: The CONCACAF Champions League is an annual continental football club competition organized by CONCACAF for the top football clubs in North America , Central America and the Caribbean .	North America	North America	Central America	Caribbean	Caribbean	CONCACAF	CONCACAF	football	association football»
+[Claim]: «The CONCACAF Champions League is put together for football unions in Central America.»
+
+Content:
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF Champions League
+CONCACAF

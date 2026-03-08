@@ -1,0 +1,75 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": {
+    "claim": "There is a capital called Mogadishu.",
+    "content": "Mogadishu: Mogadishu is home to a number of scholastic and media institutions ."
+  }
+}
+
+{
+  "following_evidence": {
+    "evidence": "{content}",
+    "claim": "{claim}"
+  }
+}
+
+const isRelevant = (context, condition) => {
+  const evidence = condition.following_evidence;
+  const contextContent = context.text.content;
+  const conditionContent = evidence.evidence;
+  const conditionClaim = evidence.claim;
+
+  return contextContent === conditionContent && context.text.claim === conditionClaim;
+}
+
+console.log(isRelevant({
+  "text": {
+    "claim": "There is a capital called Mogadishu.",
+    "content": "Mogadishu: Mogadishu is home to a number of scholastic and media institutions ."
+  }
+}, {
+  "following_evidence": {
+    "evidence": "{content}",
+    "claim": "{claim}"
+  }
+}));
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": {
+    "claim": "There is a capital called Mogadishu.",
+    "content": "Mogadishu: Mogadishu is home to a number of scholastic and media institutions ."
+  }
+}
+
+{
+  "following_evidence": {
+    "evidence": "{content}",
+    "claim": "{claim}"
+  }
+}
+
+const isRelevant = (context, condition) => {
+  const evidence = condition.following_evidence;
+  const contextContent = context.text.content;
+  const conditionContent = evidence.evidence;
+  const conditionClaim = evidence.claim;
+
+  return contextContent === conditionContent && context.text.claim === conditionClaim;
+}
+
+console.log(isRelevant({
+  "text": {
+    "claim": "There is a capital called Mogadishu.",
+    "content": "Mogadishu: Mogadishu is home to a number of scholastic and media institutions ."
+  }
+}, {
+  "following_evidence": {
+    "evidence": "{content}",
+    "claim": "{claim}"
+  }
+}));

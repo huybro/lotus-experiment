@@ -1,0 +1,59 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\"",
+  "claim": "Hot Right Now is from Nextlevelism."
+}
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\"",
+  "claim": "Hot Right Now is from Nextlevelism."
+}
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass	drum and bass\""
+
+Claim: "Hot Right Now is from Nextlevelism."
+
+Content: "Hot Right Now: `` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism .	DJ Fresh	DJ Fresh	Nextlevelism	Nextlevelism	drum and bass

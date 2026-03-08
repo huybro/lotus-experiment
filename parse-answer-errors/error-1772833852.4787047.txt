@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Dalai Lama: The 14th and current Dalai Lama is Tenzin Gyatso .\tTenzin Gyatso\t14th Dalai Lama"
+  ],
+  "claim": "The 14th Dalai Lama lives in Japan exclusively."
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Dalai Lama: The 14th and current Dalai Lama is Tenzin Gyatso .\tTenzin Gyatso\t14th Dalai Lama"
+  ],
+  "claim": "The 14th Dalai Lama lives in Japan exclusively."
+}
+
+Content contains the evidence relevant to the claim.

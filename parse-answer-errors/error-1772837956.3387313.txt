@@ -1,0 +1,195 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": [Claim]
+}
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": [Claim]
+}
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Due Date: The film was released on November 5 , 2010 .»
+[Claim]: «Due Date was only shot in Maine.»
+
+}
+
+Evidence: Content
+

@@ -1,0 +1,49 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Tijuana is in Southwestern Mexico."
+}
+
+Content: 
+Tijuana: Tijuana -LRB- -LSB- tiːˈwɑːnə -RSB- ; -LSB- tiˈxwana -RSB- -RRB- is the largest city in Baja California and on the Baja California Peninsula and center of the Tijuana metropolitan area , part of the international San Diego -- Tijuana metropolitan area .	Baja California	Baja California	Tijuana	Tijuana Municipality	Baja California Peninsula	Baja California Peninsula	Tijuana metropolitan area	Tijuana metropolitan area	international	international	San Diego	San Diego»
+
+Tijuana is in Southwestern Mexico.
+
+Claim: Claim
+
+Tijuana is in Southwestern Mexico.
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Tijuana is in Southwestern Mexico."
+}
+
+Content: 
+Tijuana: Tijuana -LRB- -LSB- tiːˈwɑːnə -RSB- ; -LSB- tiˈxwana -RSB- -RRB- is the largest city in Baja California and on the Baja California Peninsula and center of the Tijuana metropolitan area , part of the international San Diego -- Tijuana metropolitan area .	Baja California	Baja California	Tijuana	Tijuana Municipality	Baja California Peninsula	Baja California Peninsula	Tijuana metropolitan area	Tijuana metropolitan area	international	international	San Diego	San Diego»
+
+Tijuana is in Southwestern Mexico.
+
+Claim: Claim
+
+Tijuana is in Southwestern Mexico.
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.
+
+Tijuana is in Southwestern Mexico.

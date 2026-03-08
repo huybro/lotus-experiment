@@ -1,0 +1,21 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Civilization IV is the most expensive of the Civilization games."
+}
+
+Content: 
+"Civilization IV: Most standard full-length games start the player with a settler unit and/or a city unit in the year 4000 BC ."
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Civilization IV is the most expensive of the Civilization games."
+}
+
+Content: 
+"Civilization IV: Most standard full-length games start the player with a settler unit and/or a city unit in the year 4000 BC ."

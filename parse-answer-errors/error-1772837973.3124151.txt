@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Colombiana is of the action and comedy genres."
+}
+
+Colombiana is of the action and comedy genres. 
+Colombiana: Colombiana is a 2011 French action film co-written and produced by Luc Besson and directed by Olivier Megaton .	Olivier Megaton	Olivier Megaton	Luc Besson	Luc Besson	action	action film
+Colombiana is of the action and comedy genres.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Colombiana is of the action and comedy genres."
+}
+
+Colombiana is of the action and comedy genres. 
+Colombiana: Colombiana is a 2011 French action film co-written and produced by Luc Besson and directed by Olivier Megaton .	Olivier Megaton	Olivier Megaton	Luc Besson	Luc Besson	action	action film
+Colombiana is of the action and comedy genres.

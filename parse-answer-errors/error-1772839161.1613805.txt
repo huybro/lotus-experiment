@@ -1,0 +1,117 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: «The State of Palestine claims Algeria.»
+}
+
+Claim: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: «The State of Palestine claims Algeria.»
+}
+
+Claim: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Context: 
+{
+  "text": [Content]: «State of Palestine: The State of Palestine claims the West Bank -LRB- bordering Israel and Jordan -RRB- and Gaza Strip -LRB- bordering Israel and Egypt -RRB- with East Jerusalem as the designated capital .Jerusalem.Jerusalem.East.East Jerusalem.Israel.Israel.West Bank.West Bank.Gaza Strip.Gaza Strip.Jordan.Jordan.East Jerusalem.East Jerusalem»
+[Claim]: 
+{
+  "text": [Claim]: «The State of Palestine claims Algeria.»
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}
+
+Result: 
+{
+  "text": [Content],
+  "Claim": [Claim]
+}

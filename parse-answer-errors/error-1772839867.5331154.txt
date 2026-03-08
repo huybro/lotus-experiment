@@ -1,0 +1,41 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Birthday Song (2 Chainz song): `` Birthday Song '' is a song by American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album"
+  ],
+  "claim": "Birthday Song (2 Chainz song) was produced by American rapper Kanye West."
+}
+
+Content
+Birthday Song (2 Chainz song)
+```
+Birthday Song '' is a song by American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+American rapper Kanye West
+```
+
+Birthday Song (2 Chainz song) was produced by American rapper Kanye West.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Birthday Song (2 Chainz song): `` Birthday Song '' is a song by American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album"
+  ],
+  "claim": "Birthday Song (2 Chainz song) was produced by American rapper Kanye West."
+}
+
+Content
+Birthday Song (2 Chainz song)
+```
+Birthday Song '' is a song by American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+American hip hop recording artist 2 Chainz , released August 24 , 2012 as the second single from his debut studio album Based on a T.R.U. Story -LRB- 2012 -RRB- .	2 Chainz	2 Chainz	Based on a T.R.U. Story	Based on a T.R.U. Story	hip hop	hip hop music	studio album	studio album
+American rapper Kanye West
+```
+
+Birthday Song (2 Chainz song) was produced by American rapper Kanye West.

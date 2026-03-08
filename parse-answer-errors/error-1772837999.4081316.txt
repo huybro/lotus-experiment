@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Vedam stars a horse."
+}
+
+Vedam -LRB- English : Chant -RRB- is a 2010 Telugu language Indian drama film written and directed by Radhakrishna Jagarlamudi , starring Allu Arjun , Manoj Manchu , Anushka Shetty , Manoj Bajpayee , Saranya Ponvannan , Deeksha Seth , Lekha Washington , and Siya Gautham .	Radhakrishna Jagarlamudi	Radhakrishna Jagarlamudi	Anushka Shetty	Anushka Shetty	Allu Arjun	Allu Arjun	Manoj Manchu	Manoj Manchu	Deeksha Seth	Deeksha Seth	Manoj Bajpayee	Manoj Bajpayee	Saranya Ponvannan	Saranya Ponvannan	Lekha Washington	Lekha Washington	Telugu language	Telugu language	drama film	drama film"
+}
+
+Vedam -LRB- English : Chant -RRB- is a 2010 Telugu language Indian drama film written and directed by Radhakrishna Jagarlamudi , starring Allu Arjun , Manoj Manchu , Anushka Shetty , Manoj Bajpayee , Saranya Ponvannan , Deeksha Seth , Lekha Washington , and Siya Gautham .	Radhakrishna Jagarlamudi	Radhakrishna Jagarlamudi	Anushka Shetty	Anushka Shetty	Allu Arjun	Allu Arjun	Manoj Manchu	Manoj Manchu	Deeksha Seth	Deeksha Seth	Manoj Bajpayee	Manoj Bajpayee	Saranya Ponvannan	Saranya Ponvannan	Lekha Washington	Lekha Washington	Telugu language	Telugu language	drama film	drama film
+
+Vedam stars a horse.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Vedam stars a horse."
+}
+
+Vedam -LRB- English : Chant -RRB- is a 2010 Telugu language Indian drama film written and directed by Radhakrishna Jagarlamudi , starring Allu Arjun , Manoj Manchu , Anushka Shetty , Manoj Bajpayee , Saranya Ponvannan , Deeksha Seth , Lekha Washington , and Siya Gautham .	Radhakrishna Jagarlamudi	Radhakrishna Jagarlamudi	Anushka Shetty	Anushka Shetty	Allu Arjun	Allu Arjun	Manoj Manchu	Manoj Manchu	Deeksha Seth	Deeksha Seth	Manoj Bajpayee	Manoj Bajpayee	Saranya Ponvannan	Saranya Ponvannan	Lekha Washington	Lekha Washington	Telugu language	Telugu language	drama film	drama film"
+}
+
+Vedam -LRB- English : Chant -RRB- is a 2010 Telugu language Indian drama film written and directed by Radhakrishna Jagarlamudi , starring Allu Arjun , Manoj Manchu , Anushka Shetty , Manoj Bajpayee , Saranya Ponvannan , Deeksha Seth , Lekha Washington , and Siya Gautham .	Radhakrishna Jagarlamudi	Radhakrishna Jagarlamudi	Anushka Shetty	Anushka Shetty	Allu Arjun	Allu Arjun	Manoj Manchu	Manoj Manchu	Deeksha Seth	Deeksha Seth	Manoj Bajpayee	Manoj Bajpayee	Saranya Ponvannan	Saranya Ponvannan	Lekha Washington	Lekha Washington	Telugu language	Telugu language	drama film	drama film
+
+Vedam stars a horse.

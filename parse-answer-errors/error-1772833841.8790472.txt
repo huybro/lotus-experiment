@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Thames Ironworks F.C.: Thames Ironworks Football Club , the club that later became West Ham United , was founded by Thames Ironworks and Shipbuilding Co. Ltd owner Arnold Hills and foreman Dave Taylor in 1895 .\tWest Ham United\tWest Ham United F.C.\tDave Taylor\tDave Taylor (Thames Ironworks F.C. founder)\tThames Ironworks and Shipbuilding Co. Ltd\tThames Ironworks and Shipbuilding Co. Ltd\tArnold Hills\tArnold Hills"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Thames Ironworks F.C.: Thames Ironworks Football Club , the club that later became West Ham United , was founded by Thames Ironworks and Shipbuilding Co. Ltd owner Arnold Hills and foreman Dave Taylor in 1895 .\tWest Ham United\tWest Ham United F.C.\tDave Taylor\tDave Taylor (Thames Ironworks F.C. founder)\tThames Ironworks and Shipbuilding Co. Ltd\tThames Ironworks and Shipbuilding Co. Ltd\tArnold Hills\tArnold Hills"
+  ]
+}

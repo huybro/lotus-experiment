@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "A View to a Kill: A View to a Kill -LRB- 1985 -RRB- is the fourteenth spy film of the James Bond series , and the seventh and last to star Roger Moore as the fictional MI6 agent James Bond .\tJames Bond\tJames Bond filmography\tRoger Moore\tRoger Moore\tspy film\tspy film\tMI6\tSecret Intelligence Service\tA View to a Kill\tA View to a Kill (song)"
+  ]
+}
+
+Content
+Claim: A View to a Kill stars Lois Maxwell.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "A View to a Kill: A View to a Kill -LRB- 1985 -RRB- is the fourteenth spy film of the James Bond series , and the seventh and last to star Roger Moore as the fictional MI6 agent James Bond .\tJames Bond\tJames Bond filmography\tRoger Moore\tRoger Moore\tspy film\tspy film\tMI6\tSecret Intelligence Service\tA View to a Kill\tA View to a Kill (song)"
+  ]
+}
+
+Content
+Claim: A View to a Kill stars Lois Maxwell.

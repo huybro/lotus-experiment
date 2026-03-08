@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Monk: A monk -LRB- -LSB- m\u028c\u014bk -RSB- , from \u03bc\u03bf\u03bd\u03b1\u03c7\u03cc\u03c2 , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks .\tLatin\tLatin\tasceticism\tasceticism\tmonastic \tmonastic"
+  ],
+  "claim": "A monk lives alone or with other cats."
+}
+
+A monk lives alone or with other cats. 
+A monk lives alone or with other cats.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Monk: A monk -LRB- -LSB- m\u028c\u014bk -RSB- , from \u03bc\u03bf\u03bd\u03b1\u03c7\u03cc\u03c2 , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks .\tLatin\tLatin\tasceticism\tasceticism\tmonastic \tmonastic"
+  ],
+  "claim": "A monk lives alone or with other cats."
+}
+
+A monk lives alone or with other cats. 
+A monk lives alone or with other cats.

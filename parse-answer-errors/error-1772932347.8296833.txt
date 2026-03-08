@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": {
+    "claim": "Telemundo is a English-language television network.",
+    "content": "Telemundo: Telemundo -LRB- -LSB- tele\u02c8mundo -RSB- -RRB- is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises .\tNBCUniversal\tNBCUniversal\tSpanish\tSpanish language\tAmerican\tUnited States\tSpanish-language\tSpanish language\tterrestrial\tTerrestrial television\ttelevision network\ttelevision network\tComcast\tComcast"
+  }
+}
+
+The condition is not satisfied because the claim states that Telemundo is an English-language television network, but the evidence states that it is a Spanish-language television network.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": {
+    "claim": "Telemundo is a English-language television network.",
+    "content": "Telemundo: Telemundo -LRB- -LSB- tele\u02c8mundo -RSB- -RRB- is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises .\tNBCUniversal\tNBCUniversal\tSpanish\tSpanish language\tAmerican\tUnited States\tSpanish-language\tSpanish language\tterrestrial\tTerrestrial television\ttelevision network\ttelevision network\tComcast\tComcast"
+  }
+}
+
+The condition is not satisfied because the claim states that Telemundo is an English-language television network, but the evidence states that it is a Spanish-language television network.

@@ -1,0 +1,21 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": "Bermuda Triangle: The Bermuda Triangle , also known as the Devil 's Triangle , is a loosely-defined region in the western part of the North Atlantic Ocean , where a number of aircraft and ships are said to have disappeared under mysterious circumstances .	Atlantic Ocean	Atlantic Ocean	aircraft	aircraft	ships	Surface ship",
+  "Claim": "Bermuda Triangle is in the eastern part of the Atlantic Ocean.",
+  "Verdict": "{\n  \}"
+}
+
+Bermuda Triangle is in the eastern part of the Atlantic Ocean.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": "Bermuda Triangle: The Bermuda Triangle , also known as the Devil 's Triangle , is a loosely-defined region in the western part of the North Atlantic Ocean , where a number of aircraft and ships are said to have disappeared under mysterious circumstances .	Atlantic Ocean	Atlantic Ocean	aircraft	aircraft	ships	Surface ship",
+  "Claim": "Bermuda Triangle is in the eastern part of the Atlantic Ocean.",
+  "Verdict": "{\n  \}"
+}
+
+Bermuda Triangle is in the eastern part of the Atlantic Ocean.

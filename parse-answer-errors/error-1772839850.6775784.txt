@@ -1,0 +1,69 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The Road to El Dorado is an artistic work."
+}
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dorado is an artistic work.»
+
+Content:
+"The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado"
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dorado is an artistic work.»
+
+Content:
+"The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado"
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dor
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The Road to El Dorado is an artistic work."
+}
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dorado is an artistic work.»
+
+Content:
+"The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado"
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dorado is an artistic work.»
+
+Content:
+"The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado"
+
+Claim: The Road to El Dorado is an artistic work.
+
+Context:
+{
+  "text": [Content]: «The Road to El Dorado: The Road to El Dorado is a 2000 American animated adventure musical fantasy comedy film produced by DreamWorks Animation .	animated_animation_adventure_adventure film_musical_musical film_fantasy_fantasy film_comedy film_comedy film	DreamWorks Animation	DreamWorks Animation	El Dorado	El Dorado»
+[Claim]: «The Road to El Dor

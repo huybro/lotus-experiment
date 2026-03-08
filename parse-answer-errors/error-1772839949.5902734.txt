@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Byron Howard retired from film directing forever in 2002."
+}
+
+Content: 
+Byron Howard: Byron P. Howard -LRB- born December 26 , 1968 -RRB- is an American film director , producer , screenwriter , animator , story artist and occasional voice actor at Walt Disney Animation Studios ..screenwriter/screenwriter	producer/Film Producer/animator/animator	voice actor/voice actor	Walt Disney Animation Studios/Walt Disney Animation Studios
+
+Byron Howard retired from film directing forever in 2002.
+
+Retired from film directing forever in 2002.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Byron Howard retired from film directing forever in 2002."
+}
+
+Content: 
+Byron Howard: Byron P. Howard -LRB- born December 26 , 1968 -RRB- is an American film director , producer , screenwriter , animator , story artist and occasional voice actor at Walt Disney Animation Studios ..screenwriter/screenwriter	producer/Film Producer/animator/animator	voice actor/voice actor	Walt Disney Animation Studios/Walt Disney Animation Studios
+
+Byron Howard retired from film directing forever in 2002.
+
+Retired from film directing forever in 2002.

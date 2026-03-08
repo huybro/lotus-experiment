@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The ruins of the ancient Roman town of Herculaneum lie near Naples."
+}
+
+Content: 
+[
+  "Herculaneum: Located in the shadow of Mount Vesuvius , Herculaneum -LRB- Italian : Ercolano -RRB- was an ancient Roman town destroyed by volcanic pyroclastic flows in 79 AD .\tErcolano\tErcolano\tMount Vesuvius\tMount Vesuvius\tItalian\tItalian language\tRoman\tRoman Empire\tvolcanic\tvolcano"
+]
+
+The text contains the word "Ercolano" which is relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The ruins of the ancient Roman town of Herculaneum lie near Naples."
+}
+
+Content: 
+[
+  "Herculaneum: Located in the shadow of Mount Vesuvius , Herculaneum -LRB- Italian : Ercolano -RRB- was an ancient Roman town destroyed by volcanic pyroclastic flows in 79 AD .\tErcolano\tErcolano\tMount Vesuvius\tMount Vesuvius\tItalian\tItalian language\tRoman\tRoman Empire\tvolcanic\tvolcano"
+]
+
+The text contains the word "Ercolano" which is relevant to the claim.

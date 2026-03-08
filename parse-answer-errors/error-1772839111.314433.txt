@@ -1,0 +1,59 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .",
+    "Renato Balestra was born outside of Trieste."
+  ],
+  "claim": "Renato Balestra was born outside of Trieste."
+}
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+"Claim: Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .",
+    "Renato Balestra was born outside of Trieste."
+  ],
+  "claim": "Renato Balestra was born outside of Trieste."
+}
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+"Claim: Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was born outside of Trieste.
+
+Content: Renato Balestra: Born in Trieste , Renato Balestra comes from a family of architects and engineers and after a childhood steeped in the Mid-European cultural environment of the area , he too began studying for a degree in civil engineering .  Trieste  Trieste
+Renato Balestra was

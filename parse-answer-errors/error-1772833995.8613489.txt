@@ -1,0 +1,113 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and altering the profile of Indian cinema .\tIndian cinema\tIndian cinema»
+[Claim]: «Mani Ratnam is given credit by many people for changing the profile of Indian cinema.»
+
+  }
+
+Claim: Claim
+
+Context: 
+{
+  "text": [Content]: «Mani Ratnam: Cited by the media as one of India 's influential filmmakers , Mani Ratnam is widely credited with revolutionising the Tamil film industry and

@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Rob Sheridan is from Alaska."
+}
+
+Content[0] = "Rob Sheridan: Rob Sheridan -LRB- born October 11 , 1979 -RRB- is an American graphic designer , director , and photographer best known for his extensive work with the band Nine Inch Nails ..graphic designer.graphic designer	photographer	photographer	American	United States	director	Art director	Nine Inch Nails	Nine Inch Nails"
+
+Rob Sheridan is from Alaska.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Rob Sheridan is from Alaska."
+}
+
+Content[0] = "Rob Sheridan: Rob Sheridan -LRB- born October 11 , 1979 -RRB- is an American graphic designer , director , and photographer best known for his extensive work with the band Nine Inch Nails ..graphic designer.graphic designer	photographer	photographer	American	United States	director	Art director	Nine Inch Nails	Nine Inch Nails"
+
+Rob Sheridan is from Alaska.

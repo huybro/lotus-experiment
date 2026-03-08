@@ -1,0 +1,117 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus .	Billy Ray Cyrus	Billy Ray Cyrus	Trace Cyrus	Trace Cyrus	Miley Cyrus	Miley Cyrus»
+[Claim]: «Noah Cyrus is a younger sister of Miley Cyrus.»
+
+  }
+
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Noah Cyrus: She is the youngest daughter of Billy

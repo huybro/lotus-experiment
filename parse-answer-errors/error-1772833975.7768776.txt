@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Johnny Galecki plays a character with a Ph.D. in The Big Bang Theory."
+}
+
+Content: 
+[
+  "Leonard Hofstadter: Leonard Leakey Hofstadter , Ph.D. , is a fictional character in the CBS television series The Big Bang Theory , in which he is portrayed by actor Johnny Galecki .\tThe Big Bang Theory\tThe Big Bang Theory\tJohnny Galecki\tJohnny Galecki\tCBS\tCBS"
+]
+
+Johnny Galecki plays a character with a Ph.D. in The Big Bang Theory.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Johnny Galecki plays a character with a Ph.D. in The Big Bang Theory."
+}
+
+Content: 
+[
+  "Leonard Hofstadter: Leonard Leakey Hofstadter , Ph.D. , is a fictional character in the CBS television series The Big Bang Theory , in which he is portrayed by actor Johnny Galecki .\tThe Big Bang Theory\tThe Big Bang Theory\tJohnny Galecki\tJohnny Galecki\tCBS\tCBS"
+]
+
+Johnny Galecki plays a character with a Ph.D. in The Big Bang Theory.

@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Yandex: The web site also operates in Belarus , Kazakhstan , Ukraine and Turkey .\tUkraine\tUkraine\tKazakhstan\tKazakhstan\tBelarus\tBelarus\tTurkey\tTurkey"
+  ],
+  "claim": "Yandex operates in Kazakhstan."
+}
+
+Content contains "Kazakhstan"
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Yandex: The web site also operates in Belarus , Kazakhstan , Ukraine and Turkey .\tUkraine\tUkraine\tKazakhstan\tKazakhstan\tBelarus\tBelarus\tTurkey\tTurkey"
+  ],
+  "claim": "Yandex operates in Kazakhstan."
+}
+
+Content contains "Kazakhstan"

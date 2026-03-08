@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Bones is a television series."
+}
+
+Content: Bones is an American crime procedural drama television series that aired on Fox in the United States from September 13 , 2005 , until March 28 , 2017 , for 246 episodes over twelve seasons .\tFox\tFox Broadcasting Company\tcrime procedural\tPolice procedural\tdrama\tdrama»
+
+Bones is a television series.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Bones is a television series."
+}
+
+Content: Bones is an American crime procedural drama television series that aired on Fox in the United States from September 13 , 2005 , until March 28 , 2017 , for 246 episodes over twelve seasons .\tFox\tFox Broadcasting Company\tcrime procedural\tPolice procedural\tdrama\tdrama»
+
+Bones is a television series.

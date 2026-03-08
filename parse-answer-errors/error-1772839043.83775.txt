@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .	Indonesian	Indonesian language?",
+    "Papua was formerly called the dead body."
+  ],
+  "claim": "Papua was formerly called the dead body."
+}
+
+Content.length > 0 && Content.includes("Irian Jaya") && Content.includes("West Irian") && Content.includes("Irian Barat") && Content.includes("Indonesian New Guinea") && Content.includes("dead body")
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .	Indonesian	Indonesian language?",
+    "Papua was formerly called the dead body."
+  ],
+  "claim": "Papua was formerly called the dead body."
+}
+
+Content.length > 0 && Content.includes("Irian Jaya") && Content.includes("West Irian") && Content.includes("Irian Barat") && Content.includes("Indonesian New Guinea") && Content.includes("dead body")

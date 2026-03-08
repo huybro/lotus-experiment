@@ -1,0 +1,71 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Randy Savage is a nudist."
+}
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Claim: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Claim: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase ,
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Randy Savage is a nudist."
+}
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Claim: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Claim: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , \" Oooh yeah !\" \tPomp and Circumstance\tPomp and Circumstance Marches#March No. 1 in D\"",
+  "Randy Savage is a nudist."
+]
+
+Content: 
+[
+  "Randy Savage: He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase ,

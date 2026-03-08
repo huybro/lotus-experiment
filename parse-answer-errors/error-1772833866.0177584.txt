@@ -1,0 +1,137 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .\tIndonesian\tIndonesian language?",
+    "Papua comprised all of Indonesia."
+  ],
+  "claim": "Papua comprised all of Indonesia."
+}
+
+Content[0] = "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .\tIndonesian\tIndonesian language?"
+Claim[0] = "Papua comprised all of Indonesia."
+
+Content[1] = "Papua comprised all of Indonesia."
+Claim[1] = "Papua comprised all of Indonesia."
+
+Content[0] and Content[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .\tIndonesian\tIndonesian language?",
+    "Papua comprised all of Indonesia."
+  ],
+  "claim": "Papua comprised all of Indonesia."
+}
+
+Content[0] = "Papua (province): It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea .\tIndonesian\tIndonesian language?"
+Claim[0] = "Papua comprised all of Indonesia."
+
+Content[1] = "Papua comprised all of Indonesia."
+Claim[1] = "Papua comprised all of Indonesia."
+
+Content[0] and Content[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[0] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0] and Claim[1] are the same.
+
+Content[0

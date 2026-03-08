@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Charles Manson: Charles Milles Manson -LRB- born Charles Milles Maddox , November 12 , 1934 -RRB- is an American criminal and former cult leader who led what became known as the Manson Family , a quasi-commune that arose in California in the late 1960s .	Manson Family	Manson Family	commune	commune()"
+  ],
+  "claim": "Charles Manson was a follower of what became known as the Manson Family."
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Charles Manson: Charles Milles Manson -LRB- born Charles Milles Maddox , November 12 , 1934 -RRB- is an American criminal and former cult leader who led what became known as the Manson Family , a quasi-commune that arose in California in the late 1960s .	Manson Family	Manson Family	commune	commune()"
+  ],
+  "claim": "Charles Manson was a follower of what became known as the Manson Family."
+}
+
+Content contains the evidence relevant to the claim.

@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Kesha was born on March 1st, 1987."
+}
+
+Content[1] = "Kesha: Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha"
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LS
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Kesha was born on March 1st, 1987."
+}
+
+Content[1] = "Kesha: Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha"
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LSB- \u02c8k\u025b\u0283\u0259_ro\u028az_\u02c8s\u025bb\u0259rt -RSB- ; born March 1 , 1987 ; formerly stylized as Ke $ ha -RRB- is an American singer , songwriter , and rapper ."
+Kesha[1] = "Kesha Rose Sebert -LRB- -LS

@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Chaka Khan: Chaka Khan -LRB- born Yvette Marie Stevens , March 23 , 1953 -RRB- is an American recording artist whose career has spanned five decades , beginning in the 1970s as the frontwoman and focal point of the funk band Rufus .	funk	funk	Rufus	Rufus (band)	frontwoman	Frontman"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Chaka Khan: Chaka Khan -LRB- born Yvette Marie Stevens , March 23 , 1953 -RRB- is an American recording artist whose career has spanned five decades , beginning in the 1970s as the frontwoman and focal point of the funk band Rufus .	funk	funk	Rufus	Rufus (band)	frontwoman	Frontman"
+  ]
+}

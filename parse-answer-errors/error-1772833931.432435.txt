@@ -1,0 +1,75 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Trollhunters is a television series."
+}
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Trollhunters is a television series."
+}
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+"Trollhunters is a television series."
+
+Content: 
+"Trollhunters: Trollhunters is an American computer-animated fantasy television series created for Netflix by Guillermo del Toro and produced by DreamWorks Animation and Double Dare You .\tGuillermo del Toro\tGuillermo del Toro\tNetflix\tNetflix\tDreamWorks Animation\tDreamWorks Animation\tfantasy\tfantasy"
+Claim: 
+

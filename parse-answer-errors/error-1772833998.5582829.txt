@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Sora (Kingdom Hearts): is a fictional character and the protagonist of Square Enix 's Kingdom Hearts video game series .\tKingdom Hearts\tKingdom Hearts (video game)\tSquare Enix\tSquare Enix"
+  ],
+  "claim": "Sora (Kingdom Hearts) was created in Japan."
+}
+
+Content
+Claim
+Sora (Kingdom Hearts): is a fictional character and the protagonist of Square Enix 's Kingdom Hearts video game series .
+Kingdom Hearts\tKingdom Hearts (video game)\tSquare Enix\tSquare Enix
+Sora (Kingdom Hearts) was created in Japan.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Sora (Kingdom Hearts): is a fictional character and the protagonist of Square Enix 's Kingdom Hearts video game series .\tKingdom Hearts\tKingdom Hearts (video game)\tSquare Enix\tSquare Enix"
+  ],
+  "claim": "Sora (Kingdom Hearts) was created in Japan."
+}
+
+Content
+Claim
+Sora (Kingdom Hearts): is a fictional character and the protagonist of Square Enix 's Kingdom Hearts video game series .
+Kingdom Hearts\tKingdom Hearts (video game)\tSquare Enix\tSquare Enix
+Sora (Kingdom Hearts) was created in Japan.

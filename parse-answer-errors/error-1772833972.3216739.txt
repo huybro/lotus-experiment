@@ -1,0 +1,37 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Cheese in the Trap (TV series) stars Justin Bieber."
+}
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\t
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Cheese in the Trap (TV series) stars Justin Bieber."
+}
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\tSeo Kang-joon\tSeo Kang-joon\tLee Sung-kyung\tLee Sung-kyung\tSouth Korean television series\tKorean drama"]
+Claim: "Cheese in the Trap (TV series) stars Justin Bieber."
+
+Content: ["Cheese in the Trap (TV series): Cheese in the Trap is a South Korean television series starring Park Hae-jin , Kim Go-eun , Seo Kang-joon and Lee Sung-kyung .\tCheese in the Trap\tCheese in the Trap\tPark Hae-jin\tPark Hae-jin\tKim Go-eun\tKim Go-eun\t

@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "John Krasinski played Jim Halpert on The Office."
+}
+
+Content: ["John Krasinski: He is widely known for his portrayal as Jim Halpert on the NBC comedy series The Office , for which he received critical acclaim and won numerous awards .\tJim Halpert\tJim Halpert\tNBC\tNBC\tThe Office\tThe Office (U.S. TV series)"]
+
+Claim: "John Krasinski played Jim Halpert on The Office."
+
+Content: ["John Krasinski: He is widely known for his portrayal as Jim Halpert on the NBC comedy series The Office , for which he received critical acclaim and won numerous awards .\tJim Halpert\tJim Halpert\tNBC\tNBC\tThe Office\tThe Office (U.S. TV series)"]
+
+John Krasinski played Jim Halpert on The Office.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "John Krasinski played Jim Halpert on The Office."
+}
+
+Content: ["John Krasinski: He is widely known for his portrayal as Jim Halpert on the NBC comedy series The Office , for which he received critical acclaim and won numerous awards .\tJim Halpert\tJim Halpert\tNBC\tNBC\tThe Office\tThe Office (U.S. TV series)"]
+
+Claim: "John Krasinski played Jim Halpert on The Office."
+
+Content: ["John Krasinski: He is widely known for his portrayal as Jim Halpert on the NBC comedy series The Office , for which he received critical acclaim and won numerous awards .\tJim Halpert\tJim Halpert\tNBC\tNBC\tThe Office\tThe Office (U.S. TV series)"]
+
+John Krasinski played Jim Halpert on The Office.

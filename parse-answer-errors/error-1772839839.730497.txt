@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Jayasudha is an actor that stars in Daag."
+}
+
+Content: "Daag (1973 film): The film was later remade into the Telugu film Vichitra Jeevitham -LRB- 1978 -RRB- starring Akkineni Nageswara Rao , Vanisri , and Jayasudha . Telugu Cinema of Andhra Pradesh Vichitra Jeevitham Vichitra Jeevitham Akkineni Nageswara Rao Akkineni Nageswara Rao Vanisri Vanisri Jayasudha Jayasudha"
+
+Jayasudha is an actor that stars in Daag.
+
+Daag (1973 film): The film was later remade into the Telugu film Vichitra Jeevitham -LRB- 1978 -RRB- starring Akkineni Nageswara Rao , Vanisri , and Jayasudha . Telugu Cinema of Andhra Pradesh Vichitra Jeevitham Vichitra Jeevitham Akkineni Nageswara Rao Akkineni Nageswara Rao Vanisri Vanisri Jayasudha Jayasudha
+
+The evidence relevant to the claim is present in the content.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Jayasudha is an actor that stars in Daag."
+}
+
+Content: "Daag (1973 film): The film was later remade into the Telugu film Vichitra Jeevitham -LRB- 1978 -RRB- starring Akkineni Nageswara Rao , Vanisri , and Jayasudha . Telugu Cinema of Andhra Pradesh Vichitra Jeevitham Vichitra Jeevitham Akkineni Nageswara Rao Akkineni Nageswara Rao Vanisri Vanisri Jayasudha Jayasudha"
+
+Jayasudha is an actor that stars in Daag.
+
+Daag (1973 film): The film was later remade into the Telugu film Vichitra Jeevitham -LRB- 1978 -RRB- starring Akkineni Nageswara Rao , Vanisri , and Jayasudha . Telugu Cinema of Andhra Pradesh Vichitra Jeevitham Vichitra Jeevitham Akkineni Nageswara Rao Akkineni Nageswara Rao Vanisri Vanisri Jayasudha Jayasudha
+
+The evidence relevant to the claim is present in the content.

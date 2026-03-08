@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The Armenian Genocide was the Ottoman government's systematic extermination of 1.5 million Armenians."
+}
+
+Content: 
+Armenian Genocide: The Armenian Genocide -LRB- Հայոց ցեղասպանություն , Hayots tseghaspanutyun -RRB- , also known as the Armenian Holocaust , was the Ottoman government 's systematic extermination of 1.5 million Armenians , mostly Ottoman citizens within the Ottoman Empire and its successor state , the Republic of Turkey .	Ottoman Empire	Ottoman Empire	Armenian	Armenians	Ottoman government	Imperial Government (Ottoman Empire)	Armenians	Armenians	Turkey	Turkey	successor state	successor state»
+
+The text contains the word "Armenian Genocide" which is relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The Armenian Genocide was the Ottoman government's systematic extermination of 1.5 million Armenians."
+}
+
+Content: 
+Armenian Genocide: The Armenian Genocide -LRB- Հայոց ցեղասպանություն , Hayots tseghaspanutyun -RRB- , also known as the Armenian Holocaust , was the Ottoman government 's systematic extermination of 1.5 million Armenians , mostly Ottoman citizens within the Ottoman Empire and its successor state , the Republic of Turkey .	Ottoman Empire	Ottoman Empire	Armenian	Armenians	Ottoman government	Imperial Government (Ottoman Empire)	Armenians	Armenians	Turkey	Turkey	successor state	successor state»
+
+The text contains the word "Armenian Genocide" which is relevant to the claim.

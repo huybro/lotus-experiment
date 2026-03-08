@@ -1,0 +1,195 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Blade Runner 2049: Warner Bros.",
+    "Blade Runner 2049 stars Kermit the Frog."
+  ],
+  "claim": [
+    "Blade Runner 2049 stars Kermit the Frog."
+  ]
+}
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Blade Runner 2049: Warner Bros.",
+    "Blade Runner 2049 stars Kermit the Frog."
+  ],
+  "claim": [
+    "Blade Runner 2049 stars Kermit the Frog."
+  ]
+}
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim]: «Blade Runner 2049 stars Kermit the Frog.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Blade Runner 2049: Warner Bros.»
+[Claim

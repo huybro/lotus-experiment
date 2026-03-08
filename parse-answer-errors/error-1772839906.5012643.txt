@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Telemundo is owned by ESPN."
+}
+
+Content: "Telemundo: Telemundo -LRB- -LSB- teleˈmundo -RSB- -RRB- is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises .	NBCUniversal	NBCUniversal	Spanish	Spanish language	American	United States	Spanish-language	Spanish language	terrestrial	Terrestrial television	 television network	 television network	Comcast	Comcast"]
+
+Content: "Telemundo is owned by ESPN."
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Telemundo is owned by ESPN."
+}
+
+Content: "Telemundo: Telemundo -LRB- -LSB- teleˈmundo -RSB- -RRB- is an American Spanish-language terrestrial television network owned by Comcast through the NBCUniversal division NBCUniversal Telemundo Enterprises .	NBCUniversal	NBCUniversal	Spanish	Spanish language	American	United States	Spanish-language	Spanish language	terrestrial	Terrestrial television	 television network	 television network	Comcast	Comcast"]
+
+Content: "Telemundo is owned by ESPN."

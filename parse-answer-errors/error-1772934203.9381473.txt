@@ -1,0 +1,35 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+```python
+def filter_claim(context, claim, evidence):
+    return claim in evidence
+
+context = {
+    "text": [Claim] Murda Beatz's real name is Marshall Mathers.[Evidence] Murda Beatz: He is noted for producing songs such as `` No Shopping '' by rapper French Montana , `` Back on Road '' by rapper Gucci Mane , Lindstrom has also produced several tracks for various artists such as Drake , Migos , Travis Scott and PartyNextDoor , among others .	Drake	Drake (musician)	French Montana	French Montana	Gucci Mane	Gucci Mane	Migos	Migos	PartyNextDoor	PartyNextDoor	Travis Scott	Travis Scott	No Shopping	No Shopping	Back on Road	Back on Road	produced	hip hop production
+}
+
+claim = "Murda Beatz's real name is Marshall Mathers."
+evidence = "Murda Beatz: He is noted for producing songs such as `` No Shopping '' by rapper French Montana , `` Back on Road '' by rapper Gucci Mane , Lindstrom has also produced several tracks for various artists such as Drake , Migos , Travis Scott and PartyNextDoor , among others ."
+
+result = filter_claim(context, claim, evidence)
+print(result)
+```
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: ```python
+def filter_claim(context, claim, evidence):
+    return claim in evidence
+
+context = {
+    "text": [Claim] Murda Beatz's real name is Marshall Mathers.[Evidence] Murda Beatz: He is noted for producing songs such as `` No Shopping '' by rapper French Montana , `` Back on Road '' by rapper Gucci Mane , Lindstrom has also produced several tracks for various artists such as Drake , Migos , Travis Scott and PartyNextDoor , among others .	Drake	Drake (musician)	French Montana	French Montana	Gucci Mane	Gucci Mane	Migos	Migos	PartyNextDoor	PartyNextDoor	Travis Scott	Travis Scott	No Shopping	No Shopping	Back on Road	Back on Road	produced	hip hop production
+}
+
+claim = "Murda Beatz's real name is Marshall Mathers."
+evidence = "Murda Beatz: He is noted for producing songs such as `` No Shopping '' by rapper French Montana , `` Back on Road '' by rapper Gucci Mane , Lindstrom has also produced several tracks for various artists such as Drake , Migos , Travis Scott and PartyNextDoor , among others ."
+
+result = filter_claim(context, claim, evidence)
+print(result)
+```

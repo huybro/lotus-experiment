@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Dakota Fanning: Her recent film roles have included the eponymous character in Coraline -LRB- 2009 -RRB- , Cherie Currie in The Runaways -LRB- 2010 -RRB- , Annie James in The Motel Life -LRB- 2013 -RRB- , and Jane in The Twilight Saga -LRB- 2009 -- 12 -RRB- .\teponymous character\tCoraline\tCoraline\tCoraline (film)\tCherie Currie\tCherie Currie\tThe Runaways\tThe Runaways (film)\tThe Motel Life\tThe Motel Life (film)\tThe Twilight Saga\tThe Twilight Saga (film series)"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Dakota Fanning: Her recent film roles have included the eponymous character in Coraline -LRB- 2009 -RRB- , Cherie Currie in The Runaways -LRB- 2010 -RRB- , Annie James in The Motel Life -LRB- 2013 -RRB- , and Jane in The Twilight Saga -LRB- 2009 -- 12 -RRB- .\teponymous character\tCoraline\tCoraline\tCoraline (film)\tCherie Currie\tCherie Currie\tThe Runaways\tThe Runaways (film)\tThe Motel Life\tThe Motel Life (film)\tThe Twilight Saga\tThe Twilight Saga (film series)"
+  ]
+}

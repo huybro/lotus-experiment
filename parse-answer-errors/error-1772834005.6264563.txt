@@ -1,0 +1,101 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Rio's sequel was released on April 11, 2012."
+}
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Rio's sequel was released on April 11, 2012."
+}
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 2"
+Claim: 
+"Rio's sequel was released on April 11, 2012."
+
+Content: 
+"Rio (2011 film): A sequel , Rio 2 , was released on April 11 , 2014 .\tRio 2\tRio 

@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Harold Macmillan: Maurice Harold Macmillan , 1st Earl of Stockton , -LRB- 10 February 1894 -- 29 December 1986 -RRB- was a British Conservative politician and statesman who served as the Prime Minister of the United Kingdom from 10 January 1957 to 19 October 1963 .\tPrime Minister of the United Kingdom\tPrime Minister of the United Kingdom\tConservative\tConservative Party (UK)\tUnited Kingdom\tUnited Kingdom\tstatesman\tPolitician"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Harold Macmillan: Maurice Harold Macmillan , 1st Earl of Stockton , -LRB- 10 February 1894 -- 29 December 1986 -RRB- was a British Conservative politician and statesman who served as the Prime Minister of the United Kingdom from 10 January 1957 to 19 October 1963 .\tPrime Minister of the United Kingdom\tPrime Minister of the United Kingdom\tConservative\tConservative Party (UK)\tUnited Kingdom\tUnited Kingdom\tstatesman\tPolitician"
+  ]
+}

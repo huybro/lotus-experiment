@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Shooter is about an expert marksman who tries to stop the assassination of the president."
+}
+
+Content: "Shooter (TV series): Shooter is an American television drama series based on the novel Point of Impact by Stephen Hunter and the 2007 film of the same name .\tPoint of Impact\tPoint of Impact\tStephen Hunter\tStephen Hunter\t2007 film of the same name\tShooter (2007 film)"
+
+Shooter is about an expert marksman who tries to stop the assassination of the president.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Shooter is about an expert marksman who tries to stop the assassination of the president."
+}
+
+Content: "Shooter (TV series): Shooter is an American television drama series based on the novel Point of Impact by Stephen Hunter and the 2007 film of the same name .\tPoint of Impact\tPoint of Impact\tStephen Hunter\tStephen Hunter\t2007 film of the same name\tShooter (2007 film)"
+
+Shooter is about an expert marksman who tries to stop the assassination of the president.

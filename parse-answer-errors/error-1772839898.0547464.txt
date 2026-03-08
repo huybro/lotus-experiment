@@ -1,0 +1,41 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The Bahamas is known unofficially as the Commonwealth of The Bahamas."
+}
+
+Content: 
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipel
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The Bahamas is known unofficially as the Commonwealth of The Bahamas."
+}
+
+Content: 
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipelagic state within the Lucayan Archipelago .	archipelagic state	archipelagic state	Lucayan Archipelago	Lucayan Archipelago	Lucayan	Lucayan people»
+
+The Bahamas: The Bahamas -LRB- -LSB- bəˈhɑːməz -RSB- -RRB- , known officially as the Commonwealth of The Bahamas , is an archipel

@@ -1,0 +1,119 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division?",
+    "The Faroe Islands are no longer part of the Kingdom of Mercia."
+  ],
+  "claim": "The Faroe Islands are no longer part of the Kingdom of Mercia."
+}
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division?",
+    "The Faroe Islands are no longer part of the Kingdom of Mercia."
+  ],
+  "claim": "The Faroe Islands are no longer part of the Kingdom of Mercia."
+}
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[Claim]: «The Faroe Islands are no longer part of the Kingdom of Mercia.»
+
+}
+
+Condition:The following evidence is relevant to the claim.
+Evidence: Content
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «Faroe Islands: The Islands are an autonomous country within the Kingdom of Denmark .	Kingdom of Denmark	Kingdom of Denmark	Denmark	Denmark	autonomous country	autonomous administrative division»
+[

@@ -1,0 +1,51 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+}
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+}
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "Hush (2016 film) was produced by Trevor Macy through Intrepid Pictures."
+
+Content: "Hush (2016 film): The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner .\tJason Blum\tJason Blum\tBlumhouse Productions\tBlumhouse Productions\tIntrepid Pictures\tIntrepid Pictures"
+Claim: "

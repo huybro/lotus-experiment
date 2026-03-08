@@ -1,0 +1,67 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Libya is an African country."
+}
+
+Content: Libya: Libya is a country in the Maghreb region of North Africa , bordered by the Mediterranean Sea to the north , Egypt to the east , Sudan to the southeast , Chad and Niger to the south and Algeria and Tunisia to the west .
+Maghreb
+Maghreb
+North Africa
+North Africa
+Mediterranean Sea
+Mediterranean Sea
+Egypt
+Egypt
+Sudan
+Sudan
+Chad
+Chad
+Niger
+Niger
+Algeria
+Algeria
+Tunisia
+Tunisia"
+
+ Libya is an African country.
+
+Content: Libya is an African country.
+
+ Libya is an African country.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Libya is an African country."
+}
+
+Content: Libya: Libya is a country in the Maghreb region of North Africa , bordered by the Mediterranean Sea to the north , Egypt to the east , Sudan to the southeast , Chad and Niger to the south and Algeria and Tunisia to the west .
+Maghreb
+Maghreb
+North Africa
+North Africa
+Mediterranean Sea
+Mediterranean Sea
+Egypt
+Egypt
+Sudan
+Sudan
+Chad
+Chad
+Niger
+Niger
+Algeria
+Algeria
+Tunisia
+Tunisia"
+
+ Libya is an African country.
+
+Content: Libya is an African country.
+
+ Libya is an African country.

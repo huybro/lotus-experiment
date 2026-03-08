@@ -1,0 +1,21 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+The Dark Tower (2017 film): The Dark Tower is an upcoming American science fantasy western action horror film directed and co-written by Nikolaj Arcel .\tNikolaj Arcel\tNikolaj Arcel\tThe Dark Tower\tThe Dark Tower (series)\tscience fantasy\tscience fantasy\twestern\tWestern (genre)\taction\taction film\thorror\thorror film\
+
+The Dark Tower is a fantasy film.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+The Dark Tower (2017 film): The Dark Tower is an upcoming American science fantasy western action horror film directed and co-written by Nikolaj Arcel .\tNikolaj Arcel\tNikolaj Arcel\tThe Dark Tower\tThe Dark Tower (series)\tscience fantasy\tscience fantasy\twestern\tWestern (genre)\taction\taction film\thorror\thorror film\
+
+The Dark Tower is a fantasy film.

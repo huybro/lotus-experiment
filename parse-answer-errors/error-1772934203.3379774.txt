@@ -1,0 +1,67 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Claim": "L.A. Reid has served as the CEO of Arista Records for four years.",
+    "Evidence": "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists ."
+  ]
+}
+
+const isRelevantEvidence = (context, claim, evidence) => {
+  return context.text.find((item) => {
+    if (item.Evidence) {
+      return item.Evidence.includes(claim);
+    }
+  }) !== undefined;
+};
+
+const claim = "L.A. Reid has served as the CEO of Arista Records for four years.";
+const evidence = "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists .";
+
+const result = isRelevantEvidence(
+  {
+    text: [
+      { Claim: "L.A. Reid has served as the CEO of Arista Records for four years." },
+      { Evidence: "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists ." },
+    ],
+  },
+  claim,
+  evidence
+);
+
+console.log(result);
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Claim": "L.A. Reid has served as the CEO of Arista Records for four years.",
+    "Evidence": "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists ."
+  ]
+}
+
+const isRelevantEvidence = (context, claim, evidence) => {
+  return context.text.find((item) => {
+    if (item.Evidence) {
+      return item.Evidence.includes(claim);
+    }
+  }) !== undefined;
+};
+
+const claim = "L.A. Reid has served as the CEO of Arista Records for four years.";
+const evidence = "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists .";
+
+const result = isRelevantEvidence(
+  {
+    text: [
+      { Claim: "L.A. Reid has served as the CEO of Arista Records for four years." },
+      { Evidence: "Damon Albarn: Although Albarn is the only permanent musical contributor , the albums feature collaborations from a wide range of artists ." },
+    ],
+  },
+  claim,
+  evidence
+);
+
+console.log(result);

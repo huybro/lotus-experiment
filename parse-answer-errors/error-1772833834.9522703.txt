@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "T2 Trainspotting is set in England."
+}
+
+Content: "T2 Trainspotting: T2 Trainspotting is a 2017 British comedy drama film , set in and around Edinburgh , Scotland .\tTrainspotting\tTrainspotting (film)\tEdinburgh\tEdinburgh\tcomedy\tcomedy\tdrama film\tDrama (film and television)"]
+
+T2 Trainspotting is set in England. 
+T2 Trainspotting is set in England.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "T2 Trainspotting is set in England."
+}
+
+Content: "T2 Trainspotting: T2 Trainspotting is a 2017 British comedy drama film , set in and around Edinburgh , Scotland .\tTrainspotting\tTrainspotting (film)\tEdinburgh\tEdinburgh\tcomedy\tcomedy\tdrama film\tDrama (film and television)"]
+
+T2 Trainspotting is set in England. 
+T2 Trainspotting is set in England.

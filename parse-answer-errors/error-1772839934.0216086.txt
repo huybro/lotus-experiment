@@ -1,0 +1,43 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+Context:
+{
+  "text": [Content]: «Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama	psychological thriller	psychological thriller»
+}
+
+Content:
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama	psychological thriller.psychological thriller
+
+Claim: Claim
+
+Content:
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama.psychological thriller.psychological thriller
+
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+Context:
+{
+  "text": [Content]: «Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama	psychological thriller	psychological thriller»
+}
+
+Content:
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama	psychological thriller.psychological thriller
+
+Claim: Claim
+
+Content:
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier	Kirsten Dunst	Kirsten Dunst	Charlotte Gainsbourg	Charlotte Gainsbourg	Alexander Skarsgård	Alexander Skarsgård	Kiefer Sutherland	Kiefer Sutherland	science-fiction	science-fiction	drama	drama.psychological thriller.psychological thriller
+
+Melancholia (2011 film): Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland .	Lars von Trier	Lars von Trier

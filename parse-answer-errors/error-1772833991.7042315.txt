@@ -1,0 +1,37 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: {
+  "text": [Content]: «Peking University: It also served as the highest administration for education -LRB- ministry of education -RRB- in China at the beginning of its founding .\tChina\tChina»
+[Claim]: «Peking University is in the world's most populous city.»
+
+  }
+
+Content: [Peking University: It also served as the highest administration for education -LRB- ministry of education -RRB- in China at the beginning of its founding .\tChina\tChina()]
+Claim: [Peking University is in the world's most populous city.]
+
+Peking University is in the world's most populous city.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Claim"
+}
+
+Context: {
+  "text": [Content]: «Peking University: It also served as the highest administration for education -LRB- ministry of education -RRB- in China at the beginning of its founding .\tChina\tChina»
+[Claim]: «Peking University is in the world's most populous city.»
+
+  }
+
+Content: [Peking University: It also served as the highest administration for education -LRB- ministry of education -RRB- in China at the beginning of its founding .\tChina\tChina()]
+Claim: [Peking University is in the world's most populous city.]
+
+Peking University is in the world's most populous city.

@@ -1,0 +1,43 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+}
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\t
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+}
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\tFantastic Four\tFantastic Four\tsuperhero film\tsuperhero film\tMarvel Comics\tMarvel Comics\tof the same name\tFantastic Four()"
+Claim[0] = "Fantastic Four (2005 film) was the lowest grossing film in 2005."
+
+Content[0] = "Fantastic Four (2005 film): Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name .\t

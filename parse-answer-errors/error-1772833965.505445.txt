@@ -1,0 +1,19 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+The Beach was only directed by John Daly. 
+The Beach (film): The Beach is a 2000 adventure drama film directed by Danny Boyle and based on the 1996 novel of the same name by Alex Garland , which was adapted for the film by John Hodge .\tDanny Boyle\tDanny Boyle\tJohn Hodge\tJohn Hodge (screenwriter)\tThe Beach\tThe Beach (novel)\tAlex Garland\tAlex Garland\tadventure\tadventure film\tdrama\tdrama (genre)\tnovel of the same name\tThe Beach (novel)\tJohn Daly\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+The Beach was only directed by John Daly. 
+The Beach (film): The Beach is a 2000 adventure drama film directed by Danny Boyle and based on the 1996 novel of the same name by Alex Garland , which was adapted for the film by John Hodge .\tDanny Boyle\tDanny Boyle\tJohn Hodge\tJohn Hodge (screenwriter)\tThe Beach\tThe Beach (novel)\tAlex Garland\tAlex Garland\tadventure\tadventure film\tdrama\tdrama (genre)\tnovel of the same name\tThe Beach (novel)\tJohn Daly\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film)\tDanny Boyle\tJohn Daly (director)\tThe Beach (film)\tThe Beach (film)\tDanny Boyle\tThe Beach (film

@@ -1,0 +1,35 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Robert Palmer (writer): He is best known for his books , including Deep Blues ; his music journalism for the New York Times and Rolling Stone magazine ; his work producing blues recordings and the soundtrack of the film Deep Blues ; and his clarinet playing in the 1960s band the Insect Trust .\tNew York\tNew York (state)\tblues\tblues\tDeep Blues\tDeep Blues: A Musical Pilgrimage to the Crossroads\tNew York Times\tThe New York Times\tRolling Stone\tRolling Stone\tsoundtrack\tsoundtrack\tclarinet\tclarinet\tInsect Trust\tThe Insect Trust"
+  ],
+  "claim": "Robert Palmer (writer) has written for the New York Times."
+}
+
+Content: "Robert Palmer (writer): He is best known for his books , including Deep Blues ; his music journalism for the New York Times and Rolling Stone magazine ; his work producing blues recordings and the soundtrack of the film Deep Blues ; and his clarinet playing in the 1960s band the Insect Trust .\tNew York\tNew York (state)\tblues\tblues\tDeep Blues\tDeep Blues: A Musical Pilgrimage to the Crossroads\tNew York Times\tThe New York Times\tRolling Stone\tRolling Stone\tsoundtrack\tsoundtrack\tclarinet\tclarinet\tInsect Trust\tThe Insect Trust"
+
+Robert Palmer (writer) has written for the New York Times.
+
+Content: "Robert Palmer (writer) has written for the New York Times."
+
+Robert Palmer (writer) has written for the New York Times.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Robert Palmer (writer): He is best known for his books , including Deep Blues ; his music journalism for the New York Times and Rolling Stone magazine ; his work producing blues recordings and the soundtrack of the film Deep Blues ; and his clarinet playing in the 1960s band the Insect Trust .\tNew York\tNew York (state)\tblues\tblues\tDeep Blues\tDeep Blues: A Musical Pilgrimage to the Crossroads\tNew York Times\tThe New York Times\tRolling Stone\tRolling Stone\tsoundtrack\tsoundtrack\tclarinet\tclarinet\tInsect Trust\tThe Insect Trust"
+  ],
+  "claim": "Robert Palmer (writer) has written for the New York Times."
+}
+
+Content: "Robert Palmer (writer): He is best known for his books , including Deep Blues ; his music journalism for the New York Times and Rolling Stone magazine ; his work producing blues recordings and the soundtrack of the film Deep Blues ; and his clarinet playing in the 1960s band the Insect Trust .\tNew York\tNew York (state)\tblues\tblues\tDeep Blues\tDeep Blues: A Musical Pilgrimage to the Crossroads\tNew York Times\tThe New York Times\tRolling Stone\tRolling Stone\tsoundtrack\tsoundtrack\tclarinet\tclarinet\tInsect Trust\tThe Insect Trust"
+
+Robert Palmer (writer) has written for the New York Times.
+
+Content: "Robert Palmer (writer) has written for the New York Times."
+
+Robert Palmer (writer) has written for the New York Times.

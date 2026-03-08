@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "John Dolmayan is a gospel drummer."
+}
+
+Content: 
+"John Dolmayan: John Hovig Dolmayan -LRB- \u054b\u0578\u0576 \u0534\u0578\u056c\u0574\u0561\u0575\u0561\u0576 , born July 15 , 1973 -RRB- is a Lebanese-born Armenian -- American songwriter and drummer .\tAmerican\tAmerican Recordings (US]"
+
+John Dolmayan is a gospel drummer.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "John Dolmayan is a gospel drummer."
+}
+
+Content: 
+"John Dolmayan: John Hovig Dolmayan -LRB- \u054b\u0578\u0576 \u0534\u0578\u056c\u0574\u0561\u0575\u0561\u0576 , born July 15 , 1973 -RRB- is a Lebanese-born Armenian -- American songwriter and drummer .\tAmerican\tAmerican Recordings (US]"
+
+John Dolmayan is a gospel drummer.

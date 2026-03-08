@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Angela Bassett: Bassett 's success has continued into the 2010s ."
+  ],
+  "claim": "Angela Bassett is alive."
+}
+
+Content: ["Angela Bassett: Bassett 's success has continued into the 2010s ."]
+Claim: ["Angela Bassett is alive."]
+
+Content contains the evidence relevant to the claim.
+Claim contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Angela Bassett: Bassett 's success has continued into the 2010s ."
+  ],
+  "claim": "Angela Bassett is alive."
+}
+
+Content: ["Angela Bassett: Bassett 's success has continued into the 2010s ."]
+Claim: ["Angela Bassett is alive."]
+
+Content contains the evidence relevant to the claim.
+Claim contains the evidence relevant to the claim.

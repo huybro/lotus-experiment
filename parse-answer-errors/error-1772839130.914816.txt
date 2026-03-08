@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Baz Luhrmann's film Australia stars Nicole Kidman."
+}
+
+Content: Australia (2008 film): Australia is a 2008 Australian-American-British romantic historical adventure drama film directed by Baz Luhrmann and starring Nicole Kidman and Hugh Jackman .	Baz Luhrmann	Baz Luhrmann	Nicole Kidman	Nicole Kidman	Hugh Jackman	Hugh Jackman	romantic	romance film	historical	Historical film_adventure	Adventure film	drama film	drama film	Australia	Australia»
+
+Baz Luhrmann's film Australia stars Nicole Kidman.
+
+Baz Luhrmann's film Australia stars Nicole Kidman.
+
+Baz Luhrmann's film Australia stars Nicole Kidman.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Baz Luhrmann's film Australia stars Nicole Kidman."
+}
+
+Content: Australia (2008 film): Australia is a 2008 Australian-American-British romantic historical adventure drama film directed by Baz Luhrmann and starring Nicole Kidman and Hugh Jackman .	Baz Luhrmann	Baz Luhrmann	Nicole Kidman	Nicole Kidman	Hugh Jackman	Hugh Jackman	romantic	romance film	historical	Historical film_adventure	Adventure film	drama film	drama film	Australia	Australia»
+
+Baz Luhrmann's film Australia stars Nicole Kidman.
+
+Baz Luhrmann's film Australia stars Nicole Kidman.
+
+Baz Luhrmann's film Australia stars Nicole Kidman.

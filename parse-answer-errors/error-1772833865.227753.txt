@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Liam Neeson: Liam John Neeson , OBE , -LRB- born 7 June 1952 -RRB- is an actor from Northern Ireland .\tOBE\tOrder of the British Empire\tNorthern Ireland\tNorthern Ireland"
+  ],
+  "claim": "Liam Neeson bought a British Academy of Film and Television Arts award."
+}
+
+Liam Neeson bought a British Academy of Film and Television Arts award.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Liam Neeson: Liam John Neeson , OBE , -LRB- born 7 June 1952 -RRB- is an actor from Northern Ireland .\tOBE\tOrder of the British Empire\tNorthern Ireland\tNorthern Ireland"
+  ],
+  "claim": "Liam Neeson bought a British Academy of Film and Television Arts award."
+}
+
+Liam Neeson bought a British Academy of Film and Television Arts award.

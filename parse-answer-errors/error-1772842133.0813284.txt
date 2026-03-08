@@ -1,0 +1,127 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim":
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim": "Claim",
+  "verdict": "Verdict"
+}
+
+{
+  "text": [
+    "Highway to Heaven: Highway to Heaven is an American television drama series which ran on NBC from 1984 to 1989 .	NBC	NBC?",
+    "Highway to Heaven ended its initial run in 1989.»
+  ],
+  "claim":

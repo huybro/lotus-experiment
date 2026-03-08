@@ -1,0 +1,153 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions ."
+  ],
+  "claim": "Ingushetia was established in the U.S South Peninsula."
+}
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions ."
+  ],
+  "claim": "Ingushetia was established in the U.S South Peninsula."
+}
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia was established in the U.S South Peninsula.»
+
+}
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Ingushetia: Ingushetia is one of Russia 's poorest and most unstable regions .»
+[Claim]: «Ingushetia

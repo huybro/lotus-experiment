@@ -1,0 +1,141 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+Claim: Claim
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+Claim: Claim
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB-
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+Claim: Claim
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB- , officially the City of Kuching , is the capital and the most populous city in the state of Sarawak in Malaysia .",
+    "City List of cities in Malaysia",
+    "Jawi",
+    "Jawi script",
+    "States and federal territories of Malaysia",
+    "Sarawak",
+    "Sarawak",
+    "Malaysia",
+    "Malaysia"
+  ]
+}
+
+Claim: Claim
+
+{
+  "text": [
+    "Kuching is a city in Singapore."
+  ]
+}
+
+{
+  "text": [
+    "Kuching: Kuching -LSB- ˈkuːtʃɪŋ -RSB- -LRB- Jawi : , -RRB-

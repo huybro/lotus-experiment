@@ -1,0 +1,103 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Carlos Santana is a musician."
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)"]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Carlos Santana is a musician."
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)"]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana (band)" ]
+}
+
+Claim: 
+{
+  "text": [ "Carlos Santana is a musician." ]
+}
+
+Content: 
+{
+  "text": [ "Carlos Santana: Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .\tSantana\tSantana

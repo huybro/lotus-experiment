@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Marnie was directed by Whoopi Goldberg."
+}
+
+Marnie was directed by Whoopi Goldberg.
+
+Marnie was directed by Alfred Hitchcock.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Marnie was directed by Whoopi Goldberg."
+}
+
+Marnie was directed by Whoopi Goldberg.
+
+Marnie was directed by Alfred Hitchcock.

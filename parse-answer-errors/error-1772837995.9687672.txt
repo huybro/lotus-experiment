@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The Endless River, which was released in 2014 is Pink Floyd's final studio album."
+}
+
+Content: "The Endless River: The Endless River is the fifteenth and final studio album by the English rock band Pink Floyd .	Pink Floyd	Pink Floyd	studio album	studio album	rock	Rock music"
+
+The Endless River, which was released in 2014 is Pink Floyd's final studio album.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The Endless River, which was released in 2014 is Pink Floyd's final studio album."
+}
+
+Content: "The Endless River: The Endless River is the fifteenth and final studio album by the English rock band Pink Floyd .	Pink Floyd	Pink Floyd	studio album	studio album	rock	Rock music"
+
+The Endless River, which was released in 2014 is Pink Floyd's final studio album.

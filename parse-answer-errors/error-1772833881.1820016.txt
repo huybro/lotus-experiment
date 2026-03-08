@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Sleipnir: In Norse mythology , Sleipnir -LRB- Old Norse `` slippy '' or `` the slipper '' -RRB- is an eight-legged horse .\tNorse mythology\tNorse mythology\tOld Norse\tOld Norse\thorse\thorse"
+  ],
+  "claim": "Sleipnir appears in Norse mythology."
+}
+
+Content.length > 0 && Content.includes("Sleipnir") && Content.includes("Norse mythology") && Content.includes("Norse mythology") && Content.includes("Old Norse") && Content.includes("Old Norse") && Content.includes("horse") && Content.includes("eight-legged")
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Sleipnir: In Norse mythology , Sleipnir -LRB- Old Norse `` slippy '' or `` the slipper '' -RRB- is an eight-legged horse .\tNorse mythology\tNorse mythology\tOld Norse\tOld Norse\thorse\thorse"
+  ],
+  "claim": "Sleipnir appears in Norse mythology."
+}
+
+Content.length > 0 && Content.includes("Sleipnir") && Content.includes("Norse mythology") && Content.includes("Norse mythology") && Content.includes("Old Norse") && Content.includes("Old Norse") && Content.includes("horse") && Content.includes("eight-legged")

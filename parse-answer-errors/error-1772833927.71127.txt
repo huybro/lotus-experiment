@@ -1,0 +1,65 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Paris (Paris Hilton album) incorporates elements of a musical genre."
+}
+
+Content: 
+"Paris (Paris Hilton album): Musically , Paris is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music"
+
+ Paris (Paris Hilton album) incorporates elements of a musical genre.
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Paris (Paris Hilton album) incorporates elements of a musical genre."
+}
+
+Content: 
+"Paris (Paris Hilton album): Musically , Paris is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music"
+
+ Paris (Paris Hilton album) incorporates elements of a musical genre.
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that is influenced by hip hop .\tR&B\tContemporary R&B\thip hop\tHip hop music\tpop\tpop music
+
+ Paris (Paris Hilton album) is a pop and R&B album that

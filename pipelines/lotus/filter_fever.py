@@ -19,6 +19,10 @@ project = 'lotus'
 # ── LOTUS ──
 state.rewrite_mode = False
 state.captured.clear()
+
+joined_df['claim'] = "[Claim] " + joined_df['claim']
+joined_df['content'] = "[Evidence] " + joined_df['content']
+
 t0 = time.time()
 df_f = joined_df.copy().sem_filter(FILTER_RELEVANCE)
 lotus_time = time.time() - t0
@@ -35,6 +39,5 @@ for i in range(len(joined_df)):
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_input": lm["input"], "lotus_output": lm["output"],
     })
-write_csv(f"logs/{project}filter_fever.csv", rows)
-print(f"  Saved logs/filter_fever.csv")
+write_csv(f"logs/{project}_filter_fever.csv", rows)
 

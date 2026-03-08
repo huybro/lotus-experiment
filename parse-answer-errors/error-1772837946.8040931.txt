@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Reign Over Me: Distributed by Columbia Pictures , the film was released on March 23 , 2007 .	Columbia Pictures	Columbia Pictures"
+  ],
+  "claim": [
+    "Reign Over Me was released in 2017."
+  ]
+}
+
+Reign Over Me: Distributed by Columbia Pictures , the film was released on March 23 , 2007 .	Columbia Pictures	Columbia Pictures
+
+Reign Over Me was released in 2017.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Reign Over Me: Distributed by Columbia Pictures , the film was released on March 23 , 2007 .	Columbia Pictures	Columbia Pictures"
+  ],
+  "claim": [
+    "Reign Over Me was released in 2017."
+  ]
+}
+
+Reign Over Me: Distributed by Columbia Pictures , the film was released on March 23 , 2007 .	Columbia Pictures	Columbia Pictures
+
+Reign Over Me was released in 2017.

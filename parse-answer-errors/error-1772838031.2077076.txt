@@ -1,0 +1,19 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Penibaetic System: The Penibaetic System -LRB- Sistema Penibético or Cordillera Penibética -RRB- is the southernmost of the three systems of mountain ranges of the Baetic System in the southern Iberian Peninsula .",
+    "The Penibaetic System the the uppermost of the three school system in the Iberian Peninsula."
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Penibaetic System: The Penibaetic System -LRB- Sistema Penibético or Cordillera Penibética -RRB- is the southernmost of the three systems of mountain ranges of the Baetic System in the southern Iberian Peninsula .",
+    "The Penibaetic System the the uppermost of the three school system in the Iberian Peninsula."
+  ]
+}

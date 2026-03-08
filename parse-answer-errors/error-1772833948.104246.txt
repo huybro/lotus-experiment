@@ -1,0 +1,81 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Sam Claflin is in The Hunger Games film series as Finnick Odair."
+}
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Sam Claflin is in The Hunger Games film series as Finnick Odair."
+}
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is known for portraying Finnick Odair in the The Hunger Games film series , Philip Swift in Pirates of the Caribbean : On Stranger Tides , and Will Traynor in Me Before You .\tFinnick Odair\tFinnick Odair\tMe Before You\tMe Before You (film)"]
+
+Claim: 
+"Sam Claflin is in The Hunger Games film series as Finnick Odair."
+
+Content: 
+["Sam Claflin: He is

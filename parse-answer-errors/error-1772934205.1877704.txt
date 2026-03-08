@@ -1,0 +1,35 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+```python
+def filter_context(context, claim, evidence):
+    return context["text"][0] == claim and context["text"][1] == evidence
+
+context = {
+    "text": ["Claim"] + ["Damon Albarn's debut album was released in 2011.[Evidence] Damon Albarn: His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno , Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley .	XL	XL Recordings	Everyday Robots	Everyday Robots	XL Recordings	XL Recordings	Richard Russell	Richard Russell (XL Recordings)	Brian Eno	Brian Eno	Natasha Khan	Bat for Lashes	Lord Buckley	Lord Buckley"]
+}
+
+claim = "Damon Albarn's debut album was released in 2011."
+evidence = "Damon Albarn: His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno , Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley ."
+
+result = filter_context(context, claim, evidence)
+print(result)
+```
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: ```python
+def filter_context(context, claim, evidence):
+    return context["text"][0] == claim and context["text"][1] == evidence
+
+context = {
+    "text": ["Claim"] + ["Damon Albarn's debut album was released in 2011.[Evidence] Damon Albarn: His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno , Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley .	XL	XL Recordings	Everyday Robots	Everyday Robots	XL Recordings	XL Recordings	Richard Russell	Richard Russell (XL Recordings)	Brian Eno	Brian Eno	Natasha Khan	Bat for Lashes	Lord Buckley	Lord Buckley"]
+}
+
+claim = "Damon Albarn's debut album was released in 2011."
+evidence = "Damon Albarn: His debut solo studio album Everyday Robots -- co-produced by XL Recordings CEO Richard Russell -- was released on 28 April 2014 and featured collaborations with Brian Eno , Natasha Khan and the Leytonstone City Pentecostal Mission Church Choir as well as sampling several rants by Lord Buckley ."
+
+result = filter_context(context, claim, evidence)
+print(result)
+```

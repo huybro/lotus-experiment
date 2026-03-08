@@ -1,0 +1,41 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized as easy A -RRB- is a 2010 American teen comedy film directed by Will Gluck , written by Bert V. Royal and starring Emma Stone , Stanley Tucci , Patricia Clarkson , Thomas Haden Church , Dan Byrd , Amanda Bynes , Penn Badgley , Cam Gigandet , Lisa Kudrow and Aly Michalka .\tWill Gluck\tWill Gluck\tBert V. Royal\tBert V. Royal\tEmma Stone\tEmma Stone\tPenn Badgley\tPenn Badgley\tAmanda Bynes\tAmanda Bynes\tDan Byrd\tDan Byrd\tThomas Haden Church\tThomas Haden Church\tPatricia Clarkson\tPatricia Clarkson\tCam Gigandet\tCam Gigandet\tLisa Kudrow\tLisa Kudrow\tAly Michalka\tAly Michalka\tStanley Tucci\tStanley Tucci\tteen\tTeen film\tcomedy film\tcomedy film»]
+}
+
+Claim: «Easy A is a film released in 2010.»
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized as easy A -RRB- is a 2010 American teen comedy film directed by Will Gluck , written by Bert V. Royal and starring Emma Stone , Stanley Tucci , Patricia Clarkson , Thomas Haden Church , Dan Byrd , Amanda Bynes , Penn Badgley , Cam Gigandet , Lisa Kudrow and Aly Michalka .\tWill Gluck\tWill Gluck\tBert V. Royal\tBert V. Royal\tEmma Stone\tEmma Stone\tPenn Badgley\tPenn Badgley\tAmanda Bynes\tAmanda Bynes\tDan Byrd\tDan Byrd\tThomas Haden Church\tThomas Haden Church\tPatricia Clarkson\tPatricia Clarkson\tCam Gigandet\tCam Gigandet\tLisa Kudrow\tLisa Kudrow\tAly Michalka\tAly Michalka\tStanley Tucci\tStanley Tucci\tteen\tTeen film\tcomedy film\tcomedy film»»
+
+Claim: «Easy A is a film released in 2010.»
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized as easy A -RRB- is a 2010 American teen comedy film directed by Will Gluck , written by Bert V. Royal and starring Emma Stone , Stanley Tucci , Patricia Clarkson , Thomas Haden Church , Dan Byrd , Amanda Bynes , Penn Badgley , Cam Gigandet , Lisa Kudrow and Aly Michalka .\tWill Gluck\tWill Gluck\tBert V. Royal\tBert V. Royal\tEmma Stone\tEmma Stone\tPenn Badgley\tPenn Badgley\tAmanda Bynes\tAmanda Bynes\tDan Byrd\tDan Byrd\tThomas Haden Church\tThomas Haden Church\tPatricia Clarkson\tPatricia Clarkson\tCam Gigandet\tCam Gigandet\tLisa Kudrow\tLisa Kudrow\tAly Michalka\tAly Michalka\tStanley Tucci\tStanley Tucci\tteen\tTeen film\tcomedy film\tcomedy film»]
+}
+
+Claim: «Easy A is a film released in 2010.»
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized as easy A -RRB- is a 2010 American teen comedy film directed by Will Gluck , written by Bert V. Royal and starring Emma Stone , Stanley Tucci , Patricia Clarkson , Thomas Haden Church , Dan Byrd , Amanda Bynes , Penn Badgley , Cam Gigandet , Lisa Kudrow and Aly Michalka .\tWill Gluck\tWill Gluck\tBert V. Royal\tBert V. Royal\tEmma Stone\tEmma Stone\tPenn Badgley\tPenn Badgley\tAmanda Bynes\tAmanda Bynes\tDan Byrd\tDan Byrd\tThomas Haden Church\tThomas Haden Church\tPatricia Clarkson\tPatricia Clarkson\tCam Gigandet\tCam Gigandet\tLisa Kudrow\tLisa Kudrow\tAly Michalka\tAly Michalka\tStanley Tucci\tStanley Tucci\tteen\tTeen film\tcomedy film\tcomedy film»»
+
+Claim: «Easy A is a film released in 2010.»
+
+Context: {
+  "text": [Content]: «Easy A: Easy A -LRB- stylized

@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Roar (song): `` Roar '' is a song by American singer Katy Perry for her fourth studio album , Prism -LRB- 2013 -RRB- .",
+    "Katy Perry	Katy Perry	Prism	Prism (Katy Perry album)	studio album	studio album?"
+  ],
+  "claim": "Roar (song) is on the Katy Perry album Prism."
+}
+
+Content
+Roar (song): `` Roar '' is a song by American singer Katy Perry for her fourth studio album , Prism -LRB- 2013 -RRB- .
+Katy Perry	Katy Perry	Prism	Prism (Katy Perry album)	studio album	studio album?
+Roar (song) is on the Katy Perry album Prism.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Roar (song): `` Roar '' is a song by American singer Katy Perry for her fourth studio album , Prism -LRB- 2013 -RRB- .",
+    "Katy Perry	Katy Perry	Prism	Prism (Katy Perry album)	studio album	studio album?"
+  ],
+  "claim": "Roar (song) is on the Katy Perry album Prism."
+}
+
+Content
+Roar (song): `` Roar '' is a song by American singer Katy Perry for her fourth studio album , Prism -LRB- 2013 -RRB- .
+Katy Perry	Katy Perry	Prism	Prism (Katy Perry album)	studio album	studio album?
+Roar (song) is on the Katy Perry album Prism.

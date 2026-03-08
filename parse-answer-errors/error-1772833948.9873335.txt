@@ -1,0 +1,131 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Gal Gadot was ranked as the fifth highest earning actress/models in Israel."
+}
+
+Content[0] = "Gal Gadot: In 2013 she was ranked as the second highest earning actress/models in Israel , behind Bar Refaeli , but ahead of Esti Ginzburg and Shlomit Malka , with the majority of her income coming from acting .\tIsrael\tIsrael\tBar Refaeli\tBar Refaeli\tEsti Ginzburg\tEsti Ginzburg\tShlomit Malka\tShlomit Malka"""
+
+Content[0] = "Gal Gadot: In 2013 she was ranked as the second highest earning actress/models in Israel , behind Bar Refaeli , but ahead of Esti Ginzburg and Shlomit Malka , with the majority of her income coming from acting .\tIsrael\tIsrael\tBar Refaeli\tBar Refaeli\tEsti Ginzburg\tEsti Ginzburg\tShlomit Malka\tShlomit Malka"
+
+Gal Gadot[0] = "Gal Gadot"
+
+Gal Gadot[1] = "fifth"
+
+Gal Gadot[2] = "highest"
+
+Gal Gadot[3] = "earning"
+
+Gal Gadot[4] = "actress/models"
+
+Gal Gadot[5] = "in"
+
+Gal Gadot[6] = "Israel"
+
+Gal Gadot[7] = "claim"
+
+Gal Gadot[8] = "was"
+
+Gal Gadot[9] = "ranked"
+
+Gal Gadot[10] = "as"
+
+Gal Gadot[11] = "the"
+
+Gal Gadot[12] = "fifth"
+
+Gal Gadot[13] = "highest"
+
+Gal Gadot[14] = "earning"
+
+Gal Gadot[15] = "actress/models"
+
+Gal Gadot[16] = "in"
+
+Gal Gadot[17] = "Israel"
+
+Gal Gadot[18] = "behind"
+
+Gal Gadot[19] = "Bar Refaeli"
+
+Gal Gadot[20] = "but"
+
+Gal Gadot[21] = "ahead"
+
+Gal Gadot[22] = "of"
+
+Gal Gadot[23] = "Esti Ginzburg"
+
+Gal Gadot[24] = "and"
+
+Gal Gadot[25] = "Shlomit Malka"
+
+Gal Gadot[26]
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Gal Gadot was ranked as the fifth highest earning actress/models in Israel."
+}
+
+Content[0] = "Gal Gadot: In 2013 she was ranked as the second highest earning actress/models in Israel , behind Bar Refaeli , but ahead of Esti Ginzburg and Shlomit Malka , with the majority of her income coming from acting .\tIsrael\tIsrael\tBar Refaeli\tBar Refaeli\tEsti Ginzburg\tEsti Ginzburg\tShlomit Malka\tShlomit Malka"""
+
+Content[0] = "Gal Gadot: In 2013 she was ranked as the second highest earning actress/models in Israel , behind Bar Refaeli , but ahead of Esti Ginzburg and Shlomit Malka , with the majority of her income coming from acting .\tIsrael\tIsrael\tBar Refaeli\tBar Refaeli\tEsti Ginzburg\tEsti Ginzburg\tShlomit Malka\tShlomit Malka"
+
+Gal Gadot[0] = "Gal Gadot"
+
+Gal Gadot[1] = "fifth"
+
+Gal Gadot[2] = "highest"
+
+Gal Gadot[3] = "earning"
+
+Gal Gadot[4] = "actress/models"
+
+Gal Gadot[5] = "in"
+
+Gal Gadot[6] = "Israel"
+
+Gal Gadot[7] = "claim"
+
+Gal Gadot[8] = "was"
+
+Gal Gadot[9] = "ranked"
+
+Gal Gadot[10] = "as"
+
+Gal Gadot[11] = "the"
+
+Gal Gadot[12] = "fifth"
+
+Gal Gadot[13] = "highest"
+
+Gal Gadot[14] = "earning"
+
+Gal Gadot[15] = "actress/models"
+
+Gal Gadot[16] = "in"
+
+Gal Gadot[17] = "Israel"
+
+Gal Gadot[18] = "behind"
+
+Gal Gadot[19] = "Bar Refaeli"
+
+Gal Gadot[20] = "but"
+
+Gal Gadot[21] = "ahead"
+
+Gal Gadot[22] = "of"
+
+Gal Gadot[23] = "Esti Ginzburg"
+
+Gal Gadot[24] = "and"
+
+Gal Gadot[25] = "Shlomit Malka"
+
+Gal Gadot[26]

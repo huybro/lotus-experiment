@@ -1,0 +1,27 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Brad Wilk: He is best known as the drummer of the rock bands Rage Against the Machine -LRB- 1991 -- 2000 ; 2007 -- 11 -RRB- and Audioslave -LRB- 2001 -- 07 -RRB- .",
+    "Brad Wilk died before helping to co-found Rage."
+  ],
+  "claim": "Brad Wilk died before helping to co-found Rage."
+}
+
+Content: 
+ Brad Wilk died before helping to co-found Rage.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Brad Wilk: He is best known as the drummer of the rock bands Rage Against the Machine -LRB- 1991 -- 2000 ; 2007 -- 11 -RRB- and Audioslave -LRB- 2001 -- 07 -RRB- .",
+    "Brad Wilk died before helping to co-found Rage."
+  ],
+  "claim": "Brad Wilk died before helping to co-found Rage."
+}
+
+Content: 
+ Brad Wilk died before helping to co-found Rage.

@@ -1,0 +1,27 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Advertising: It is differentiated from personal selling in that the message is nonpersonal , i.e. , not directed to a particular individual ."
+  ],
+  "claim": [
+    "Advertising is a personal message."
+  ]
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Advertising: It is differentiated from personal selling in that the message is nonpersonal , i.e. , not directed to a particular individual ."
+  ],
+  "claim": [
+    "Advertising is a personal message."
+  ]
+}
+
+Content contains the evidence relevant to the claim.

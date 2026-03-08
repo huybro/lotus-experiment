@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Homer Hickam: Hickam has also written a number of best-selling memoirs and novels including the `` Josh Thurlow '' historical fiction novels ."
+  ],
+  "claim": "Homer Hickman was incapable of writing anything for the Josh Thurlow novels."
+}
+
+Content.length > 0 && Content.text.includes("Homer Hickam")
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Homer Hickam: Hickam has also written a number of best-selling memoirs and novels including the `` Josh Thurlow '' historical fiction novels ."
+  ],
+  "claim": "Homer Hickman was incapable of writing anything for the Josh Thurlow novels."
+}
+
+Content.length > 0 && Content.text.includes("Homer Hickam")

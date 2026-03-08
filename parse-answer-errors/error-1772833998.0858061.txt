@@ -1,0 +1,249 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Julianne Moore won a Daytime Emmy for Best Actress."
+}
+
+Content: 
+[
+  "Julianne Moore: From 1985 to 1988 , she was a regular in the soap opera As the World Turns , earning a Daytime Emmy for her performance .\tsoap opera\tsoap opera\tAs the World Turns\tAs the World Turns\tDaytime Emmy\tDaytime Emmy"
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Julianne Moore won a Daytime Emmy for Best Actress."
+}
+
+Content: 
+[
+  "Julianne Moore: From 1985 to 1988 , she was a regular in the soap opera As the World Turns , earning a Daytime Emmy for her performance .\tsoap opera\tsoap opera\tAs the World Turns\tAs the World Turns\tDaytime Emmy\tDaytime Emmy"
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Claim: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+Content: 
+[
+  "Julianne Moore won a Daytime Emmy for Best Actress."
+]
+
+

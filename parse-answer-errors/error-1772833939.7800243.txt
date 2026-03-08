@@ -1,0 +1,81 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Dreamer (2005 film) is a Canadian 2005 film."
+}
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gat
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Dreamer (2005 film) is a Canadian 2005 film."
+}
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut .\tJohn Gatins\tJohn Gatins\tsports\tsports film\tdrama film\tdrama film\tdirectorial debut\tList of directorial debuts"
+
+Claim: 
+"Dreamer (2005 film) is a Canadian 2005 film."
+
+Content: 
+"Dreamer (2005 film): Dreamer is a 2005 American sports drama film written and directed by John Gat

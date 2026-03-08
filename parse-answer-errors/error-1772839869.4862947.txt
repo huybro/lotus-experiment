@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "James VI and I opposed the British colonization of the Americas."
+}
+
+Content
+James VI and I: In his reign , the Plantation of Ulster and British colonization of the Americas began .	Plantation of Ulster	Plantation of Ulster	British colonization of the Americas	British colonization of the Americas
+James VI and I opposed the British colonization of the Americas.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "James VI and I opposed the British colonization of the Americas."
+}
+
+Content
+James VI and I: In his reign , the Plantation of Ulster and British colonization of the Americas began .	Plantation of Ulster	Plantation of Ulster	British colonization of the Americas	British colonization of the Americas
+James VI and I opposed the British colonization of the Americas.

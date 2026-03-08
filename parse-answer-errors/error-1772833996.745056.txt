@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Peking University: Peking University -LRB- abbreviated PKU and colloquially known in Chinese as Beijing University -RRB- , is a major Chinese research university located in Beijing and a member of the C9 League .\tBeijing\tBeijing\tC9\tC9 League\tChinese\tChinese language\tpinyin\tpinyin\tresearch university\tresearch university\tC9 League\tC9 League"
+  ],
+  "claim": "Peking University is in Thailand."
+}
+
+Peking University is in Thailand.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Peking University: Peking University -LRB- abbreviated PKU and colloquially known in Chinese as Beijing University -RRB- , is a major Chinese research university located in Beijing and a member of the C9 League .\tBeijing\tBeijing\tC9\tC9 League\tChinese\tChinese language\tpinyin\tpinyin\tresearch university\tresearch university\tC9 League\tC9 League"
+  ],
+  "claim": "Peking University is in Thailand."
+}
+
+Peking University is in Thailand.

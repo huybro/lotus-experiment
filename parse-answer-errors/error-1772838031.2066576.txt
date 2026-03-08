@@ -1,0 +1,65 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Tilda Swinton is a film actress."
+}
+
+Content: 
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Claim: Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Claim: Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Tilda Swinton is a film actress."
+}
+
+Content: 
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Claim: Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Claim: Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance artist , model , and fashion muse , known for her roles in independent and Hollywood films .	performance artist	independent	independent film	Hollywood films	Hollywood»
+
+Tilda Swinton is a film actress.
+
+Tilda Swinton: Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress , performance

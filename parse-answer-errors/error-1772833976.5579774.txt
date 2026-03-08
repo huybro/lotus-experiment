@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Recovery features Rihanna."
+}
+
+Content: "Love the Way You Lie: `` Love the Way You Lie '' is a song recorded by the American rapper Eminem , featuring the Barbadian singer Rihanna , from Eminem 's seventh studio album Recovery -LRB- 2010 -RRB- .\tRecovery\tRecovery (Eminem album)\tEminem\tEminem\tRihanna\tRihanna"
+
+Recovery features Rihanna.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Recovery features Rihanna."
+}
+
+Content: "Love the Way You Lie: `` Love the Way You Lie '' is a song recorded by the American rapper Eminem , featuring the Barbadian singer Rihanna , from Eminem 's seventh studio album Recovery -LRB- 2010 -RRB- .\tRecovery\tRecovery (Eminem album)\tEminem\tEminem\tRihanna\tRihanna"
+
+Recovery features Rihanna.

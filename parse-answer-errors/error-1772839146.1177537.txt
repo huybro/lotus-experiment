@@ -1,0 +1,31 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Jeong Hyeong-don has worked under FNC Entertainment for 8 years."
+}
+
+Content: "Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian	comedian(entertainer(entertainer])"
+
+Claim: "Jeong Hyeong-don has worked under FNC Entertainment for 8 years."
+
+Content: "Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian/comedian(entertainer(entertainer])"
+
+Jeong Hyeong-don has worked under FNC Entertainment for 8 years.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Jeong Hyeong-don has worked under FNC Entertainment for 8 years."
+}
+
+Content: "Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian	comedian(entertainer(entertainer])"
+
+Claim: "Jeong Hyeong-don has worked under FNC Entertainment for 8 years."
+
+Content: "Jeong Hyeong-don: Jeong Hyeong-don -LRB- born February 7 , 1978 -RRB- is a South Korean comedian and entertainer under FNC Entertainment .	FNC Entertainment	FNC Entertainment	Entertainment	Entertainment	comedian/comedian(entertainer(entertainer])"
+
+Jeong Hyeong-don has worked under FNC Entertainment for 8 years.

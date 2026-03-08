@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Bea Arthur was solely German."
+}
+
+Content: 
+[
+  "Bea Arthur: -LRB- 1966 -RRB- .»
+]
+
+Bea Arthur: -LRB- 1966 -RRB- .»
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Bea Arthur was solely German."
+}
+
+Content: 
+[
+  "Bea Arthur: -LRB- 1966 -RRB- .»
+]
+
+Bea Arthur: -LRB- 1966 -RRB- .»

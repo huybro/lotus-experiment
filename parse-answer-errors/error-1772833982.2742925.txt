@@ -1,0 +1,21 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Richard Linklater's cousin plays Mason's sister."
+}
+
+Content: Boyhood (film): Richard Linklater 's daughter Lorelei plays Mason 's sister , Samantha .\tRichard Linklater\tRichard Linklater'
+Claim: Richard Linklater's cousin plays Mason's sister.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Richard Linklater's cousin plays Mason's sister."
+}
+
+Content: Boyhood (film): Richard Linklater 's daughter Lorelei plays Mason 's sister , Samantha .\tRichard Linklater\tRichard Linklater'
+Claim: Richard Linklater's cousin plays Mason's sister.

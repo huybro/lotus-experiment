@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Monk: A monk -LRB- -LSB- mʌŋk -RSB- , from μοναχός , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks .	Latin	Latin	asceticism	asceticism	monastic 	monastic"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Monk: A monk -LRB- -LSB- mʌŋk -RSB- , from μοναχός , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks .	Latin	Latin	asceticism	asceticism	monastic 	monastic"
+  ]
+}

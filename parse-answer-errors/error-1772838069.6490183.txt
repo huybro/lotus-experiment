@@ -1,0 +1,49 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Foster	comedy-dramacomedy-dramafilmfilmdirect?",
+    "Home for the Holidays stars someone who died on June 4."
+  ]
+}
+
+{
+  "text": [
+    "Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?",
+    "Home for the Holidays stars someone who died on June 4."
+  ]
+}
+
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Foster	comedy-dramacomedy-dramafilmfilmdirect?",
+    "Home for the Holidays stars someone who died on June 4."
+  ]
+}
+
+{
+  "text": [
+    "Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?",
+    "Home for the Holidays stars someone who died on June 4."
+  ]
+}
+
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama film directed by Jodie Foster and produced by Peggy Rajski and Foster .	Jodie Foster	Jodie Fostercomedy-dramacomedy-dramafilmfilmdirect?"
+"Home for the Holidays (1995 film): Home for the Holidays is a 1995 comedy-drama

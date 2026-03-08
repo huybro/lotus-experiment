@@ -1,0 +1,33 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "X-Men-COLON- Apocalypse: The film was announced by Singer in December 2013 , with Kinberg , Dougherty , and Harris attached to develop the story ."
+  ],
+  "claim": "X-Men: Apocalypse's story was developed by Kinberg, Dougherty, and Harris."
+}
+
+Content
+
+Claim
+X-Men: Apocalypse's story was developed by Kinberg, Dougherty, and Harris.
+
+X-Men-COLON- Apocalypse: The film was announced by Singer in December 2013 , with Kinberg , Dougherty , and Harris attached to develop the story .
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "X-Men-COLON- Apocalypse: The film was announced by Singer in December 2013 , with Kinberg , Dougherty , and Harris attached to develop the story ."
+  ],
+  "claim": "X-Men: Apocalypse's story was developed by Kinberg, Dougherty, and Harris."
+}
+
+Content
+
+Claim
+X-Men: Apocalypse's story was developed by Kinberg, Dougherty, and Harris.
+
+X-Men-COLON- Apocalypse: The film was announced by Singer in December 2013 , with Kinberg , Dougherty , and Harris attached to develop the story .

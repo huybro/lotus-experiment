@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Guillermo del Toro: In his filmmaking career , del Toro has alternated between Spanish-language dark fantasy pieces , such as the gothic horror film The Devil 's Backbone -LRB- 2001 -RRB- , and Pan 's Labyrinth -LRB- 2006 -RRB- , and more mainstream American action movies , such as the vampire superhero action film Blade II -LRB- 2002 -RRB- , the supernatural superhero film Hellboy -LRB- 2004 -RRB- , its sequel Hellboy II : The Golden Army -LRB- 2008 -RRB- , and the science fiction monster film Pacific Rim -LRB- 2013 -RRB- ..del Toro	Del Toro (surname)	dark fantasy	dark fantasy	Blade II	Blade II	Hellboy	Hellboy (film)	Pacific Rim	Pacific Rim (film)	horror	horror fiction	monster	monster"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Guillermo del Toro: In his filmmaking career , del Toro has alternated between Spanish-language dark fantasy pieces , such as the gothic horror film The Devil 's Backbone -LRB- 2001 -RRB- , and Pan 's Labyrinth -LRB- 2006 -RRB- , and more mainstream American action movies , such as the vampire superhero action film Blade II -LRB- 2002 -RRB- , the supernatural superhero film Hellboy -LRB- 2004 -RRB- , its sequel Hellboy II : The Golden Army -LRB- 2008 -RRB- , and the science fiction monster film Pacific Rim -LRB- 2013 -RRB- ..del Toro	Del Toro (surname)	dark fantasy	dark fantasy	Blade II	Blade II	Hellboy	Hellboy (film)	Pacific Rim	Pacific Rim (film)	horror	horror fiction	monster	monster"
+  ]
+}

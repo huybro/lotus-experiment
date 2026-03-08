@@ -1,0 +1,19 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Bolivia: After the first call for independence in 1809 , 16 years of war followed before the establishment of the Republic , named for Simón Bolívar , on 6 August 1825 .	Simón Bolívar	Simón Bolívar"
+  ],
+  "claim": "Simón Bolívar was born in 1783."
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Bolivia: After the first call for independence in 1809 , 16 years of war followed before the establishment of the Republic , named for Simón Bolívar , on 6 August 1825 .	Simón Bolívar	Simón Bolívar"
+  ],
+  "claim": "Simón Bolívar was born in 1783."
+}

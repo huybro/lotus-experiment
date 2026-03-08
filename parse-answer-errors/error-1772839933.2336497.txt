@@ -1,0 +1,165 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Paramore: , was released in 2007 .",
+    "Mel B released a song on Virgin Records in 2007."
+  ],
+  "claim": "Mel B released a song on Virgin Records in 2007."
+}
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Paramore: , was released in 2007 .",
+    "Mel B released a song on Virgin Records in 2007."
+  ],
+  "claim": "Mel B released a song on Virgin Records in 2007."
+}
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim: Claim
+
+Context: {
+  "text": [Content]: «Paramore: , was released in 2007 .»[Claim]: «Mel B released a song on Virgin Records in 2007.»
+
+  }
+
+Evidence: Content
+Claim

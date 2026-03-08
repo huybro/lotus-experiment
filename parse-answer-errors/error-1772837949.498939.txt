@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The United Nations Charter was drafted in June of 1945."
+}
+
+Content: "United Nations Charter: The Charter of the United Nations -LRB- also known as the UN Charter -RRB- of 1945 is the foundational treaty of the United Nations , an intergovernmental organization .	treaty	treaty	United Nations	United Nations	intergovernmental organization	intergovernmental organization	the	France"
+
+The text contains the phrase "The United Nations Charter was drafted in June of 1945." which is relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The United Nations Charter was drafted in June of 1945."
+}
+
+Content: "United Nations Charter: The Charter of the United Nations -LRB- also known as the UN Charter -RRB- of 1945 is the foundational treaty of the United Nations , an intergovernmental organization .	treaty	treaty	United Nations	United Nations	intergovernmental organization	intergovernmental organization	the	France"
+
+The text contains the phrase "The United Nations Charter was drafted in June of 1945." which is relevant to the claim.

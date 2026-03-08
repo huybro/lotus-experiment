@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": "Charles Manson has been proven innocent of all crimes.Charles Manson: After Manson was charged with the crimes of which he was later convicted , recordings of songs written and performed by him were released commercially .",
+  "claim": "Charles Manson has been proven innocent of all crimes.",
+  "evidence": "Charles Manson: After Manson was charged with the crimes of which he was later convicted , recordings of songs written and performed by him were released commercially ."
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": "Charles Manson has been proven innocent of all crimes.Charles Manson: After Manson was charged with the crimes of which he was later convicted , recordings of songs written and performed by him were released commercially .",
+  "claim": "Charles Manson has been proven innocent of all crimes.",
+  "evidence": "Charles Manson: After Manson was charged with the crimes of which he was later convicted , recordings of songs written and performed by him were released commercially ."
+}

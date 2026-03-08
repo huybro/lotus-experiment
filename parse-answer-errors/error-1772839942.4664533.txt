@@ -1,0 +1,51 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Syracuse, New York, had a college student population of more than 600,000 in 2010."
+}
+
+Context: {
+  "text": [Content]: «Syracuse, New York: At the 2010 census , the city population was 145,170 , and its metropolitan area had a population of 662,577 .	city	City (New York)	2010 census	United States Census 2010	metropolitan area	Syracuse metropolitan area»
+[Claim]: «Syracuse, New York, had a college student population of more than 600,000 in 2010.»
+
+Content: Syracuse, New York
+
+Claim: Syracuse, New York, had a college student population of more than 600,000 in 2010.
+
+Context: {
+  "text": [Content]: «Syracuse, New York: At the 2010 census , the city population was 145,170 , and its metropolitan area had a population of 662,577 .	city	City (New York)	2010 census	United States Census 2010	metropolitan area	Syracuse metropolitan area»
+[Claim]: «Syracuse, New York, had a college student population of more than 600,000 in 2010.»
+
+Content: Syracuse, New York
+
+Claim: Syracuse, New York, had a college student population of more than 600,000 in 2010.
+
+Syracuse, New York, had a college student population of more than 600,000 in 2010.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Syracuse, New York, had a college student population of more than 600,000 in 2010."
+}
+
+Context: {
+  "text": [Content]: «Syracuse, New York: At the 2010 census , the city population was 145,170 , and its metropolitan area had a population of 662,577 .	city	City (New York)	2010 census	United States Census 2010	metropolitan area	Syracuse metropolitan area»
+[Claim]: «Syracuse, New York, had a college student population of more than 600,000 in 2010.»
+
+Content: Syracuse, New York
+
+Claim: Syracuse, New York, had a college student population of more than 600,000 in 2010.
+
+Context: {
+  "text": [Content]: «Syracuse, New York: At the 2010 census , the city population was 145,170 , and its metropolitan area had a population of 662,577 .	city	City (New York)	2010 census	United States Census 2010	metropolitan area	Syracuse metropolitan area»
+[Claim]: «Syracuse, New York, had a college student population of more than 600,000 in 2010.»
+
+Content: Syracuse, New York
+
+Claim: Syracuse, New York, had a college student population of more than 600,000 in 2010.
+
+Syracuse, New York, had a college student population of more than 600,000 in 2010.

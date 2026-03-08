@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The Hurt Locker is an American film from 2008."
+}
+
+Content: "The Hurt Locker: The Hurt Locker is a 2008 American war thriller film about an Iraq War Explosive Ordnance Disposal team who are being targeted by insurgents with booby traps , remote control detonations and ambushes .war	war film	thriller film	thriller film	Iraq War	Iraq War	Explosive Ordnance Disposal	Bomb disposal"
+
+The Hurt Locker is an American film from 2008.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The Hurt Locker is an American film from 2008."
+}
+
+Content: "The Hurt Locker: The Hurt Locker is a 2008 American war thriller film about an Iraq War Explosive Ordnance Disposal team who are being targeted by insurgents with booby traps , remote control detonations and ambushes .war	war film	thriller film	thriller film	Iraq War	Iraq War	Explosive Ordnance Disposal	Bomb disposal"
+
+The Hurt Locker is an American film from 2008.

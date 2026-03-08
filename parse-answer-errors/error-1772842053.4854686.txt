@@ -1,0 +1,59 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "French Indochina: French Indochina -LRB- previously spelled as French Indo-China -RRB- -LRB- Indochine française សហភ ពឥណ ឌ ច ន Đông Dương thuộc Pháp , -LSB- ɗə̄wŋm jɨ̄əŋ tʰûək fǎp -RSB- , frequently abbreviated to Đông Pháp ; ຝຣັ່ງແຫຼັມອິນດູຈີນ Cantonese : -RRB- , officially known as the Indochinese Union -LRB- Union indochinoise -RRB- after 1887 and the Indochinese Federation -LRB- Fédération indochinoise -RRB- after 1947 , was a grouping of French colonial territories in Southeast Asia .",
+    "French",
+    "Indochina",
+    "a",
+    "grouping",
+    "of",
+    "one",
+    "French",
+    "colonial",
+    "territory"
+  ]
+}
+
+{
+  "text": [
+    "French Indochina: French Indochina -LRB- previously spelled as French Indo-China -RRB- -LRB- Indochine française សហភ ពឥណ ឌ ច ន Đông Dương thuộc Pháp , -LSB- ɗə̄wŋm jɨ̄əŋ tʰûək fǎp -RSB- , frequently abbreviated to Đông Pháp ; ຝຣັ່ງແຫຼັມອິນດູຈີນ Cantonese : -RRB- , officially known as the Indochinese Union -LRB- Union indochinoise -RRB- after 1887 and the Indochinese Federation -LRB- Fédération indochinoise -RRB- after 1947 , was a grouping of French colonial territories in Southeast Asia .",
+    "French",
+    "Indochina",
+    "a",
+    "grouping",
+    "of",
+    "one",
+    "French",
+    "colon
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "French Indochina: French Indochina -LRB- previously spelled as French Indo-China -RRB- -LRB- Indochine française សហភ ពឥណ ឌ ច ន Đông Dương thuộc Pháp , -LSB- ɗə̄wŋm jɨ̄əŋ tʰûək fǎp -RSB- , frequently abbreviated to Đông Pháp ; ຝຣັ່ງແຫຼັມອິນດູຈີນ Cantonese : -RRB- , officially known as the Indochinese Union -LRB- Union indochinoise -RRB- after 1887 and the Indochinese Federation -LRB- Fédération indochinoise -RRB- after 1947 , was a grouping of French colonial territories in Southeast Asia .",
+    "French",
+    "Indochina",
+    "a",
+    "grouping",
+    "of",
+    "one",
+    "French",
+    "colonial",
+    "territory"
+  ]
+}
+
+{
+  "text": [
+    "French Indochina: French Indochina -LRB- previously spelled as French Indo-China -RRB- -LRB- Indochine française សហភ ពឥណ ឌ ច ន Đông Dương thuộc Pháp , -LSB- ɗə̄wŋm jɨ̄əŋ tʰûək fǎp -RSB- , frequently abbreviated to Đông Pháp ; ຝຣັ່ງແຫຼັມອິນດູຈີນ Cantonese : -RRB- , officially known as the Indochinese Union -LRB- Union indochinoise -RRB- after 1887 and the Indochinese Federation -LRB- Fédération indochinoise -RRB- after 1947 , was a grouping of French colonial territories in Southeast Asia .",
+    "French",
+    "Indochina",
+    "a",
+    "grouping",
+    "of",
+    "one",
+    "French",
+    "colon

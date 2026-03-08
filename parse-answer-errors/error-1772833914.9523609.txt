@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Stephen Colbert is dissociated from The Late Show with Stephen Colbert."
+}
+
+Content[0] = "Stephen Colbert: Stephen Tyrone Colbert -LRB- -LSB- ko\u028al\u02c8b\u025b\u0259r -RSB- , n\u00e9 : -LSB- \u02c8ko\u028alb\u0259rt -RSB- born May 13 , 1964 -RRB- is an American comedian , television host , and author ."
+Content[0] = "Stephen Colbert: Stephen Tyrone Colbert -LRB- -LSB- ko\u028al\u02c8b\u025b\u0259r -RSB- , n\u00e9 : -LSB- \u02c8ko\u028alb\u0259rt -RSB- born May 13 , 1964 -RRB- is an American comedian , television host , and author ."
+
+Stephen Colbert is dissociated from The Late Show with Stephen Colbert.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Stephen Colbert is dissociated from The Late Show with Stephen Colbert."
+}
+
+Content[0] = "Stephen Colbert: Stephen Tyrone Colbert -LRB- -LSB- ko\u028al\u02c8b\u025b\u0259r -RSB- , n\u00e9 : -LSB- \u02c8ko\u028alb\u0259rt -RSB- born May 13 , 1964 -RRB- is an American comedian , television host , and author ."
+Content[0] = "Stephen Colbert: Stephen Tyrone Colbert -LRB- -LSB- ko\u028al\u02c8b\u025b\u0259r -RSB- , n\u00e9 : -LSB- \u02c8ko\u028alb\u0259rt -RSB- born May 13 , 1964 -RRB- is an American comedian , television host , and author ."
+
+Stephen Colbert is dissociated from The Late Show with Stephen Colbert.

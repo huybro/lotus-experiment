@@ -1,0 +1,27 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Tenacious D: Tenacious D is an American comedy rock duo that was formed in Los Angeles , California in 1994 .	Los Angeles	Los Angeles	California	California	American	United States	comedy rock	comedy rock	duo	double act	Tenacious D	Tenacious D (album)",
+    "Tenacious D is an award-winning duo."
+  ],
+  "claim": "Tenacious D is an award-winning duo."
+}
+
+Tenacious D is an award-winning duo. 
+Tenacious D is an award-winning duo.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Tenacious D: Tenacious D is an American comedy rock duo that was formed in Los Angeles , California in 1994 .	Los Angeles	Los Angeles	California	California	American	United States	comedy rock	comedy rock	duo	double act	Tenacious D	Tenacious D (album)",
+    "Tenacious D is an award-winning duo."
+  ],
+  "claim": "Tenacious D is an award-winning duo."
+}
+
+Tenacious D is an award-winning duo. 
+Tenacious D is an award-winning duo.

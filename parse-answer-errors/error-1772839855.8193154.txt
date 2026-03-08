@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Steve Wozniak: Stephen -LRB- or Stephan -RRB- Gary Wozniak -LRB- -LSB- ˈwɒzniæk -RSB- , born August 11 , 1950 -RRB- , nicknamed `` Woz '' , is an American inventor , electronics engineer , programmer , philanthropist , and technology entrepreneur who co-founded Apple Inc. .electronics engineer.electronics engineer.programmer.programmer.philanthropist.philanthropist.entrepreneur.entrepreneur"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Steve Wozniak: Stephen -LRB- or Stephan -RRB- Gary Wozniak -LRB- -LSB- ˈwɒzniæk -RSB- , born August 11 , 1950 -RRB- , nicknamed `` Woz '' , is an American inventor , electronics engineer , programmer , philanthropist , and technology entrepreneur who co-founded Apple Inc. .electronics engineer.electronics engineer.programmer.programmer.philanthropist.philanthropist.entrepreneur.entrepreneur"
+  ]
+}

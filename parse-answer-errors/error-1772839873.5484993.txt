@@ -1,0 +1,47 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Bongwater (film): Based on the 1995 book of the same name by Michael Hornburg , the film is set in Portland , Oregon , and follows an aspiring artist and marijuana dealer and his relationship with a tempestuous woman he meets through a client .",
+    "Michael Hornburg",
+    "1995 book of the same name",
+    "Bongwater (novel)",
+    "Portland",
+    "Portland, Oregon",
+    "Oregon",
+    "marijuana",
+    "marijuana"
+  ],
+  "claim": "Bongwater follows the story of a marijuana dealer."
+}
+
+Content
+Bongwater (film): Based on the 1995 book of the same name by Michael Hornburg , the film is set in Portland , Oregon , and follows an aspiring artist and marijuana dealer and his relationship with a tempestuous woman he meets through a client . Michael Hornburg Michael Hornburg 1995 book of the same name Bongwater (novel) Portland Portland, Oregon Oregon marijuana marijuana
+
+Claim
+Bongwater follows the story of a marijuana dealer.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Bongwater (film): Based on the 1995 book of the same name by Michael Hornburg , the film is set in Portland , Oregon , and follows an aspiring artist and marijuana dealer and his relationship with a tempestuous woman he meets through a client .",
+    "Michael Hornburg",
+    "1995 book of the same name",
+    "Bongwater (novel)",
+    "Portland",
+    "Portland, Oregon",
+    "Oregon",
+    "marijuana",
+    "marijuana"
+  ],
+  "claim": "Bongwater follows the story of a marijuana dealer."
+}
+
+Content
+Bongwater (film): Based on the 1995 book of the same name by Michael Hornburg , the film is set in Portland , Oregon , and follows an aspiring artist and marijuana dealer and his relationship with a tempestuous woman he meets through a client . Michael Hornburg Michael Hornburg 1995 book of the same name Bongwater (novel) Portland Portland, Oregon Oregon marijuana marijuana
+
+Claim
+Bongwater follows the story of a marijuana dealer.

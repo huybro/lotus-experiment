@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Liam Neeson: Liam John Neeson , OBE , -LRB- born 7 June 1952 -RRB- is an actor from Northern Ireland .	OBE	Order of the British Empire	Northern Ireland	Northern Ireland"
+  ],
+  "claim": "Liam Neeson has been passed over by the British Academy of Film and Television Arts."
+}
+
+Liam Neeson has been passed over by the British Academy of Film and Television Arts.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Liam Neeson: Liam John Neeson , OBE , -LRB- born 7 June 1952 -RRB- is an actor from Northern Ireland .	OBE	Order of the British Empire	Northern Ireland	Northern Ireland"
+  ],
+  "claim": "Liam Neeson has been passed over by the British Academy of Film and Television Arts."
+}
+
+Liam Neeson has been passed over by the British Academy of Film and Television Arts.

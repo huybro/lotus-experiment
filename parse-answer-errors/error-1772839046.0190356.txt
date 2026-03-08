@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Eric Foreman: He is portrayed by Omar Epps .",
+    "Omar Epps/Omar Epps"
+  ],
+  "claim": "Omar Epps performs the music on House."
+}
+
+Content contains the evidence "Omar Epps/Omar Epps"
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Eric Foreman: He is portrayed by Omar Epps .",
+    "Omar Epps/Omar Epps"
+  ],
+  "claim": "Omar Epps performs the music on House."
+}
+
+Content contains the evidence "Omar Epps/Omar Epps"

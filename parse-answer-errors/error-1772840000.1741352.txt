@@ -1,0 +1,135 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Keith Urban (1999 album): In order of release , the singles were `` It 's a Love Thing '' -LRB- number 18 -RRB- , \"Your Everything\" -LRB- number 4 -RRB- , \"But for the Grace of God\" -LRB- number one -RRB- , and \"Where the Blacktop Ends\" -LRB- number 3 -RRB- .",
+    "Your Everything	Your Everything	But for the Grace of God	But for the Grace of God	Where the Blacktop Ends	Where the Blacktop Ends"
+  ],
+  "claim": "Keith Urban is solely the first album of a Canadian gospel singer."
+}
+
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Keith Urban (1999 album): In order of release , the singles were `` It 's a Love Thing '' -LRB- number 18 -RRB- , \"Your Everything\" -LRB- number 4 -RRB- , \"But for the Grace of God\" -LRB- number one -RRB- , and \"Where the Blacktop Ends\" -LRB- number 3 -RRB- .",
+    "Your Everything	Your Everything	But for the Grace of God	But for the Grace of God	Where the Blacktop Ends	Where the Blacktop Ends"
+  ],
+  "claim": "Keith Urban is solely the first album of a Canadian gospel singer."
+}
+
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 4
+Content[1] = 1
+Content[3] = 3
+
+Content[18] = 18
+Content[4] = 

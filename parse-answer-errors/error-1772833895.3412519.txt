@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Goosebumps (film) was directed by Rob Letterman."
+}
+
+Content: "Goosebumps (film): It was directed by Rob Letterman , and written by Darren Lemke , based from a story by Scott Alexander and Larry Karaszewski .\tRob Letterman\tRob Letterman\tScott Alexander and Larry Karaszewski\tScott Alexander and Larry Karaszewski"
+Claim: "Goosebumps (film) was directed by Rob Letterman."
+
+Content: "Goosebumps (film) was directed by Rob Letterman."
+
+"Goosebumps (film) was directed by Rob Letterman."
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Goosebumps (film) was directed by Rob Letterman."
+}
+
+Content: "Goosebumps (film): It was directed by Rob Letterman , and written by Darren Lemke , based from a story by Scott Alexander and Larry Karaszewski .\tRob Letterman\tRob Letterman\tScott Alexander and Larry Karaszewski\tScott Alexander and Larry Karaszewski"
+Claim: "Goosebumps (film) was directed by Rob Letterman."
+
+Content: "Goosebumps (film) was directed by Rob Letterman."
+
+"Goosebumps (film) was directed by Rob Letterman."

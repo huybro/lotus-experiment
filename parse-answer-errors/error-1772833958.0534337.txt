@@ -1,0 +1,153 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Raabta (song) is a romantic Hindi song."
+}
+
+Content: "Raabta (song): `` Raabta '' -LRB- English : Relation -RRB- is a romantic Hindi song from the 2012 Bollywood film , Agent Vinod .\tAgent Vinod\tAgent Vinod (2012 film)\tRaabta\tRaabta (film)\tHindi song\tMusic of Bollywood\t2012 Bollywood\tList of Bollywood films of 2012"
+"Raabta (song) is a romantic Hindi song."
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Raabta (song) is a romantic Hindi song."
+}
+
+Content: "Raabta (song): `` Raabta '' -LRB- English : Relation -RRB- is a romantic Hindi song from the 2012 Bollywood film , Agent Vinod .\tAgent Vinod\tAgent Vinod (2012 film)\tRaabta\tRaabta (film)\tHindi song\tMusic of Bollywood\t2012 Bollywood\tList of Bollywood films of 2012"
+"Raabta (song) is a romantic Hindi song."
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+Raabta (song) is a romantic Hindi song.
+
+

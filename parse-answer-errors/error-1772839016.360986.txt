@@ -1,0 +1,45 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Terry Crews: In football , Crews played as a defensive end and linebacker in the National Football League -LRB- NFL -RRB- for the Los Angeles Rams , San Diego Chargers and Washington Redskins , as well as in the World League of American Football with Rhein Fire .",
+    "linebacker",
+    "Los Angeles Rams",
+    "Los Angeles Rams",
+    "San Diego Chargers",
+    "San Diego Chargers",
+    "Rhein Fire",
+    "Rhein Fire",
+    "Washington Redskins",
+    "Washington Redskins",
+    "National Football League",
+    "National Football League",
+    "World League of American Football",
+    "World League of American Football"
+  ],
+  "claim": "Terry Crews played on the San Diego Chargers in 2001."
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Terry Crews: In football , Crews played as a defensive end and linebacker in the National Football League -LRB- NFL -RRB- for the Los Angeles Rams , San Diego Chargers and Washington Redskins , as well as in the World League of American Football with Rhein Fire .",
+    "linebacker",
+    "Los Angeles Rams",
+    "Los Angeles Rams",
+    "San Diego Chargers",
+    "San Diego Chargers",
+    "Rhein Fire",
+    "Rhein Fire",
+    "Washington Redskins",
+    "Washington Redskins",
+    "National Football League",
+    "National Football League",
+    "World League of American Football",
+    "World League of American Football"
+  ],
+  "claim": "Terry Crews played on the San Diego Chargers in 2001."
+}

@@ -1,0 +1,19 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Pitsea: Basildon , on the other hand , was a small village with a church -LRB- which still stands today as Holy Cross church -RRB- and a few cottages .\tBasildon\tBasildon (district)"],
+    "Claim": "Basildon is a place."
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Pitsea: Basildon , on the other hand , was a small village with a church -LRB- which still stands today as Holy Cross church -RRB- and a few cottages .\tBasildon\tBasildon (district)"],
+    "Claim": "Basildon is a place."
+  ]
+}

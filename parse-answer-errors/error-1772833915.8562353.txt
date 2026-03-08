@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Sim\u00f3n Bol\u00edvar's dog's name is Simon Barklivar."
+}
+
+Content: 
+[
+  "Bolivia: After the first call for independence in 1809 , 16 years of war followed before the establishment of the Republic , named for Sim\u00f3n Bol\u00edvar , on 6 August 1825 .\tSim\u00f3n Bol\u00edvar\tSim\u00f3n Bol\u00edvar"
+]
+
+Sim\u00f3n Bol\u00edvar's dog's name is Simon Barklivar.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Sim\u00f3n Bol\u00edvar's dog's name is Simon Barklivar."
+}
+
+Content: 
+[
+  "Bolivia: After the first call for independence in 1809 , 16 years of war followed before the establishment of the Republic , named for Sim\u00f3n Bol\u00edvar , on 6 August 1825 .\tSim\u00f3n Bol\u00edvar\tSim\u00f3n Bol\u00edvar"
+]
+
+Sim\u00f3n Bol\u00edvar's dog's name is Simon Barklivar.

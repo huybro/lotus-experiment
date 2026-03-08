@@ -1,0 +1,79 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "The White House Press Secretary's primary responsibility is to be a father."
+}
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "The White House Press Secretary's primary responsibility is to be a father."
+}
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\tWhite House\tWhite House\tgovernment\tFederal government of the United States\tadministration\tAdministration (government)»
+[Claim]: «The White House Press Secretary's primary responsibility is to be a father.»
+
+Claim: Claim
+
+Context:
+{
+  "text": [Content]: «White House Press Secretary: The White House Press Secretary is a senior White House official whose primary responsibility is to act as spokesperson for the executive branch of the United States government administration , especially with regard to the President , senior executives , and policies .\

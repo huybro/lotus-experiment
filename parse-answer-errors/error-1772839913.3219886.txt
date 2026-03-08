@@ -1,0 +1,29 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+Context: 
+{
+  "text": [Content]: «Men in Black II: Men in Black II -LRB- stylized as MIIB -RRB- is a 2002 American science fiction action comedy film starring Tommy Lee Jones , Will Smith , Lara Flynn Boyle , Johnny Knoxville , Rosario Dawson , Tony Shalhoub and Rip Torn .	Tommy Lee Jones	Tommy Lee Jones	Will Smith	Will Smith	Lara Flynn Boyle	Lara Flynn Boyle	Johnny Knoxville	Johnny Knoxville	Rosario Dawson	Rosario Dawson	Tony Shalhoub	Tony Shalhoub	Rip Torn	Rip Torn	science fiction	science fiction film	action comedy film	action film#Subgenres	Men in Black	Men in Black (film)»]
+
+Content: 
+{
+  "text": [Content]: «Men in Black II: Men in Black II -LRB- stylized as MIIB -RRB- is a 2002 American science fiction action comedy film starring Tommy Lee Jones , Will Smith , Lara Flynn Boyle , Johnny Knoxville , Rosario Dawson , Tony Shalhoub and Rip Torn .	Tommy Lee Jones	Tommy Lee Jones	Will Smith	Will Smith	Lara Flynn Boyle	Lara Flynn Boyle	Johnny Knoxville	Johnny Knoxville	Rosario Dawson	Rosario Dawson	Tony Shalhoub	Tony Shalhoub	Rip Torn	Rip Torn	science fiction	science fiction film/action comedy film»
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+Context: 
+{
+  "text": [Content]: «Men in Black II: Men in Black II -LRB- stylized as MIIB -RRB- is a 2002 American science fiction action comedy film starring Tommy Lee Jones , Will Smith , Lara Flynn Boyle , Johnny Knoxville , Rosario Dawson , Tony Shalhoub and Rip Torn .	Tommy Lee Jones	Tommy Lee Jones	Will Smith	Will Smith	Lara Flynn Boyle	Lara Flynn Boyle	Johnny Knoxville	Johnny Knoxville	Rosario Dawson	Rosario Dawson	Tony Shalhoub	Tony Shalhoub	Rip Torn	Rip Torn	science fiction	science fiction film	action comedy film	action film#Subgenres	Men in Black	Men in Black (film)»]
+
+Content: 
+{
+  "text": [Content]: «Men in Black II: Men in Black II -LRB- stylized as MIIB -RRB- is a 2002 American science fiction action comedy film starring Tommy Lee Jones , Will Smith , Lara Flynn Boyle , Johnny Knoxville , Rosario Dawson , Tony Shalhoub and Rip Torn .	Tommy Lee Jones	Tommy Lee Jones	Will Smith	Will Smith	Lara Flynn Boyle	Lara Flynn Boyle	Johnny Knoxville	Johnny Knoxville	Rosario Dawson	Rosario Dawson	Tony Shalhoub	Tony Shalhoub	Rip Torn	Rip Torn	science fiction	science fiction film/action comedy film»

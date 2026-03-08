@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Excuse My French (album): Excuse My French is the debut studio album by American rapper French Montana .\tFrench Montana\tFrench Montana"
+  ],
+  "claim": "Excuse My French is an album by an American surgeon."
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Excuse My French (album): Excuse My French is the debut studio album by American rapper French Montana .\tFrench Montana\tFrench Montana"
+  ],
+  "claim": "Excuse My French is an album by an American surgeon."
+}
+
+Content contains the evidence relevant to the claim.

@@ -90,11 +90,6 @@ def get_prompt(instruction, data, data2=None, op='sem_filter'):
     return messages
 
 
-def lotus_df2text_row(row_dict, cols):
-    """Replicate LOTUS's df2text format: [Column]: «value» for each column."""
-    return "".join(f"[{col.capitalize()}]: «{row_dict[col]}»\n" for col in cols)
-
-
 def install_prompt_overrides():
     """Monkey-patch LOTUS's filter_formatter and map_formatter to use get_prompt().
     """

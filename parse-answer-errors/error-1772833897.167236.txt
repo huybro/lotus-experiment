@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Princess Mononoke: Unlike other Ghibli films , Mononoke has a darker and more violent setting and tone .\tMononoke\tY\u014dkai"
+  ],
+  "claim": "Princess Mononoke has a dark atmosphere."
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Princess Mononoke: Unlike other Ghibli films , Mononoke has a darker and more violent setting and tone .\tMononoke\tY\u014dkai"
+  ],
+  "claim": "Princess Mononoke has a dark atmosphere."
+}
+
+Content contains the evidence relevant to the claim.

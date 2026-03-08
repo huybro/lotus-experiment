@@ -1,0 +1,17 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Harvard University: Established originally by the Massachusetts legislature and soon thereafter named for John Harvard -LRB- its first benefactor -RRB- , Harvard is the United States ' oldest institution of higher learning , and the Harvard Corporation -LRB- formally , the President and Fellows of Harvard College -RRB- is its first chartered corporation .\tHarvard College\tHarvard College\tMassachusetts\tMassachusetts\tMassachusetts legislature\tMassachusetts General Court\tJohn Harvard\tJohn Harvard (clergyman)\tHarvard Corporation\tHarvard Corporation\tcorporation\tcorporation"
+  ]
+}
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Harvard University: Established originally by the Massachusetts legislature and soon thereafter named for John Harvard -LRB- its first benefactor -RRB- , Harvard is the United States ' oldest institution of higher learning , and the Harvard Corporation -LRB- formally , the President and Fellows of Harvard College -RRB- is its first chartered corporation .\tHarvard College\tHarvard College\tMassachusetts\tMassachusetts\tMassachusetts legislature\tMassachusetts General Court\tJohn Harvard\tJohn Harvard (clergyman)\tHarvard Corporation\tHarvard Corporation\tcorporation\tcorporation"
+  ]
+}

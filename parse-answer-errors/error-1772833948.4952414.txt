@@ -1,0 +1,21 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content]
+}
+
+Finding Dory: Finding Dory is a 2016 American 3D computer-animated comedy film produced by Pixar Animation Studios and released by Walt Disney Pictures .\tWalt Disney Pictures\tWalt Disney Pictures\tPixar Animation Studios\tPixar\t3D\t3D film\tcomputer-animated\tcomputer animation\tcomedy film\tcomedy film\
+
+Finding Dory was written by anyone but an American.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content]
+}
+
+Finding Dory: Finding Dory is a 2016 American 3D computer-animated comedy film produced by Pixar Animation Studios and released by Walt Disney Pictures .\tWalt Disney Pictures\tWalt Disney Pictures\tPixar Animation Studios\tPixar\t3D\t3D film\tcomputer-animated\tcomputer animation\tcomedy film\tcomedy film\
+
+Finding Dory was written by anyone but an American.

@@ -1,0 +1,25 @@
+hosted_vllm/meta-llama/Llama-3.2-3B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+import json
+
+context = json.loads('{"text": {"claim": "Savages was exclusively a German film.", "content": "Savages (2012 film): The film was released on July 6 , 2012 , and stars Taylor Kitsch , Blake Lively , Aaron Taylor-Johnson , Demian Bichir , Benicio del Toro , Salma Hayek , John Travolta and Emile Hirsch .\\tTaylor Kitsch\\tTaylor Kitsch\\tBlake Lively\\tBlake Lively\\tJohn Travolta\\tJohn Travolta\\tBenicio del Toro\\tBenicio del Toro\\tSalma Hayek\\tSalma Hayek\\tAaron Taylor-Johnson\\tAaron Taylor-Johnson\\tDemian Bichir\\tDemian Bichir\\tEmile Hirsch\\tEmile Hirsch"}}')
+
+def filter_claim(context):
+  evidence = json.loads(context['text']['content'])
+  return evidence['claim'] == context['text']['claim']
+
+print(filter_claim(context))
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: import json
+
+context = json.loads('{"text": {"claim": "Savages was exclusively a German film.", "content": "Savages (2012 film): The film was released on July 6 , 2012 , and stars Taylor Kitsch , Blake Lively , Aaron Taylor-Johnson , Demian Bichir , Benicio del Toro , Salma Hayek , John Travolta and Emile Hirsch .\\tTaylor Kitsch\\tTaylor Kitsch\\tBlake Lively\\tBlake Lively\\tJohn Travolta\\tJohn Travolta\\tBenicio del Toro\\tBenicio del Toro\\tSalma Hayek\\tSalma Hayek\\tAaron Taylor-Johnson\\tAaron Taylor-Johnson\\tDemian Bichir\\tDemian Bichir\\tEmile Hirsch\\tEmile Hirsch"}}')
+
+def filter_claim(context):
+  evidence = json.loads(context['text']['content'])
+  return evidence['claim'] == context['text']['claim']
+
+print(filter_claim(context))

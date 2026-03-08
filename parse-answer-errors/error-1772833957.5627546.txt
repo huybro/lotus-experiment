@@ -1,0 +1,41 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Trevor Griffiths: Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist .\tAncoats\tAncoats\tManchester\tManchester\tdramatist\tdramatist"
+  ],
+  "claim": "Trevor Griffiths is a German dramatist."
+}
+
+Content
+Claim
+Trevor Griffiths: Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist .
+Ancoats
+Ancoats
+Manchester
+Manchester
+dramatist
+dramatist
+Trevor Griffiths is a German dramatist.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Trevor Griffiths: Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist .\tAncoats\tAncoats\tManchester\tManchester\tdramatist\tdramatist"
+  ],
+  "claim": "Trevor Griffiths is a German dramatist."
+}
+
+Content
+Claim
+Trevor Griffiths: Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist .
+Ancoats
+Ancoats
+Manchester
+Manchester
+dramatist
+dramatist
+Trevor Griffiths is a German dramatist.

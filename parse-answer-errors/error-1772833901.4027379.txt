@@ -1,0 +1,23 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [
+    "Live Through This: Live Through This is the second studio album by American alternative rock band Hole .\tHole\tHole (band)\talternative rock\talternative rock"
+  ],
+  "claim": "Live Through This is an album."
+}
+
+Content contains the evidence relevant to the claim.
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [
+    "Live Through This: Live Through This is the second studio album by American alternative rock band Hole .\tHole\tHole (band)\talternative rock\talternative rock"
+  ],
+  "claim": "Live Through This is an album."
+}
+
+Content contains the evidence relevant to the claim.

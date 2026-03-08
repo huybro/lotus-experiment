@@ -1,0 +1,35 @@
+hosted_vllm/meta-llama/Llama-3.2-1B-Instruct
+#####
+PromptStrategy.FILTER
+#####
+{
+  "text": [Content],
+  "claim": "Jenna Jameson worked as a glamor stylist."
+}
+
+Content[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"""
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\tweb
+#####
+{'passed_operator': FieldInfo(annotation=bool, required=True, description='Whether the record passed the filter operation')}
+#####
+Could not parse answer from completion text: {
+  "text": [Content],
+  "claim": "Jenna Jameson worked as a glamor stylist."
+}
+
+Content[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"""
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\twebcam model\tpornographic film actress\tpornographic film actress"
+
+Jenna Jameson[0] = "Jenna Jameson: Jenna Jameson -LRB- born Jenna Marie Massoli ; April 9 , 1974 -RRB- is an American entrepreneur , webcam model and former pornographic film actress , who has been called the world 's most famous adult entertainment performer and `` The Queen of Porn '' .\tentrepreneur\tentrepreneur\twebcam model\tweb
