@@ -1,4 +1,4 @@
-"""Pipeline: sem_filter (relevance) — LOTUS vs Palimpzest comparison."""
+"""Pipeline: sem_filter (relevance) — LOTUS only."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/..')
 
