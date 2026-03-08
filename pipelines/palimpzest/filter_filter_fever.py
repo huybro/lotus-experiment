@@ -32,13 +32,13 @@ print(f"  LOTUS: {len(joined_df)}→{len(df_ff1)}→{len(df_ff2)} ({lotus_time:.
 # ── PZ F1 ──
 state.rewrite_mode = True
 state.current_filter_instruction = FILTER_RELEVANCE
-state.current_filter_cols = ["content", "claim"]
+state.current_filter_cols = ["claim", "content"]
 state.captured.clear()
 t0 = time.time()
 ds1 = pz.MemoryDataset(id="cmp-ff1", vals=joined_df.to_dict("records"))
 ds1 = ds1.sem_filter(
-    "The following evidence is relevant to the claim. Evidence: {content} Claim: {claim}",
-    depends_on=["content", "claim"],
+    "The following evidence is relevant to the claim. Claim: {claim} Evidence: {content}",
+    depends_on=["claim", "content"],
 )
 pz_ff1_df = ds1.run(config=pz_config).to_df()
 pz_f1_cap = list(state.captured)
@@ -49,7 +49,7 @@ state.captured.clear()
 if len(pz_ff1_df) > 0:
     ds2 = pz.MemoryDataset(id="cmp-ff2", vals=pz_ff1_df.to_dict("records"))
     ds2 = ds2.sem_filter(
-        "Based on the evidence, the following claim is supported. {content} {claim}",
+        "{content}\nBased on the above evidence, the following claim is supported: {claim}",
         depends_on=["content", "claim"],
     )
     pz_ff2_df = ds2.run(config=pz_config).to_df()

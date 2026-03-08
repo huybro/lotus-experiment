@@ -261,6 +261,15 @@ class PromptFactory:
                 # update total context length
                 total_context_len = len(json.dumps(context, indent=2))
 
+        # Lotus-style serialization for filter/map/join: flat concatenation in input_fields order
+        # (matches Lotus df2text format for fair comparison)
+        if isinstance(context, dict) and (
+            self.prompt_strategy.is_filter_prompt()
+            or self.prompt_strategy.is_map_prompt()
+            or self.prompt_strategy.is_join_prompt()
+        ):
+            return "".join(str(context.get(f, "")) for f in input_fields)
+
         return json.dumps(context, indent=2)
 
     def _get_input_fields(self, candidate: DataRecord, **kwargs) -> list[str]:

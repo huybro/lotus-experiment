@@ -22,13 +22,13 @@ print("=" * 60)
 project = 'palimpzest'
 state.rewrite_mode = True
 state.current_filter_instruction = FILTER_RELEVANCE
-state.current_filter_cols = ["content", "claim"]
+state.current_filter_cols = ["claim", "content"]
 state.captured.clear()
 t0 = time.time()
 ds = pz.MemoryDataset(id="cmp-f1", vals=joined_df.to_dict("records"))
 ds = ds.sem_filter(
-    "The following evidence is relevant to the claim. Evidence: {content} Claim: {claim}",
-    depends_on=["content", "claim"],
+    "The following evidence is relevant to the claim. Claim: {claim} Evidence: {content}",
+    depends_on=["claim", "content"],
 )
 pz_df = ds.run(config=pz_config).to_df()
 pz_time = time.time() - t0
