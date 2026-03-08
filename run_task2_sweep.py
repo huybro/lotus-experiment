@@ -75,7 +75,6 @@ def start_vllm(port: int = 8003, model: str = "meta-llama/Llama-3.2-1B-Instruct"
             "--dtype", "float16",
             "--tensor-parallel-size", "1",
             "--max-model-len", "4096",
-            "--enable-metrics",
         ],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.PIPE,
