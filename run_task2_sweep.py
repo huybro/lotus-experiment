@@ -131,11 +131,12 @@ def fetch_vllm_metrics(base_url: str, debug: bool = False) -> dict[str, float]:
         if "prefix_cache" in line_stripped.lower():
             if debug:
                 print(f"    [DEBUG] {line_stripped}")
-        m = re.search(r'vllm:prefix_cache_hits(?:\{[^}]*\})?\s+(\d+(?:\.\d+)?)', line_stripped)
+        # vLLM 0.15+ uses _total suffix (e.g. prefix_cache_hits_total)
+        m = re.search(r'vllm:prefix_cache_hits(?:_total)?(?:\{[^}]*\})?\s+(\d+(?:\.\d+)?)', line_stripped)
         if m:
             hits = float(m.group(1))
             continue
-        m = re.search(r'vllm:prefix_cache_queries(?:\{[^}]*\})?\s+(\d+(?:\.\d+)?)', line_stripped)
+        m = re.search(r'vllm:prefix_cache_queries(?:_total)?(?:\{[^}]*\})?\s+(\d+(?:\.\d+)?)', line_stripped)
         if m:
             queries = float(m.group(1))
     if debug:
