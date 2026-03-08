@@ -16,7 +16,6 @@ Usage:
     )
 """
 import os
-import re
 import csv
 import json
 import unicodedata
@@ -125,72 +124,14 @@ def _interceptor(*args, **kwargs):
     kwargs.setdefault("max_tokens", MAX_TOKENS)
     kwargs.setdefault("temperature", 0)
     kwargs.setdefault("seed", 42)
+
     messages = kwargs.get("messages", args[1] if len(args) > 1 else [])
-
-    claim_val = content_val = verdict_val = None
-
-    # Try LOTUS format for verdict
-    if not verdict_val:
-        for msg in messages:
-            if not isinstance(msg, dict):
-                continue
-            text = msg.get("content", "")
-            m = re.search(r'\[Verdict\]:\s*«(.*?)»', text, re.DOTALL)
-            if m:
-                verdict_val = m.group(1)
-                break
-
-    # Try LOTUS format
-    if not claim_val:
-        for msg in messages:
-            if not isinstance(msg, dict):
-                continue
-            text = msg.get("content", "")
-            m = re.search(r'\[Claim\]:\s*«(.*?)»', text, re.DOTALL)
-            if m:
-                claim_val = m.group(1)
-            m2 = re.search(r'\[Content\]:\s*«(.*?)»', text, re.DOTALL)
-            if m2:
-                content_val = m2.group(1)
-            if claim_val:
-                break
-
-    # Capture
-    final_msgs = kwargs.get("messages", messages)
-    prompt_text = tokenizer.apply_chat_template(
-            final_msgs,
-            tokenize=False,
-            add_generation_prompt=False,
-        )
-
-    # Debug: print the prompt before sending
-    if state.debug:
-        state.call_count += 1
-        source = "PZ" if state.rewrite_mode else "LOTUS"
-        print(f"\n{'─'*70}")
-        print(f"  LLM CALL #{state.call_count} [{source}]")
-        print(f"{'─'*70}")
-        for msg in final_msgs:
-            if isinstance(msg, dict):
-                role = msg.get('role', '?')
-                content = msg.get('content', '')
-                print(f"  [{role}] {content[:500]}{'...' if len(content) > 500 else ''}")
-        print(f"{'─'*70}")
+    prompt_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
 
     result = _original_completion(*args, **kwargs)
     output_text = result.choices[0].message.content if result.choices else ""
 
-    # Debug: print the response
-    if state.debug:
-        print(f"  → RESPONSE: {output_text[:200]}{'...' if len(output_text) > 200 else ''}")
-        print(f"{'─'*70}\n")
-
-    state.captured.append({
-        "input": prompt_text,
-        "output": output_text,
-        "claim": claim_val or "",
-        "content": content_val or "",
-    })
+    state.captured.append({"input": prompt_text, "output": output_text})
     return result
 
 

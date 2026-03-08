@@ -6,7 +6,7 @@ import pandas as pd
 import lotus
 from lotus.dtype_extensions import ImageDtype
 from lotus.types import ReasoningStrategy, SerializationFormat
-import prompt_utils
+from . import prompt_utils
 from .base import OpName
 
 def cot_formatter(reasoning, answer):
