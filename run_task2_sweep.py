@@ -6,9 +6,11 @@ Collects throughput (pipeline timing) and prefix cache hit rate (vLLM metrics).
 Relaunches vLLM for each experiment (fresh cache state per run).
 
 Usage:
-  python run_task2_sweep.py
-  python run_task2_sweep.py --samples 10 50 100 200
-  python run_task2_sweep.py --no-relaunch   # Use if vLLM is already running (uses delta metrics)
+  python run_task2_sweep.py --csv-path data/fever_claims_with_evidence.csv
+  python run_task2_sweep.py --csv-path data/my_data.csv --samples 10 50 100 200
+  python run_task2_sweep.py --csv-path data/my_data.csv --no-relaunch
+
+  CSV must have (abstract, category) or (content, claim) columns.
 
 Output: logs/task2_metrics.csv and logs/task2_cache_vs_throughput.png
 """
@@ -42,7 +44,16 @@ lotus.settings.configure(lm=LM(
     temperature=0,
 ))
 
-from data_loader_task2 import load_abstracts_with_categories
+
+def load_data(csv_path: str, n: int) -> pd.DataFrame:
+    """Load CSV and return DataFrame with abstract, category columns."""
+    df = pd.read_csv(csv_path)
+    if "content" in df.columns and "claim" in df.columns:
+        df = df.rename(columns={"content": "abstract", "claim": "category"})
+    if "abstract" not in df.columns or "category" not in df.columns:
+        raise ValueError(f"CSV must have (abstract, category) or (content, claim). Found: {list(df.columns)}")
+    return df[["abstract", "category"]].head(n).reset_index(drop=True)
+
 
 MAP_INSTR = (
     "Summarize the research abstract and explain how it is related to the category.\n"
@@ -140,11 +151,8 @@ def main():
                         help="vLLM server base URL (e.g. http://localhost:8000)")
     parser.add_argument("--output-dir", type=str, default="logs",
                         help="Output directory for CSV and plot")
-    parser.add_argument("--data-source", type=str, default="huggingface",
-                        choices=["huggingface", "csv"],
-                        help="Data source")
-    parser.add_argument("--csv-path", type=str, default=None,
-                        help="Path to CSV with abstract,category columns (if --data-source csv)")
+    parser.add_argument("--csv-path", type=str, required=True,
+                        help="Path to CSV. Use (abstract, category) or (content, claim) columns")
     parser.add_argument("--no-plot", action="store_true",
                         help="Skip plotting")
     parser.add_argument("--no-relaunch", action="store_true",
@@ -168,7 +176,7 @@ def main():
     print()
 
     max_n = max(args.samples)
-    df_all = load_abstracts_with_categories(n=max_n, source=args.data_source, csv_path=args.csv_path)
+    df_all = load_data(args.csv_path, n=max_n)
     print(f"  Loaded {len(df_all)} samples")
 
     for n in args.samples:
