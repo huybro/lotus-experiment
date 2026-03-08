@@ -49,7 +49,7 @@ if len(pz_fm_f_df) > 0:
     pz_fm_m_df = pz_map_with_fallback(
         MAP_VERDICT, pz_fm_f_df, "verdict",
         "TRUE if the claim is supported by the evidence, FALSE otherwise.",
-        ["content", "claim"],
+        ["claim", "content"],
     )
 else:
     pz_fm_m_df = pd.DataFrame()

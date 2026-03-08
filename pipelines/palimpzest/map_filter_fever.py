@@ -48,7 +48,7 @@ t0 = time.time()
 pz_map_df = pz_map_with_fallback(
     MAP_VERDICT, joined_df, "verdict",
     "TRUE if the claim is supported by the evidence, FALSE otherwise.",
-    ["content", "claim"],
+    ["claim", "content"],
 )
 pz_map_cap = list(state.captured)
 

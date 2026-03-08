@@ -66,10 +66,10 @@ FILTER_SUPPORT = (
     "Based on the above evidence, the following claim is supported: {claim}"
 )
 
-# Map: based on both evidence and claim, generate a verdict
+# Map: based on both claim and evidence, generate a verdict (Claim first, Evidence second)
 MAP_VERDICT = (
-    "Based on the following evidence, determine if the claim is true or false.\n"
-    "Evidence: {content}\nClaim: {claim}\n"
+    "Based on the following claim and evidence, determine if the claim is true or false.\n"
+    "Claim: {claim}\nEvidence: {content}\n"
     "Answer with exactly TRUE or FALSE, nothing else."
 )
 
