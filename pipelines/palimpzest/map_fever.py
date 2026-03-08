@@ -1,4 +1,4 @@
-"""Pipeline: sem_map (verdict) — LOTUS vs Palimpzest comparison."""
+"""Pipeline: sem_map (verdict) — PZ only."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/..')
 
@@ -23,7 +23,7 @@ t0 = time.time()
 pz_m_df = pz_map_with_fallback(
     MAP_VERDICT, joined_df, "verdict",
     "TRUE if the claim is supported by the evidence, FALSE otherwise.",
-    ["content", "claim"],
+    ["claim", "content"],
 )
 pz_time = time.time() - t0
 pz_cap = list(state.captured)
@@ -39,5 +39,5 @@ for i in range(len(joined_df)):
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_input": pm["input"], "pz_output": pm["output"],
     })
-write_csv("logs/map_fever.csv", rows)
-print(f"  Saved logs/map_fever.csv")
+write_csv("logs/pzmap_fever.csv", rows)
+print(f"  Saved logs/pzmap_fever.csv")

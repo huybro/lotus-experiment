@@ -1,8 +1,8 @@
 
 
-"""Pipeline: sem_filter (relevance) — LOTUS vs Palimpzest comparison."""
+"""Pipeline: sem_filter (relevance) — PZ only."""
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/..')
 
 import time
 import palimpzest as pz
@@ -19,7 +19,6 @@ print("  PIPELINE: filter only (relevance)")
 print("=" * 60)
 
 # ── PZ ──
-project = 'palimpzest'
 state.rewrite_mode = True
 state.current_filter_instruction = FILTER_RELEVANCE
 state.current_filter_cols = ["claim", "content"]
@@ -45,5 +44,5 @@ for i in range(len(joined_df)):
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_input": pm["input"], "pz_output": pm["output"],
     })
-write_csv(f"logs/{project}filter_fever.csv", rows)
-print(f"  Saved logs/filter_fever.csv")
+write_csv("logs/pzfilter_fever.csv", rows)
+print(f"  Saved logs/pzfilter_fever.csv")

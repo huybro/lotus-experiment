@@ -1,10 +1,9 @@
-"""Pipeline: sem_map → sem_filter (verdict → verify) — LOTUS vs Palimpzest comparison.
+"""Pipeline: sem_map → sem_filter (verdict → verify) — PZ only.
 
-Tests data accumulation across chained operators: after sem_map adds a 'verdict' column,
-sem_filter should see the original data (content, claim) PLUS the new verdict column.
+After sem_map adds a 'verdict' column, sem_filter sees content, claim, and verdict.
 """
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/..')
 
 import time
 import pandas as pd
@@ -21,23 +20,7 @@ print("\n" + "=" * 60)
 print("  PIPELINE: map → filter (verdict → verify)")
 print("=" * 60)
 
-# ── LOTUS: map (generate verdict), then filter (verify verdict) ──
-state.rewrite_mode = False
-state.captured.clear()
-t0 = time.time()
-
-# Step 1: sem_map — adds "verdict" column
-df_map = joined_df.copy().sem_map(MAP_VERDICT, suffix="verdict")
-lotus_map_cap = list(state.captured)
-
-# Step 2: sem_filter — should see content + claim + verdict
-state.captured.clear()
-df_filtered = df_map.sem_filter(FILTER_VERDICT)
-lotus_filter_cap = list(state.captured)
-lotus_time = time.time() - t0
-print(f"  LOTUS: map={len(df_map)}, filter={len(df_filtered)}/{len(df_map)} ({lotus_time:.1f}s)")
-
-# ── PZ: map then filter ──
+# ── PZ ──
 state.rewrite_mode = True
 state.current_filter_instruction = None
 state.current_map_instruction = MAP_VERDICT
@@ -48,7 +31,7 @@ t0 = time.time()
 pz_map_df = pz_map_with_fallback(
     MAP_VERDICT, joined_df, "verdict",
     "TRUE if the claim is supported by the evidence, FALSE otherwise.",
-    ["content", "claim"],
+    ["claim", "content"],
 )
 pz_map_cap = list(state.captured)
 
@@ -76,16 +59,12 @@ print(f"  PZ:    map={len(pz_map_df)}, filter={len(pz_filter_df)}/{len(pz_map_df
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    lm = lotus_map_cap[i] if i < len(lotus_map_cap) else _empty
     pm = pz_map_cap[i] if i < len(pz_map_cap) else _empty
-    lf = lotus_filter_cap[i] if i < len(lotus_filter_cap) else _empty
     pf = pz_filter_cap[i] if i < len(pz_filter_cap) else _empty
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
-        "lotus_map_input": lm["input"], "lotus_map_output": lm["output"],
         "pz_map_input": pm["input"], "pz_map_output": pm["output"],
-        "lotus_filter_input": lf["input"], "lotus_filter_output": lf["output"],
         "pz_filter_input": pf["input"], "pz_filter_output": pf["output"],
     })
-write_csv("logs/map_filter_fever.csv", rows)
-print(f"  Saved logs/map_filter_fever.csv")
+write_csv("logs/pzmap_filter_fever.csv", rows)
+print(f"  Saved logs/pzmap_filter_fever.csv")
