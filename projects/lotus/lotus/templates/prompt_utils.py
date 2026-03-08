@@ -18,7 +18,7 @@ def _build_operation_prompt(instruction, op=OpName.SEM_FILTER):
         )
     if op == OpName.SEM_MAP:
         return (
-            "You  are presented with a context and a mapping instruction.\n"
+            "You are presented with a context and a mapping instruction.\n"
             "Apply the instruction to the context and produce the mapped output.\n"
             "The output must strictly follow the instruction and contain no extra commentary.\n"
             f"Map Instruction:{instruction}\n"
@@ -51,8 +51,9 @@ def _build_operation_prompt(instruction, op=OpName.SEM_FILTER):
     raise ValueError(f"Unsupported semantic operation: {op}")
 
 
-def get_data_prompt(data, data2=None):
-    messages = [{"role": "system", "type": "text", "content": SYSTEM_PROMPT}]
+def get_prompt(instruction, data, data2=None, op=OpName.SEM_FILTER):
+    """Return [system, user] with CONTEXT and TASK combined in one user message."""
+    operation = _build_operation_prompt(instruction, op)
 
     if data2 is not None:
         context = (
@@ -74,34 +75,14 @@ def get_data_prompt(data, data2=None):
             "  }\n"
         )
 
-    messages.append({"role": "user", "type": "text", "content": context})
-    return messages
+    user_content = (
+        f"{context}\n\n"
+        "TASK:\n"
+        f"{operation}\n\n"
+        "ANSWER:\n"
+    )
 
-
-def get_task_prompt(instruction, op=OpName.SEM_FILTER):
-    operation = _build_operation_prompt(instruction, op=op)
     return [
-        {
-            "role": "user",
-            "type": "text",
-            "content": (
-                "TASK:\n"
-                f"{operation}\n\n"
-                "ANSWER:\n"
-            ),
-        }
+        {"role": "system", "type": "text", "content": SYSTEM_PROMPT},
+        {"role": "user", "type": "text", "content": user_content},
     ]
-
-
-def get_prompt(instruction, data, data2=None, op=OpName.SEM_FILTER):
-    """Return [system, user] with CONTEXT and TASK combined in one user message."""
-    data_messages = get_data_prompt(data=data, data2=data2)
-    task_content = get_task_prompt(instruction=instruction, op=op)[0]["content"]
-    # Combine CONTEXT + TASK into single user message (avoids duplicate user headers)
-    context_content = data_messages[1]["content"]
-    data_messages[1] = {
-        "role": "user",
-        "type": "text",
-        "content": context_content + "\n\n" + task_content,
-    }
-    return data_messages
