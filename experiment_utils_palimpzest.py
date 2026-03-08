@@ -28,8 +28,10 @@ from palimpzest.constants import Model
 from palimpzest.query.processor.config import QueryProcessorConfig
 
 from universal_prompts import (
+    get_prompt,
     install_prompt_overrides,
     install_pz_prompt_overrides,
+    lotus_df2text_row,
 )
 
 
@@ -153,7 +155,8 @@ pz_config = QueryProcessorConfig(
     api_base=VLLM_API_BASE,
     available_models=[PZ_MODEL],
     allow_model_selection=False,
-    allow_bonded_query=False,
+    allow_bonded_query=True,  # Use direct LLM (LLMConvertBonded), not RAG
+    allow_rag_reduction=False,  # Disable RAG (needs OpenAI embeddings)
     allow_mixtures=False,
     allow_critic=False,
     allow_split_merge=False,
