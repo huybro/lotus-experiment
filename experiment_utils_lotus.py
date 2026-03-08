@@ -166,6 +166,9 @@ if not os.path.exists(DATA_PATH):
         f"{DATA_PATH} not found. Run 'python prepare_data.py' first to generate it."
     )
 joined_df = pd.read_csv(DATA_PATH)
+# FEVER format: add [Claim]/[Evidence] prefixes for Lotus/PZ alignment
+joined_df["claim"] = "[Claim] " + joined_df["claim"]
+joined_df["content"] = "[Evidence] " + joined_df["content"]
 print(f"Loaded {len(joined_df)} (claim, evidence) pairs from {DATA_PATH}")
 
 os.makedirs("logs", exist_ok=True)
