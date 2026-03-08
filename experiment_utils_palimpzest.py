@@ -31,7 +31,6 @@ from universal_prompts import (
     get_prompt,
     install_prompt_overrides,
     install_pz_prompt_overrides,
-    lotus_df2text_row,
 )
 
 
@@ -213,7 +212,7 @@ def pz_map_with_fallback(instruction, data_df, col_name, pz_desc, cols_used):
         outputs = []
         for _, row in data_df.iterrows():
             data_dict = {c: row[c] for c in cols_used}
-            data = lotus_df2text_row(data_dict, cols_used)
+            data = "".join(str(data_dict[c]) for c in cols_used)  # Lotus df2text format
             instr = nle2str(instruction, cols_used)
             msgs = get_prompt(instr, data, op='sem_map')
             res = _original_completion(
