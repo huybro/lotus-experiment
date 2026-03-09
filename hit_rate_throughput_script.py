@@ -56,13 +56,15 @@ def load_data(csv_path: str, n: int) -> pd.DataFrame:
     return df[["abstract", "category"]].head(n).reset_index(drop=True)
 
 
-MAP_INSTR = (
-    "Summarize the research abstract and explain how it is related to the category.\n"
-    "Abstract: {abstract}\nCategory: {category}"
+MAP_VERDICT = (
+    "Explain how the claim can be supported by the evidence.\n"
+    "Provide a short explanation in natural language."
 )
+
 FILTER_INSTR = (
-    "Is the research paper related to the given category?\n"
-    "Abstract: {abstract}\nCategory: {category}"
+    "The sentence can determine whether the claim is true or false.\n"
+    "Answer TRUE if the context is sufficient to judge the claim, and FALSE otherwise.\n"
+    "Output TRUE or FALSE only."
 )
 
 
@@ -162,10 +164,9 @@ def fetch_vllm_metrics(base_url: str, debug: bool = False) -> dict[str, float]:
 def run_pipeline(df: pd.DataFrame) -> tuple[pd.DataFrame, float, int]:
     """Run map → filter, return (result_df, elapsed_sec, num_requests)."""
     t0 = time.time()
-    df_map = df.copy().sem_map(MAP_INSTR, suffix="summary")
-    df_filtered = df_map.sem_filter(FILTER_INSTR)
+    df_filtered = df.copy().sem_filter(FILTER_INSTR).sem_map(MAP_VERDICT)
     elapsed = time.time() - t0
-    num_requests = len(df) * 2  # map + filter per row
+    num_requests = len(df)
     return df_filtered, elapsed, num_requests
 
 
