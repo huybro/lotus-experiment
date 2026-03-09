@@ -1,13 +1,14 @@
 """Pipeline: sem_filter (relevance) — LOTUS only."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/..')
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+"/../projects/lotus")
 
 import time
 from experiment_utils_lotus import (
-    state, joined_df,
+    logger,
     FILTER_RELEVANCE,
-    write_csv,
-)
+    )
+from data_utils import write_csv, load_fever
 
 _empty = {"input": "", "output": "", "claim": "", "content": ""}
 
@@ -17,13 +18,12 @@ print("=" * 60)
 
 project = 'lotus'
 # ── LOTUS ──
-state.rewrite_mode = False
-state.captured.clear()
 t0 = time.time()
-df_f = joined_df.copy().sem_filter(FILTER_RELEVANCE)
+joined_df = load_fever("data/fever_claims_with_evidence.csv")
+df = joined_df.sem_filter(FILTER_RELEVANCE)
 lotus_time = time.time() - t0
-lotus_cap = list(state.captured)
-print(f"  LOTUS: {len(df_f)}/{len(joined_df)} passed ({lotus_time:.1f}s)")
+lotus_cap = logger
+print(f"  LOTUS: {len(df)}/{len(joined_df)} passed ({lotus_time:.1f}s)")
 
 
 # ── Log ──
@@ -35,6 +35,7 @@ for i in range(len(joined_df)):
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "lotus_input": lm["input"], "lotus_output": lm["output"],
     })
+
 write_csv(f"logs/{project}filter_fever.csv", rows)
 print(f"  Saved logs/filter_fever.csv")
 

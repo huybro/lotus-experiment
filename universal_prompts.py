@@ -95,7 +95,7 @@ def lotus_df2text_row(row_dict, cols):
     return "".join(f"[{col.capitalize()}]: «{row_dict[col]}»\n" for col in cols)
 
 
-def install_prompt_overrides():
+def override_prompt():
     """Monkey-patch LOTUS's filter_formatter for sem_join (filter/map use *_formatter_custom directly).
     """
     import lotus.templates.task_instructions as task_instr

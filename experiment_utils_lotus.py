@@ -17,30 +17,15 @@ Usage:
 """
 import os
 import csv
-import json
-import unicodedata
-import time
 
 import lotus
 import pandas as pd
-import palimpzest as pz
 import litellm as _litellm
 from lotus.models import LM
-from palimpzest.constants import Model
-from palimpzest.query.processor.config import QueryProcessorConfig
 
-from universal_prompts import (
-    get_prompt,
-    lotus_df2text_row,
-    install_prompt_overrides,
-    install_pz_prompt_overrides,
-)
+from universal_prompts import override_prompt
 
-
-def nle2str(nle, cols):
-    """Replicate LOTUS's nle2str: replace {col} with col.capitalize()."""
-    d = {col: col.capitalize() for col in cols}
-    return nle.format(**d)
+from transformers import AutoTokenizer
 
 
 # ============================================================
@@ -48,6 +33,7 @@ def nle2str(nle, cols):
 # ============================================================
 MODEL_NAME = "meta-llama/Llama-3.2-3B-Instruct"
 MAX_TOKENS = 512
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 VLLM_API_BASE = "http://localhost:8003/v1"
 
 # ============================================================
@@ -83,24 +69,12 @@ FILTER_VERDICT = (
 # ============================================================
 # Interceptor state (mutable, shared across pipeline steps)
 # ============================================================
-class _State:
-    """Mutable state for the litellm interceptor."""
-    def __init__(self):
-        self.captured = []
-        self.rewrite_mode = False
-        self.current_filter_instruction = None
-        self.current_filter_cols = None
-        self.current_map_instruction = None
-        self.debug = False  # Set to False to silence prompt logging
-        self.call_count = 0
-
-state = _State()
-
+logger = []
 
 # ============================================================
 # Setup — LOTUS
 # ============================================================
-install_prompt_overrides()
+override_prompt()
 _lotus_lm = LM(
     model=f"hosted_vllm/{MODEL_NAME}",
     api_base=VLLM_API_BASE,
@@ -116,9 +90,6 @@ lotus.settings.configure(lm=_lotus_lm)
 _original_completion = _litellm.completion
  
 
-from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-
 
 def _interceptor(*args, **kwargs):
     kwargs.setdefault("max_tokens", MAX_TOKENS)
@@ -131,56 +102,10 @@ def _interceptor(*args, **kwargs):
     result = _original_completion(*args, **kwargs)
     output_text = result.choices[0].message.content if result.choices else ""
 
-    state.captured.append({"input": prompt_text, "output": output_text})
+    logger.append({"input": prompt_text, "output": output_text})
     return result
 
 
 _litellm.completion = _interceptor
 
 
-# ============================================================
-# Setup — PZ
-# ============================================================
-install_pz_prompt_overrides()
-
-PZ_MODEL = Model(f"hosted_vllm/{MODEL_NAME}")
-PZ_MODEL.api_base = VLLM_API_BASE
-pz_config = QueryProcessorConfig(
-    api_base=VLLM_API_BASE,
-    available_models=[PZ_MODEL],
-    allow_model_selection=False,
-    allow_bonded_query=False,
-    allow_mixtures=False,
-    allow_critic=False,
-    allow_split_merge=False,
-    verbose=False,
-)
-
-
-# ============================================================
-# Load Data
-# ============================================================
-DATA_PATH = "data/fever_claims_with_evidence.csv"
-if not os.path.exists(DATA_PATH):
-    raise FileNotFoundError(
-        f"{DATA_PATH} not found. Run 'python prepare_data.py' first to generate it."
-    )
-joined_df = pd.read_csv(DATA_PATH)
-# FEVER format: add [Claim]/[Evidence] prefixes for Lotus/PZ alignment
-joined_df["claim"] = "[Claim] " + joined_df["claim"]
-joined_df["content"] = "[Evidence] " + joined_df["content"]
-print(f"Loaded {len(joined_df)} (claim, evidence) pairs from {DATA_PATH}")
-
-os.makedirs("logs", exist_ok=True)
-
-
-# ============================================================
-# Helpers
-# ============================================================
-def write_csv(filepath, rows):
-    if not rows:
-        return
-    with open(filepath, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=rows[0].keys())
-        writer.writeheader()
-        writer.writerows(rows)

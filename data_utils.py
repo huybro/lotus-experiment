@@ -92,3 +92,33 @@ def load_oracle_wiki_kb(claims_split: str = "labelled_dev", n_claims: int = 20) 
     kb_df = pd.DataFrame(sentences)
     print(f"  Extracted {len(kb_df)} sentences for the knowledge base")
     return kb_df
+
+
+
+# ============================================================
+# Load Data
+# ============================================================
+import os
+import csv
+def load_fever(DATA_PATH = "data/fever_claims_with_evidence.csv"):
+
+    if not os.path.exists(DATA_PATH):
+        raise FileNotFoundError(
+            f"{DATA_PATH} not found. Run 'python prepare_data.py' first to generate it."
+        )
+    joined_df = pd.read_csv(DATA_PATH)
+    # FEVER format: add [Claim]/[Evidence] prefixes for Lotus/PZ alignment
+    joined_df["claim"] = "[Claim] " + joined_df["claim"]
+    joined_df["content"] = "[Evidence] " + joined_df["content"]
+    print(f"Loaded {len(joined_df)} (claim, evidence) pairs from {DATA_PATH}")
+    return joined_df
+
+
+def write_csv(filepath, rows):
+    os.makedirs("logs", exist_ok=True)
+    if not rows:
+        return
+    with open(filepath, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=rows[0].keys())
+        writer.writeheader()
+        writer.writerows(rows)
