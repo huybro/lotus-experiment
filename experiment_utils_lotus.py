@@ -72,7 +72,7 @@ logger = []
 # ============================================================
 # Setup — LOTUS
 # ============================================================
-override_prompt()
+override_lotus_prompt()
 _lotus_lm = LM(
     model=f"hosted_vllm/{MODEL_NAME}",
     api_base=VLLM_API_BASE,
