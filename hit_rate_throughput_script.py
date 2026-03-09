@@ -8,8 +8,6 @@ Usage:
   python hit_rate_throughput_script.py --csv-path data/my_data.csv --samples 10 50 100 200
   python hit_rate_throughput_script.py --csv-path data/my_data.csv --no-relaunch
 
-CSV must have (abstract, category) or (content, claim) columns.
-Output: logs/task2_metrics.csv and logs/task2_cache_vs_throughput.png
 """
 import argparse
 import csv
@@ -43,10 +41,12 @@ lotus.settings.configure(lm=LM(
 
 MAP_VERDICT = (
     "Explain how the claim can be supported by the evidence.\n"
+    "Abstract: {abstract}\nCategory: {category}\n"
     "Provide a short explanation in natural language."
 )
 FILTER_INSTR = (
     "The sentence can determine whether the claim is true or false.\n"
+    "Abstract: {abstract}\nCategory: {category}\n"
     "Answer TRUE if the context is sufficient to judge the claim, and FALSE otherwise.\n"
     "Output TRUE or FALSE only."
 )
