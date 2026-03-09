@@ -24,6 +24,7 @@ import csv
 import urllib.request
 
 import pandas as pd
+import litellm
 
 # Add project root
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -101,6 +102,20 @@ def wait_for_vllm(base_url: str, max_wait: int = 300, verbose: bool = True) -> b
             pass
         time.sleep(5)
     return False
+
+
+def warm_up_vllm(api_base: str, num_requests: int = 2) -> None:
+    api_url = api_base.rstrip("/")
+    if not api_url.endswith("/v1"):
+        api_url = api_url + "/v1"
+    for _ in range(num_requests):
+        litellm.completion(
+            model=f"hosted_vllm/{MODEL_NAME}",
+            messages=[{"role": "user", "content": "Say OK"}],
+            max_tokens=5,
+            temperature=0,
+            api_base=api_url,
+        )
 
 
 def stop_vllm(proc: subprocess.Popen) -> None:
@@ -208,6 +223,9 @@ def main():
                 sys.exit(1)
             print("    vLLM ready.")
             base_url = run_base_url
+            print("    Warming up vLLM (2 dummy requests)...")
+            warm_up_vllm(f"{base_url}/v1")
+            print("    Warm-up done.")
 
         metrics_before = fetch_vllm_metrics(base_url, debug=args.debug_metrics) if not relaunch else None
 
@@ -252,29 +270,15 @@ def main():
         try:
             import matplotlib.pyplot as plt
             df_res = pd.DataFrame(results)
-
-            # X axis: number of tuples (n_samples)
-            x = df_res["n_samples"]
-
-            fig, ax1 = plt.subplots(figsize=(8, 5))
-
-            # Left Y axis: throughput
-            color1 = "tab:blue"
-            ax1.set_xlabel("Number of tuples (n_samples)")
-            ax1.set_ylabel("Throughput (requests/sec)", color=color1)
-            ax1.plot(x, df_res["throughput"], marker="o", color=color1, label="Throughput")
-            ax1.tick_params(axis="y", labelcolor=color1)
-
-            # Right Y axis: cache hit rate (%)
-            ax2 = ax1.twinx()
-            color2 = "tab:green"
-            ax2.set_ylabel("Prefix cache hit rate (%)", color=color2)
-            ax2.plot(x, df_res["cache_hit_rate"] * 100, marker="s", linestyle="--", color=color2, label="Cache hit rate")
-            ax2.tick_params(axis="y", labelcolor=color2)
-
-            fig.suptitle("Task 2: Throughput and cache hit rate vs number of tuples")
-            fig.tight_layout()
-
+            fig, ax = plt.subplots(figsize=(8, 5))
+            ax.scatter(df_res["cache_hit_rate"] * 100, df_res["throughput"], s=100, c=df_res["n_samples"], cmap="viridis")
+            for _, r in df_res.iterrows():
+                ax.annotate(f"n={int(r['n_samples'])}", (r["cache_hit_rate"]*100, r["throughput"]),
+                            fontsize=9, ha="left")
+            ax.set_xlabel("Prefix cache hit rate (%)")
+            ax.set_ylabel("Throughput (requests/sec)")
+            ax.set_title("Task 2: Cache hit rate vs throughput")
+            plt.tight_layout()
             plot_path = os.path.join(args.output_dir, "task2_cache_vs_throughput.png")
             plt.savefig(plot_path, dpi=150)
             plt.close()
