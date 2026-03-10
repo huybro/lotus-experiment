@@ -147,6 +147,17 @@ FEVER_PATH = os.path.join("data", "fever_claims_with_evidence.csv")
 joined_df = load_fever(FEVER_PATH)
 
 
+def find_match(row, cap_list):
+    """
+    Find the corresponding captured prompt for a source row.
+    Palimpzest processes asynchronously, so cap_list is out of order.
+    """
+    for cap in cap_list:
+        if row["claim"] in cap["input"] and str(row["content"]) in cap["input"]:
+            return cap
+    return {"input": "", "output": "", "claim": "", "content": ""}
+
+
 def pz_map_with_fallback(instruction, data_df, col_name, pz_desc, cols_used):
     """Run PZ sem_map, falling back to direct LLM calls if optimizer crashes."""
     state.current_map_instruction = instruction

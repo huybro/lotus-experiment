@@ -9,7 +9,7 @@ import time
 import palimpzest as pz
 from experiment_utils_palimpzest import (
     state, pz_config,
-    FILTER_RELEVANCE,
+    FILTER_RELEVANCE, find_match
 )
 from data_utils import write_csv, load_fever
 
@@ -41,7 +41,7 @@ print(f"  PZ:    {len(pz_df)}/{len(joined_df)} passed ({pz_time:.1f}s)")
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    pm = pz_cap[i] if i < len(pz_cap) else _empty
+    pm = find_match(row, pz_cap)
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_input": pm["input"], "pz_output": pm["output"],

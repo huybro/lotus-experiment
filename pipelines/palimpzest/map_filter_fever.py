@@ -11,7 +11,7 @@ import palimpzest as pz
 from experiment_utils_palimpzest import (
     state, joined_df, pz_config,
     MAP_VERDICT, FILTER_VERDICT,
-    write_csv, pz_map_with_fallback,
+    write_csv, pz_map_with_fallback, find_match
 )
 
 _empty = {"input": "", "output": "", "claim": "", "content": ""}
@@ -59,8 +59,8 @@ print(f"  PZ:    map={len(pz_map_df)}, filter={len(pz_filter_df)}/{len(pz_map_df
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    pm = pz_map_cap[i] if i < len(pz_map_cap) else _empty
-    pf = pz_filter_cap[i] if i < len(pz_filter_cap) else _empty
+    pm = find_match(row, pz_map_cap)
+    pf = find_match(row, pz_filter_cap)
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_map_input": pm["input"], "pz_map_output": pm["output"],

@@ -6,7 +6,7 @@ import time
 from experiment_utils_palimpzest import (
     state, joined_df,
     MAP_VERDICT,
-    write_csv, pz_map_with_fallback,
+    write_csv, pz_map_with_fallback, find_match
 )
 
 _empty = {"input": "", "output": "", "claim": "", "content": ""}
@@ -34,7 +34,7 @@ print(f"  PZ:    {len(pz_m_df)} rows ({pz_time:.1f}s)")
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    pm = pz_cap[i] if i < len(pz_cap) else _empty
+    pm = find_match(row, pz_cap)
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_input": pm["input"], "pz_output": pm["output"],

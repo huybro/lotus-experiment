@@ -8,7 +8,7 @@ import palimpzest as pz
 from experiment_utils_palimpzest import (
     state, joined_df, pz_config,
     FILTER_RELEVANCE, FILTER_SUPPORT,
-    write_csv,
+    write_csv, find_match
 )
 
 _empty = {"input": "", "output": "", "claim": "", "content": ""}
@@ -52,8 +52,8 @@ print(f"  PZ:    {len(joined_df)}→{len(pz_ff1_df)}→{len(pz_ff2_df)} ({pz_tim
 rows = []
 for i in range(len(joined_df)):
     row = joined_df.iloc[i]
-    pf1 = pz_f1_cap[i] if i < len(pz_f1_cap) else _empty
-    pf2 = pz_f2_cap[i] if i < len(pz_f2_cap) else _empty
+    pf1 = find_match(row, pz_f1_cap)
+    pf2 = find_match(row, pz_f2_cap)
     rows.append({
         "tuple": i, "claim": row["claim"][:80], "evidence": row["content"][:80],
         "pz_f1_input": pf1["input"], "pz_f1_output": pf1["output"],
