@@ -26,12 +26,7 @@ from palimpzest.prompts import prompt_factory
 from data_utils import write_csv, load_fever
 
 
-def nle2str(nle, cols):
-    """Replicate LOTUS's nle2str: replace {col} with col.capitalize()."""
-    d = {col: col.capitalize() for col in cols}
-    return nle.format(**d)
-
-
+from palimpzest.prompts.prompt_factory import nle2str
 # ============================================================
 # Configuration
 # ============================================================
@@ -74,8 +69,6 @@ FILTER_VERDICT = (
 # Interceptor state (mutable, shared across pipeline steps)
 # ============================================================
 logger = []
-current_map_instruction = None
-current_map_cols = []
 
 # ============================================================
 # litellm interceptor — captures PZ prompts (no rewrite needed)
@@ -108,14 +101,6 @@ _litellm.completion = _interceptor
 # ============================================================
 # Setup — PZ
 # ============================================================
-def _get_map_instruction(input_fields):
-    """Return Lotus-style map instruction when set (for FEVER alignment with Lotus)."""
-    if current_map_instruction and current_map_cols:
-        return nle2str(current_map_instruction, current_map_cols)
-    return None
-
-prompt_factory.CUSTOM_MAP_INSTRUCTION_FUNC = _get_map_instruction
-
 PZ_MODEL = Model(f"hosted_vllm/{MODEL_NAME}")
 PZ_MODEL.api_base = VLLM_API_BASE
 pz_config = QueryProcessorConfig(
@@ -148,9 +133,7 @@ def find_match(row, cap_list):
 
 def pz_map_with_fallback(instruction, data_df, col_name, pz_desc, cols_used):
     """Run PZ sem_map, falling back to direct LLM calls if optimizer crashes."""
-    global current_map_instruction, current_map_cols
-    current_map_instruction = instruction
-    current_map_cols = cols_used
+    prompt_factory.CUSTOM_MAP_INSTRUCTION = instruction
     try:
         ds = pz.MemoryDataset(
             id=f"cmp-{col_name}",

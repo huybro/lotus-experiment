@@ -7,7 +7,12 @@ from typing import Any
 from pydantic import BaseModel
 
 # Global variable to allow custom map instruction override for experiments
-CUSTOM_MAP_INSTRUCTION_FUNC = None
+CUSTOM_MAP_INSTRUCTION = None
+
+def nle2str(nle: str, cols: list[str]) -> str:
+    """Replicate LOTUS's nle2str: replace {col} with col.capitalize()."""
+    d = {col: col.capitalize() for col in cols}
+    return nle.format(**d)
 
 from palimpzest.constants import (
     LLAMA_CONTEXT_TOKENS_LIMIT,
@@ -1096,10 +1101,9 @@ class PromptFactory:
         if self.prompt_strategy.is_filter_prompt():
             messages = prompt_utils.get_prompt(kwargs['filter_condition'], kwargs['context'], op=base.OpName.SEM_FILTER)
         elif self.prompt_strategy.is_map_prompt():
-            if CUSTOM_MAP_INSTRUCTION_FUNC is not None:
-                lotus_instruction = CUSTOM_MAP_INSTRUCTION_FUNC(input_fields)
-                if lotus_instruction is not None:
-                    return prompt_utils.get_prompt(lotus_instruction, kwargs['context'], op=base.OpName.SEM_MAP)
+            if CUSTOM_MAP_INSTRUCTION is not None:
+                custom_instruction = nle2str(CUSTOM_MAP_INSTRUCTION, input_fields)
+                return prompt_utils.get_prompt(custom_instruction, kwargs['context'], op=base.OpName.SEM_MAP)
             messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], kwargs['context'], op=base.OpName.SEM_MAP)
         elif self.prompt_strategy.is_agg_prompt():
             messages = prompt_utils.get_prompt(kwargs['agg_instruction'], kwargs['context'], op=base.OpName.SEM_AGG)
