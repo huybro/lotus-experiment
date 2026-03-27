@@ -70,4 +70,4 @@ for i in range(len(df_map)):
     rows.append({"op": 'map', "lotus_input": lm["input"], "lotus_output": lm["output"]})
 
 write_csv(f"logs/{project}_enron_filter_filter_map.csv", rows)
-print(f"  Saved logs/{project}_enron_filter_filter_map.csv")
+print(f"  Saved logs/{project}_enron_filter_filter_map_2.csv")
