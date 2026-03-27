@@ -37,7 +37,7 @@ pz_config = QueryProcessorConfig(
 
 # Load Fever data
 df = load_enron(os.path.join(PROJECT_ROOT, "projects/palimpzest/testdata/enron-eval"))
-df = df.iloc[:100]
+df = df.iloc[:1]
 log = []
 params = {'log': log, 'max_tokens': MAX_TOKENS, 'tokenizer': tokenizer}
 llm_intercepter.set_intercept(**params)
@@ -45,17 +45,21 @@ llm_intercepter.set_intercept(**params)
 t0 = time.time()
 ds = pz.MemoryDataset(id="cmp-f1", vals=df.to_dict("records"))
 ds = ds.sem_filter(
-    scenarios.FILTER_ENRON_FRAUD_2,
+    scenarios.FILTER_ENRON_FRAUD_2.replace("{contents}", ""),
     depends_on=["contents"],
 )
 ds = ds.sem_filter(
-    scenarios.FILTER_ENRON_NOT_NEWS_2,
+    scenarios.FILTER_ENRON_NOT_NEWS_2.replace("{contents}", ""),
     depends_on=["contents"],
 )
 ds = ds.sem_map(
-    cols=[{"name": "map", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION_2}],
+    cols=[{"name": "map", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION_2.replace("{contents}", "")}],
     depends_on=["contents"],
 )
+# ds = ds.sem_map(
+#     cols=[{"name": "map2", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION.replace("{contents}", "")}],
+#     depends_on=["map"],
+# )
 
 pz_df = ds.run(config=pz_config).to_df()
 pz_time = time.time() - t0
@@ -68,5 +72,5 @@ for i in range(len(log)):
     rows.append({ 
         "pz_input": log[i]["input"], "pz_output": log[i]["output"],
     })
-write_csv(f"logs/{project}_enron_filter_filter_map.csv", rows)
-print(f"  Saved logs/{project}_enron_filter_filter_map.csv")
+write_csv(f"logs/{project}_enron_filter_filter_map_2.csv", rows)
+print(f"  Saved logs/{project}_enron_filter_filter_map_2.csv")

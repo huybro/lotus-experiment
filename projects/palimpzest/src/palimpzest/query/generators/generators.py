@@ -235,6 +235,7 @@ class Generator(Generic[ContextType, InputType]):
             if field_answers is not None:
                 return field_answers
 
+        
         # finally, try taking all of the text; for JSON output, throw an exception if parsing fails
         if not json_output:
             return completion_text
@@ -427,7 +428,7 @@ class Generator(Generic[ContextType, InputType]):
         elif fields is not None and not (self.prompt_strategy.is_filter_prompt() or self.prompt_strategy.is_join_prompt()):
             field_answers = {field_name: None for field_name in fields}
         try:
-            field_answers = self._parse_answer(completion_text, fields, json_output, **kwargs)
+            field_answers = {list(fields.keys())[0]: [completion_text]} #self._parse_answer(completion_text, fields, json_output, **kwargs)
         except Exception as e:
             logger.error(f"Error parsing answers: {e}")
             os.makedirs("parse-answer-errors", exist_ok=True)

@@ -45,12 +45,12 @@ llm_intercepter.set_intercept(**params)
 t0 = time.time()
 ds = pz.MemoryDataset(id="cmp-f1", vals=df.to_dict("records"))
 ds = ds.sem_filter(
-    scenarios.FEVER_FILTER,
+    scenarios.FEVER_FILTER.replace("{claim}{content}", ""),
     depends_on=["claim", "content"],
 )
 
 ds = ds.sem_map(
-    cols=[{"name": "map", "type": str, "desc": scenarios.FEVER_MAP}],
+    cols=[{"name": "map", "type": str, "desc": scenarios.FEVER_MAP.replace("{claim}{content}", "")}],
     depends_on=["claim", "content"],
 )
 pz_df = ds.run(config=pz_config).to_df()
