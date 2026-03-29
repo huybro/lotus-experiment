@@ -398,7 +398,7 @@ class PromptFactory:
 
     def _get_filter_condition(self, input_fields: list[str], **kwargs) -> str | None:
         """
-        Returns the filter condition for the filter operation.
+        Returns the filter condition for the filter operation (placeholder-stripped like map ``desc``).
 
         Returns:
             str | None: The filter condition (if applicable).
@@ -1098,16 +1098,36 @@ class PromptFactory:
         format_kwargs = self._get_all_format_kwargs(candidate, input_fields, input_modalities, output_fields, right_candidate, right_input_fields, right_input_modalities, **kwargs)
         kwargs = {**kwargs, **format_kwargs}
 
-
-        data_prompt = prompt_utils.get_data_prompt(kwargs['context'])
+        # get_prompt(instruction, data, op): data must be a message list — wrap context with get_data_prompt.
         if self.prompt_strategy.is_filter_prompt():
-            messages = prompt_utils.get_prompt(kwargs['filter_condition'], data_prompt, op=base.OpName.SEM_FILTER)
+            messages = prompt_utils.get_prompt(
+                kwargs["filter_condition"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_FILTER,
+            )
         elif self.prompt_strategy.is_map_prompt():
-            messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], data_prompt, op=base.OpName.SEM_MAP)
+            messages = prompt_utils.get_prompt(
+                kwargs["output_fields_desc"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_MAP,
+            )
         elif self.prompt_strategy.is_agg_prompt():
-            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], data_prompt, op=base.OpName.SEM_AGG)
+            messages = prompt_utils.get_prompt(
+                kwargs["agg_instruction"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_AGG,
+            )
         elif self.prompt_strategy.is_join_prompt():
-            messages = prompt_utils.get_prompt(kwargs['join_condition'], data_prompt, kwargs.get('right_context'), op=base.OpName.SEM_JOIN)
+            rc = kwargs.get("right_context")
+            join_data = prompt_utils.get_data_prompt(
+                kwargs["context"],
+                [rc] if rc is not None else None,
+            )
+            messages = prompt_utils.get_prompt(
+                kwargs["join_condition"],
+                join_data,
+                op=base.OpName.SEM_JOIN,
+            )
 
         return messages
 
