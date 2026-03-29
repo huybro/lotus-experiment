@@ -8,11 +8,6 @@ from pydantic import BaseModel
 
 # We are now passing the custom map instruction cleanly through the architecture!
 
-def nle2str(nle: str, cols: list[str]) -> str:
-    """Replicate LOTUS's nle2str: replace {col} with col.capitalize()."""
-    d = {col: col.capitalize() for col in cols}
-    return nle.format(**d)
-
 from palimpzest.constants import (
     LLAMA_CONTEXT_TOKENS_LIMIT,
     TOKENS_PER_CHARACTER,
@@ -400,9 +395,9 @@ class PromptFactory:
 
         return agg_instruction
 
-    def _get_filter_condition(self, **kwargs) -> str | None:
+    def _get_filter_condition(self, input_fields: list[str], **kwargs) -> str | None:
         """
-        Returns the filter condition for the filter operation.
+        Returns the filter condition for the filter operation (placeholder-stripped like map ``desc``).
 
         Returns:
             str | None: The filter condition (if applicable).
@@ -410,6 +405,7 @@ class PromptFactory:
         filter_condition = kwargs.get("filter_condition")
         if self.prompt_strategy.is_filter_prompt():
             assert filter_condition is not None, "Filter condition must be provided for filter operations."
+            return prompt_utils.nle2str(filter_condition, input_fields)
 
         return filter_condition
 
@@ -425,6 +421,12 @@ class PromptFactory:
             assert join_condition is not None, "Join condition must be provided for join operations."
 
         return join_condition
+
+    def _get_map_instruction(self, input_fields: list[str]) -> str | None:
+        if not self.prompt_strategy.is_map_prompt():
+            return None
+        assert self.desc is not None, "Map prompts require a non-None `desc` (e.g. `sem_map(..., desc=...)`)."
+        return prompt_utils.nle2str(self.desc, input_fields)
 
     def _get_original_output(self, **kwargs) -> str | None:
         """
@@ -782,9 +784,10 @@ class PromptFactory:
         input_format_kwargs = {
             "context": self._get_context(candidate, input_fields),
             "input_fields_desc": self._get_input_fields_desc(candidate[0] if isinstance(candidate, list) else candidate, input_fields),
-            "output_fields_desc": self._get_output_fields_desc(output_fields, **kwargs),
+            "output_fields_desc":  self._get_output_fields_desc(output_fields, **kwargs),
+            "map_instruction": self._get_map_instruction(input_fields),
             "agg_instruction": self._get_agg_instruction(**kwargs),
-            "filter_condition": self._get_filter_condition(**kwargs),
+            "filter_condition": self._get_filter_condition(input_fields, **kwargs),
             "join_condition": self._get_join_condition(**kwargs),
             "original_output": self._get_original_output(**kwargs),
             "critique_output": self._get_critique_output(**kwargs),
@@ -1099,19 +1102,37 @@ class PromptFactory:
         format_kwargs = self._get_all_format_kwargs(candidate, input_fields, input_modalities, output_fields, right_candidate, right_input_fields, right_input_modalities, **kwargs)
         kwargs = {**kwargs, **format_kwargs}
 
-
-        data_prompt = prompt_utils.get_data_prompt(kwargs['context'])
+        # get_prompt(instruction, data, op): data must be a message list — wrap context with get_data_prompt.
         if self.prompt_strategy.is_filter_prompt():
-            messages = prompt_utils.get_prompt(kwargs['filter_condition'], data_prompt, op=base.OpName.SEM_FILTER)
+            messages = prompt_utils.get_prompt(
+                kwargs["filter_condition"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_FILTER,
+            )
         elif self.prompt_strategy.is_map_prompt():
-            if self.custom_instruction is not None:
-                custom_instruction_str = nle2str(self.custom_instruction, input_fields)
-                return prompt_utils.get_prompt(custom_instruction_str, data_prompt, op=base.OpName.SEM_MAP)
-            messages = prompt_utils.get_prompt(kwargs['output_fields_desc'], data_prompt, op=base.OpName.SEM_MAP)
+            assert kwargs.get("map_instruction") is not None, "map_instruction must be set for map prompts."
+            messages = prompt_utils.get_prompt(
+                kwargs["map_instruction"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_MAP,
+            )
         elif self.prompt_strategy.is_agg_prompt():
-            messages = prompt_utils.get_prompt(kwargs['agg_instruction'], data_prompt, op=base.OpName.SEM_AGG)
+            messages = prompt_utils.get_prompt(
+                kwargs["agg_instruction"],
+                prompt_utils.get_data_prompt(kwargs["context"]),
+                op=base.OpName.SEM_AGG,
+            )
         elif self.prompt_strategy.is_join_prompt():
-            messages = prompt_utils.get_prompt(kwargs['join_condition'], data_prompt, kwargs.get('right_context'), op=base.OpName.SEM_JOIN)
+            rc = kwargs.get("right_context")
+            join_data = prompt_utils.get_data_prompt(
+                kwargs["context"],
+                [rc] if rc is not None else None,
+            )
+            messages = prompt_utils.get_prompt(
+                kwargs["join_condition"],
+                join_data,
+                op=base.OpName.SEM_JOIN,
+            )
 
         return messages
 

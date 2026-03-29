@@ -11,6 +11,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --nodes=1
 
+
 # --- CUDA Setup ---
 module load cuda/11.8
 
@@ -104,3 +105,6 @@ kill $VLLM_PID 2>/dev/null
 wait $VLLM_PID 2>/dev/null
 
 echo "✅ Job finished successfully at $(date)"
+
+
+#HF_HOME=/datasets/ai/llama3 python -m vllm.entrypoints.openai.api_server     --model meta-llama/Llama-3.2-3B-Instruct     --tensor-parallel-size 1     --gpu-memory-utilization 0.95     --enable-prefix-caching     --max-model-len 32768     --port 8003
