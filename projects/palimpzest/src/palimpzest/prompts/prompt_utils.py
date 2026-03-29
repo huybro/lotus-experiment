@@ -1,6 +1,12 @@
 from .base import OpName
 
 
+def nle2str(nle: str, cols: list[str]) -> str:
+    """Substitute `{col}` placeholders with empty strings; context carries field values."""
+    subs = {col: "" for col in cols}
+    return nle.format(**subs)
+
+
 SYSTEM_PROMPT = (
     "You are a helpful assistant for executing semantic operators.\n"
     "You will be given data and an operation description.\n"
