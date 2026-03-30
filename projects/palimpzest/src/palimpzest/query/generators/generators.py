@@ -113,7 +113,6 @@ class Generator(Generic[ContextType, InputType]):
         api_base: str | None = None,
         cardinality: Cardinality = Cardinality.ONE_TO_ONE,
         desc: str | None = None,
-        custom_instruction: str | None = None,
         verbose: bool = False,
     ):
         self.model = model
@@ -123,9 +122,8 @@ class Generator(Generic[ContextType, InputType]):
         self.reasoning_effort = reasoning_effort
         self.api_base = api_base
         self.desc = desc
-        self.custom_instruction = custom_instruction
         self.verbose = verbose
-        self.prompt_factory = PromptFactory(prompt_strategy, model, cardinality, desc, custom_instruction)
+        self.prompt_factory = PromptFactory(prompt_strategy, model, cardinality, desc)
 
     def _parse_reasoning(self, completion_text: str, **kwargs) -> str:
         """Extract the reasoning for the generated output from the completion object."""
@@ -422,11 +420,6 @@ class Generator(Generic[ContextType, InputType]):
             pass
 
         # parse field answers
-        field_answers = None 
-        if fields is not None and (self.prompt_strategy.is_filter_prompt() or self.prompt_strategy.is_join_prompt()):
-            field_answers = {"passed_operator": False}
-        elif fields is not None and not (self.prompt_strategy.is_filter_prompt() or self.prompt_strategy.is_join_prompt()):
-            field_answers = {field_name: None for field_name in fields}
         try:
             field_answers = self._parse_answer(completion_text, fields, json_output, **kwargs)
         except Exception as e:
@@ -443,6 +436,12 @@ class Generator(Generic[ContextType, InputType]):
                 f.write(f"{str(fields)}\n")
                 f.write("#####\n")
                 f.write(f"{str(e)}\n")
+            if self.prompt_strategy.is_filter_prompt() or self.prompt_strategy.is_join_prompt():
+                field_answers = {"passed_operator": False}
+            elif fields is not None:
+                field_answers = {field_name: None for field_name in fields}
+            else:
+                field_answers = None
 
         logger.debug(f"Generated field answers: {field_answers}")
         return field_answers, reasoning, generation_stats, messages

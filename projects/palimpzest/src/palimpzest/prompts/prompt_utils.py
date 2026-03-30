@@ -2,7 +2,9 @@ from .base import OpName
 
 
 def nle2str(nle: str, cols: list[str]) -> str:
-    """Substitute `{col}` placeholders with empty strings; context carries field values."""
+    """Substitute ``{col}`` placeholders with empty strings; context carries field values."""
+    if not nle:
+        return nle
     subs = {col: "" for col in cols}
     return nle.format(**subs)
 

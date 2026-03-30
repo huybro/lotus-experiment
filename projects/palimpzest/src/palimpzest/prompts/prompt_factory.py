@@ -6,8 +6,6 @@ from typing import Any
 
 from pydantic import BaseModel
 
-# We are now passing the custom map instruction cleanly through the architecture!
-
 from palimpzest.constants import (
     LLAMA_CONTEXT_TOKENS_LIMIT,
     TOKENS_PER_CHARACTER,
@@ -208,12 +206,11 @@ class PromptFactory:
         PromptStrategy.MAP_SPLIT_MERGER: MAP_SPLIT_MERGER_BASE_USER_PROMPT,
     }
 
-    def __init__(self, prompt_strategy: PromptStrategy, model: Model, cardinality: Cardinality, desc: str | None = None, custom_instruction: str | None = None) -> None:
+    def __init__(self, prompt_strategy: PromptStrategy, model: Model, cardinality: Cardinality, desc: str | None = None) -> None:
         self.prompt_strategy = prompt_strategy
         self.model = model
         self.cardinality = cardinality
         self.desc = desc
-        self.custom_instruction = custom_instruction
 
     def _get_context(self, candidate: DataRecord | list[DataRecord], input_fields: list[str]) -> str:
         """
@@ -358,12 +355,13 @@ class PromptFactory:
 
         return input_fields_desc[:-1]
 
-    def _get_output_fields_desc(self, output_fields: list[str], **kwargs) -> str:
+    def _get_output_fields_desc(self, output_fields: list[str], input_fields: list[str], **kwargs) -> str:
         """
         Returns a multi-line description of each output field for the prompt.
 
         Args:
             output_fields (list[str]): The output fields.
+            input_fields (list[str]): Input field names (for clearing ``{col}`` placeholders in descriptions).
             kwargs: The keyword arguments provided by the user.
 
         Returns:
@@ -377,12 +375,14 @@ class PromptFactory:
             for field_name in sorted(output_fields):
                 desc = output_schema.model_fields[field_name].description
                 # output_fields_desc += f"- {field_name}: {'no description available' if desc is None else desc}\n"
+                if desc is not None:
+                    desc = prompt_utils.nle2str(desc, input_fields)
                 output_fields_desc += f"{desc}\n"
 
         # strip the last newline characters from the field descriptions and return
         return output_fields_desc[:-1]
 
-    def _get_agg_instruction(self, **kwargs) -> str | None:
+    def _get_agg_instruction(self, input_fields: list[str], **kwargs) -> str | None:
         """
         Returns the aggregation instruction for the aggregation operation.
 
@@ -392,6 +392,7 @@ class PromptFactory:
         agg_instruction = kwargs.get("agg_instruction")
         if self.prompt_strategy.is_agg_prompt():
             assert agg_instruction is not None, "Aggregation instruction must be provided for aggregation operations."
+            return prompt_utils.nle2str(agg_instruction, input_fields)
 
         return agg_instruction
 
@@ -409,7 +410,7 @@ class PromptFactory:
 
         return filter_condition
 
-    def _get_join_condition(self, **kwargs) -> str | None:
+    def _get_join_condition(self, input_fields: list[str], right_input_fields: list[str], **kwargs) -> str | None:
         """
         Returns the join condition for the join operation.
 
@@ -419,14 +420,10 @@ class PromptFactory:
         join_condition = kwargs.get("join_condition")
         if self.prompt_strategy.is_join_prompt():
             assert join_condition is not None, "Join condition must be provided for join operations."
+            join_cols = list(input_fields) + list(right_input_fields)
+            return prompt_utils.nle2str(join_condition, join_cols)
 
         return join_condition
-
-    def _get_map_instruction(self, input_fields: list[str]) -> str | None:
-        if not self.prompt_strategy.is_map_prompt():
-            return None
-        assert self.desc is not None, "Map prompts require a non-None `desc` (e.g. `sem_map(..., desc=...)`)."
-        return prompt_utils.nle2str(self.desc, input_fields)
 
     def _get_original_output(self, **kwargs) -> str | None:
         """
@@ -784,11 +781,10 @@ class PromptFactory:
         input_format_kwargs = {
             "context": self._get_context(candidate, input_fields),
             "input_fields_desc": self._get_input_fields_desc(candidate[0] if isinstance(candidate, list) else candidate, input_fields),
-            "output_fields_desc":  self._get_output_fields_desc(output_fields, **kwargs),
-            "map_instruction": self._get_map_instruction(input_fields),
-            "agg_instruction": self._get_agg_instruction(**kwargs),
+            "output_fields_desc": self._get_output_fields_desc(output_fields, input_fields, **kwargs),
+            "agg_instruction": self._get_agg_instruction(input_fields, **kwargs),
             "filter_condition": self._get_filter_condition(input_fields, **kwargs),
-            "join_condition": self._get_join_condition(**kwargs),
+            "join_condition": self._get_join_condition(input_fields, right_input_fields, **kwargs),
             "original_output": self._get_original_output(**kwargs),
             "critique_output": self._get_critique_output(**kwargs),
             "model_responses": self._get_model_responses(**kwargs),
@@ -1110,9 +1106,8 @@ class PromptFactory:
                 op=base.OpName.SEM_FILTER,
             )
         elif self.prompt_strategy.is_map_prompt():
-            assert kwargs.get("map_instruction") is not None, "map_instruction must be set for map prompts."
             messages = prompt_utils.get_prompt(
-                kwargs["map_instruction"],
+                kwargs["output_fields_desc"],
                 prompt_utils.get_data_prompt(kwargs["context"]),
                 op=base.OpName.SEM_MAP,
             )

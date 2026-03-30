@@ -45,19 +45,20 @@ llm_intercepter.set_intercept(**params)
 t0 = time.time()
 ds = pz.MemoryDataset(id="cmp-f1", vals=df.to_dict("records"))
 ds = ds.sem_filter(
-    scenarios.FILTER_ENRON_FRAUD_2.replace("{contents}", ""),
+    scenarios.FILTER_ENRON_FRAUD_2,
     depends_on=["contents"],
 )
 ds = ds.sem_filter(
-    scenarios.FILTER_ENRON_NOT_NEWS_2.replace("{contents}", ""),
+    scenarios.FILTER_ENRON_NOT_NEWS_2,
     depends_on=["contents"],
 )
 ds = ds.sem_map(
-    cols=[{"name": "map", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION_2.replace("{contents}", "")}],
+    cols=[{"name": "map", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION_2}],
+    desc=scenarios.MAP_ENRON_EXPLANATION_2,
     depends_on=["contents"],
 )
 # ds = ds.sem_map(
-#     cols=[{"name": "map2", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION.replace("{contents}", "")}],
+#     cols=[{"name": "map2", "type": str, "desc": scenarios.MAP_ENRON_EXPLANATION}],
 #     depends_on=["map"],
 # )
 
