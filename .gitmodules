@@ -1,0 +1,3 @@
+[submodule "projects/docetl"]
+	path = projects/docetl
+	url = https://github.com/ucbepic/docetl.git
