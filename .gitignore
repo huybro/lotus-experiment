@@ -26,6 +26,9 @@ fever_index/
 logs/
 *.csv
 
+# Local Docetl cache / scratch
+.docetl_home/
+
 # Lock file (large)
 uv.lock
 
