@@ -30,7 +30,9 @@ lotus.settings.configure(lm=_lotus_lm)
 
 
 # Load Fever data
-df = load_fever(os.path.join(PROJECT_ROOT, "data", "fever_claims_with_evidence.csv"))
+df = load_fever(os.path.join(PROJECT_ROOT, "data", "fever_claims_with_evidence_500.csv"))
+# df = df.iloc[:1]
+print(f'len(df): {len(df)}')
 log = []
 params = {'log': log, 'max_tokens': MAX_TOKENS, 'tokenizer': tokenizer}
 llm_intercepter.set_intercept(**params)

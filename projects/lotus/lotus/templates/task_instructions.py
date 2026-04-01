@@ -168,6 +168,28 @@ def filter_formatter_custom(
     return messages
 
 
+def join_formatter_custom(
+    multimodal_data: dict[str, Any],
+    user_instruction: str,
+) -> list[dict[str, str]]:
+    right_text = multimodal_data.get("right_text")
+
+    if right_text is not None:
+        data_prompt = prompt_utils.get_data_prompt(
+            multimodal_data["text"],
+            [right_text],
+        )
+    else:
+        data_prompt = prompt_utils.get_data_prompt(multimodal_data["text"])
+
+    messages = prompt_utils.get_prompt(
+        user_instruction,
+        data_prompt,
+        op=OpName.SEM_JOIN,
+    )
+    return messages
+
+
 def map_formatter_custom(
     multimodal_data: dict[str, Any],
     user_instruction: str,
@@ -521,7 +543,9 @@ def merge_multimodal_info(first: list[dict[str, Any]], second: list[dict[str, An
     """
     return [
         {
-            "text": f"{first[i]['text']}\n{second[j]['text']}"
+            "text": first[i]["text"],
+            "right_text": second[j]["text"],
+            "merged_text": f"{first[i]['text']}\n{second[j]['text']}"
             if first[i]["text"] != "" and second[j]["text"] != ""
             else first[i]["text"] + second[j]["text"],
             "image": {**first[i]["image"], **second[j]["image"]},

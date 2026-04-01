@@ -13,7 +13,7 @@ from pipelines import scenarios
 
 from transformers import AutoTokenizer
 from pipelines import llm_intercepter
-from data_utils import write_csv, load_fever
+from data_utils import write_csv, load_arxiv
 from palimpzest.query.processor.config import QueryProcessorConfig
 
 project = 'palimpzest'
@@ -36,25 +36,27 @@ pz_config = QueryProcessorConfig(
 )
 
 # Load Fever data
-df = load_fever(os.path.join(PROJECT_ROOT, "data", "fever_claims_with_evidence.csv"))
-# df = df.iloc[:1]
+df = load_arxiv("/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt_500")
 log = []
 params = {'log': log, 'max_tokens': MAX_TOKENS, 'tokenizer': tokenizer}
 llm_intercepter.set_intercept(**params)
 
 t0 = time.time()
 ds = pz.MemoryDataset(id="cmp-f1", vals=df.to_dict("records"))
-ds = ds.sem_filter(
-    scenarios.FEVER_FILTER,
-    depends_on=["claim", "content"],
-)
 
-ds = ds.sem_map(
-    cols=[{"name": "map", "type": str, "desc": scenarios.FEVER_MAP}],
-    desc=scenarios.FEVER_MAP,
-    depends_on=["claim", "content"],
+_ds = ds.sem_filter(
+    scenarios.CASE_3_FILTER_1.replace('{abstract}', ""),
+    depends_on=["abstract"],
 )
-pz_df = ds.run(config=pz_config).to_df()
+_ds = _ds.sem_filter(
+    scenarios.CASE_3_FILTER_2.replace('{abstract}', ""),
+    depends_on=["abstract"],
+)
+_ds = _ds.sem_filter(
+    scenarios.CASE_3_FILTER_3.replace('{abstract}', ""),
+    depends_on=["abstract"],
+)
+pz_df = _ds.run(config=pz_config).to_df()
 pz_time = time.time() - t0
 pz_cap = list(log)
 print(f"  PZ:    {len(pz_df)}/{len(df)} passed ({pz_time:.1f}s)")
@@ -65,5 +67,5 @@ for i in range(len(log)):
     rows.append({ 
         "pz_input": log[i]["input"], "pz_output": log[i]["output"],
     })
-write_csv(f"logs/{project}_fever_filter_map.csv", rows)
-print(f"  Saved logs/{project}_fever_filter_map.csv")
+write_csv(f"logs/{project}_arxiv_topk_map.csv", rows)
+print(f"  Saved logs/{project}_arxiv_topk_map.csv")

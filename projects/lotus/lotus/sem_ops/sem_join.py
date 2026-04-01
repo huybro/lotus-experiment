@@ -10,6 +10,7 @@ from lotus.types import CascadeArgs, ReasoningStrategy, SemanticJoinOutput
 from lotus.utils import show_safe_mode
 
 from .cascade_utils import calibrate_sem_sim_join, importance_sampling, learn_cascade_thresholds
+from .postprocessors import filter_postprocess
 from .sem_filter import sem_filter
 
 
@@ -104,14 +105,9 @@ def sem_join(
     if safe_mode:
         sample_docs = task_instructions.merge_multimodal_info([left_multimodal_data[0]], right_multimodal_data)
         estimated_tokens_per_call = model.count_tokens(
-            lotus.templates.task_instructions.filter_formatter(
-                model,
+            lotus.templates.task_instructions.join_formatter_custom(
                 sample_docs[0],
                 user_instruction,
-                examples_multimodal_data,
-                examples_answers,
-                cot_reasoning,
-                strategy,
             )
         )
         estimated_total_calls = len(l1) * len(l2)
@@ -134,21 +130,27 @@ def sem_join(
         all_ids1.extend([id1] * len(modified_docs))
         all_ids2.extend(ids2)
 
-    output = sem_filter(
-        all_docs,
-        model,
-        user_instruction,
-        examples_multimodal_data=examples_multimodal_data,
-        examples_answers=examples_answers,
-        cot_reasoning=cot_reasoning,
-        default=default,
-        strategy=strategy,
+    inputs = []
+    
+    col_li = lotus.nl_expression.parse_cols(user_instruction)    
+    formatted_usr_instr = lotus.nl_expression.nle2str(user_instruction, col_li)
+    for doc in all_docs:
+        prompt = lotus.templates.task_instructions.join_formatter_custom(
+            doc,
+            formatted_usr_instr,
+        )
+        lotus.logger.debug(f"input to model: {prompt}")
+        inputs.append(prompt)
+
+    lm_output = model(
+        inputs,
         show_progress_bar=False,
     )
+    postprocess_output = filter_postprocess(lm_output.outputs, model, default)
 
-    outputs = output.outputs
-    raw_outputs = output.raw_outputs
-    explanations = output.explanations
+    outputs = postprocess_output.outputs
+    raw_outputs = postprocess_output.raw_outputs
+    explanations = postprocess_output.explanations
 
     filter_outputs.extend(outputs)
     all_raw_outputs.extend(raw_outputs)
@@ -288,17 +290,21 @@ def sem_join_cascade(
         all_ids1.extend([id1] * len(modified_docs))
         all_ids2.extend(rows_for_l1["_right_id"].tolist())
 
-    output = sem_filter(
-        all_docs,
-        model,
-        user_instruction,
-        examples_multimodal_data=examples_multimodal_data,
-        examples_answers=examples_answers,
-        cot_reasoning=cot_reasoning,
-        default=default,
-        strategy=strategy,
+    inputs = []
+    for doc in all_docs:
+        prompt = lotus.templates.task_instructions.join_formatter_custom(
+            doc,
+            user_instruction,
+        )
+        lotus.logger.debug(f"input to model: {prompt}")
+        inputs.append(prompt)
+
+    lm_output = model(
+        inputs,
         show_progress_bar=True,
+        progress_bar_desc="Running predicate evals with oracle model",
     )
+    output = filter_postprocess(lm_output.outputs, model, default)
 
     pbar.update(num_large)
     pbar.close()
@@ -306,8 +312,8 @@ def sem_join_cascade(
     join_results.extend(
         [
             (all_ids1[i], all_ids2[i], explanation)
-            for i, (output, explanation) in enumerate(zip(output.outputs, output.explanations))
-            if output
+            for i, (passed, explanation) in enumerate(zip(output.outputs, output.explanations))
+            if passed
         ]
     )
 

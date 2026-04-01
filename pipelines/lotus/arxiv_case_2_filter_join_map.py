@@ -30,7 +30,8 @@ lotus.settings.configure(lm=_lotus_lm)
 
 
 # Load Fever data
-df = load_arxiv("/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt_2000")
+df = load_arxiv("/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt_500")
+df_robotic = load_arxiv("/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt_robotic", column="robotic_abstract")
 # df = df.iloc[:100]
 log = []
 params = {'log': log, 'max_tokens': MAX_TOKENS, 'tokenizer': tokenizer}
@@ -38,10 +39,8 @@ llm_intercepter.set_intercept(**params)
 
 t0 = time.time()
 input_len = len(df)
-df = df.sem_filter(scenarios.CASE_2_FILTER_ARXIV)
-df2 = df[["abstract"]].copy()
-df2.rename(columns={"abstract": "abstract2"}, inplace=True)
-df = df.sem_join(df2, scenarios.CASE_2_JOIN_ARXIV)
+df = df.sem_filter(scenarios.CASE_2_FILTER_ARXIV) 
+df = df.sem_join(df_robotic, scenarios.CASE_2_JOIN_ARXIV)
 df = df.sem_map(scenarios.CASE_2_MAP_ARXIV)
 print(f"  LOTUS: {len(df)}/{input_len} passed ({time.time() - t0:.1f}s)")
 

@@ -11,7 +11,7 @@ import lotus
 from lotus.models import LM
 from transformers import AutoTokenizer
 from pipelines import llm_intercepter
-from data_utils import write_csv, load_fever
+from data_utils import write_csv, load_arxiv
 
 project = 'lotus'
 MODEL_NAME = "meta-llama/Llama-3.2-3B-Instruct"
@@ -30,15 +30,16 @@ lotus.settings.configure(lm=_lotus_lm)
 
 
 # Load Fever data
-df = load_fever(os.path.join(PROJECT_ROOT, "data", "fever_claims_with_evidence.csv"))
-print(f'len(df): {len(df)}')
+df = load_arxiv("/home/hojaeson_umass_edu/.cache/kagglehub/datasets/spsayakpaul/arxiv-paper-abstracts/versions/2/arxiv_txt_500")
+# df = df.iloc[:100]
 log = []
 params = {'log': log, 'max_tokens': MAX_TOKENS, 'tokenizer': tokenizer}
 llm_intercepter.set_intercept(**params)
 
 t0 = time.time()
 input_len = len(df)
-df = df.sem_filter(scenarios.FEVER_FILTER)
+df = df.sem_filter(scenarios.CASE_3_FILTER_1)
+df = df.sem_filter(scenarios.CASE_3_FILTER_2)
 print(f"  LOTUS: {len(df)}/{input_len} passed ({time.time() - t0:.1f}s)")
 
 rows = []
@@ -47,6 +48,6 @@ for i in range(len(log)):
         "lotus_input": log[i]["input"], "lotus_output": log[i]["output"],
     })
 
-write_csv(f"logs/{project}_filter_fever.csv", rows)
-print(f"  Saved logs/filter_fever.csv")
+write_csv(f"logs/{project}_filter_map_arxiv.csv", rows)
+print(f"  Saved logs/{project}_filter_map_arxiv.csv")
 

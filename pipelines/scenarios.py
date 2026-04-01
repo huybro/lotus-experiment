@@ -46,8 +46,13 @@ CASE_1_AGG_ARXIV = (
 
 CASE_2_FILTER_ARXIV = ("{abstract}Is the paper relevant to AI robotics research?")
 CASE_2_JOIN_ARXIV = (
-    '{abstract}{abstract2}Do these two papers study the same problem or topic?'
+    '{abstract}{robotic_abstract}Do these two papers study the same problem or topic?'
 )
 CASE_2_MAP_ARXIV = (
     '{abstract}Explain their relationship in terms of shared topics, methods, and differences.'
 )
+
+CASE_3_FILTER_1 = ("{abstract}Is this abstract about AI or machine learning?")
+CASE_3_FILTER_2 = ("{abstract}Is this abstract describing theoretical work?")
+CASE_3_FILTER_3 = ("{abstract}Does this abstract mention using an image dataset?")
+CASE_3_MAP_ARXIV = ("{abstract}Summarize the abstract in 1–2 sentences, focusing on the main method and key result.")
